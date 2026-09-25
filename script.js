@@ -128,3 +128,39 @@ etapasSDLC.forEach(function(etapa) {
     });
 
 });
+// ===== US-06 MODELOS TRADICIONALES =====
+
+const botonesModelos = document.querySelectorAll("[data-tab2]");
+const panelesModelos = document.querySelectorAll("[data-panel2]");
+
+botonesModelos.forEach(function(boton) {
+
+    boton.addEventListener("click", function() {
+
+        const modelo = boton.getAttribute("data-tab2");
+
+        // Quitar activo de todos los botones
+        botonesModelos.forEach(function(btn) {
+            btn.classList.remove("active");
+        });
+
+        // Ocultar todos los paneles
+        panelesModelos.forEach(function(panel) {
+            panel.classList.remove("active");
+        });
+
+        // Activar el botón seleccionado
+        boton.classList.add("active");
+
+        // Mostrar el panel correspondiente
+        const panelActivo = document.querySelector(
+            '[data-panel2="' + modelo + '"]'
+        );
+
+        if (panelActivo) {
+            panelActivo.classList.add("active");
+        }
+
+    });
+
+});

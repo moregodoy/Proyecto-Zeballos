@@ -293,6 +293,40 @@ footer a:hover{ color:#f4ead9; }
     transform: scale(1.4);
 }
 
+/* ===== US-06 MODELOS TRADICIONALES ===== */
+
+.panel-box {
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid var(--cream-line);
+}
+
+.panel-box.good {
+    background: #edf7ed;
+    border-left: 5px solid #5b9b62;
+}
+
+.panel-box.bad {
+    background: #fbeeee;
+    border-left: 5px solid #c45c5c;
+}
+
+.panel-box h4 {
+    margin-top: 0;
+    margin-bottom: 12px;
+}
+
+.panel-box.good h4 {
+    color: #4d8754;
+}
+
+.panel-box.bad h4 {
+    color: #b34d4d;
+}
+
+.panel-box li {
+    margin-bottom: 8px;
+}
 .tl-step:hover .tl-num,
 .tl-step:hover h4 {
     color: var(--clay);

@@ -302,16 +302,51 @@
       <button class="tab-btn" data-tab2="iterativo">Iterativo e incremental</button>
     </div>
 
-    <div class="tab-panel active" data-panel2="cascada">
-      <h3 style="font-size:1.3rem; margin-bottom:8px;">Modelo en cascada</h3>
-      <p style="max-width:60ch; margin-bottom:22px;">Cada etapa del SDLC se completa por entero antes de comenzar la siguiente, en una secuencia lineal sin retroceso.</p>
-      <div class="chip-row">
-        <div class="chip">Requisitos</div><span class="chip-arrow">→</span>
-        <div class="chip">Diseño</div><span class="chip-arrow">→</span>
-        <div class="chip">Desarrollo</div><span class="chip-arrow">→</span>
-        <div class="chip">Pruebas</div><span class="chip-arrow">→</span>
-        <div class="chip">Despliegue</div>
-      </div>
+<div class="timeline" id="sdlcTimeline">
+
+  <div class="tl-step" tabindex="0">
+    <div class="tl-dot"></div>
+    <div class="tl-num">01</div>
+    <h4>Requisitos</h4>
+    <p>Se relevan las necesidades del cliente y del negocio.</p>
+  </div>
+
+  <div class="tl-step" tabindex="0">
+    <div class="tl-dot"></div>
+    <div class="tl-num">02</div>
+    <h4>Diseño</h4>
+    <p>Se define la arquitectura y el comportamiento del sistema.</p>
+  </div>
+
+  <div class="tl-step" tabindex="0">
+    <div class="tl-dot"></div>
+    <div class="tl-num">03</div>
+    <h4>Desarrollo</h4>
+    <p>Se escribe el código que implementa lo diseñado.</p>
+  </div>
+
+  <div class="tl-step" tabindex="0">
+    <div class="tl-dot"></div>
+    <div class="tl-num">04</div>
+    <h4>Pruebas</h4>
+    <p>Se verifica que el software cumpla lo requerido.</p>
+  </div>
+
+  <div class="tl-step" tabindex="0">
+    <div class="tl-dot"></div>
+    <div class="tl-num">05</div>
+    <h4>Despliegue</h4>
+    <p>El software pasa a producción y queda disponible.</p>
+  </div>
+
+  <div class="tl-step" tabindex="0">
+    <div class="tl-dot"></div>
+    <div class="tl-num">06</div>
+    <h4>Mantenimiento</h4>
+    <p>Se corrigen errores y se agregan mejoras post-lanzamiento.</p>
+  </div>
+
+</div>
       <div class="two-col">
         <div class="panel-box good"><h4>Ventajas</h4><ul><li>Estructura simple y fácil de planificar</li><li>Documentación clara en cada etapa</li><li>Funciona bien con requisitos estables</li></ul></div>
         <div class="panel-box bad"><h4>Desventajas</h4><ul><li>Poca flexibilidad ante cambios</li><li>El cliente ve resultados muy tarde</li><li>Los errores de diseño se detectan tarde</li></ul></div>

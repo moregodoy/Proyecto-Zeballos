@@ -260,159 +260,157 @@
 
 
 <!-- ===================== CALIDAD ===================== -->
+<section class="block" id="calidad">
+    <div class="wrap">
 
-<section id="calidad" class="block" style="padding-top:0;">
+        <div class="section-head">
+            <h2>Fundamentos de Calidad</h2>
+            <div class="side">
+                Conceptos, métricas y estándares utilizados para evaluar la calidad del software.
+            </div>
+        </div>
 
-  <div class="wrap" style="padding:64px 0 0;">
+        <div class="fundamentos-intro">
 
-    <div class="eyebrow sans">
-      Gestión de la Calidad del Software
-    </div>
+            <h3>¿Qué es la calidad de software?</h3>
 
-    <h2 style="font-size:2.1rem; max-width:26ch; margin-bottom:18px;">
-      Qué significa "calidad" y cómo se sostiene durante todo el desarrollo
-    </h2>
+            <p>
+                La calidad de software es el conjunto de características que
+                permiten determinar si un sistema cumple con los requisitos
+                establecidos y satisface las necesidades de sus usuarios.
+            </p>
 
-    <p style="max-width:62ch;">
-      Conceptos clave, métricas de referencia, los estándares ISO 9126
-      y 25000, y las técnicas y herramientas que un equipo usa para
-      asegurar que el software cumpla lo que promete.
-    </p>
+            <p>
+                Para evaluar la calidad se utilizan diferentes
+                <strong>métricas</strong>, que permiten medir aspectos como
+                rendimiento, seguridad, mantenibilidad y confiabilidad.
+            </p>
 
-  </div>
-
-</section>
-
-
-
-<section class="block">
-
-  <div class="wrap">
-
-    <div class="section-head">
-      <h2>Fundamentos</h2>
-      <div class="side">
-        Los pilares conceptuales antes de entrar en procesos o metodologías.
-      </div>
-    </div>
-
-
-    <div class="tabbar" role="tablist">
-
-      <button class="tab-btn active" data-tab="conceptos">
-        Conceptos clave
-      </button>
-
-      <button class="tab-btn" data-tab="iso9126">
-        ISO 9126
-      </button>
-
-      <button class="tab-btn" data-tab="iso25000">
-        ISO/IEC 25000
-      </button>
-
-    </div>
-
-
-    <div class="tab-panel active" data-panel="conceptos">
-
-      <div class="iso-body" style="margin-bottom:24px;">
-
-        <h3 style="font-size:1.05rem;">
-          ¿Qué entendemos por calidad de software?
-        </h3>
-
-        <p style="margin-bottom:18px;">
-          Es el grado en que un sistema cumple los requisitos funcionales
-          explícitos, además de expectativas implícitas de uso: que sea
-          confiable, fácil de mantener y agradable de usar.
-        </p>
-
-
-        <div class="concept-grid">
-
-          <div class="concept-card">
-            <b>Funcionalidad</b>
-            hace lo que promete
-          </div>
-
-          <div class="concept-card">
-            <b>Confiabilidad</b>
-            se comporta de forma estable
-          </div>
-
-          <div class="concept-card">
-            <b>Usabilidad</b>
-            es fácil de aprender y usar
-          </div>
-
-          <div class="concept-card">
-            <b>Mantenibilidad</b>
-            es fácil de modificar
-          </div>
+            <ul>
+                <li><strong>Confiabilidad:</strong> capacidad del sistema para funcionar correctamente.</li>
+                <li><strong>Usabilidad:</strong> facilidad de uso y aprendizaje.</li>
+                <li><strong>Eficiencia:</strong> utilización adecuada de los recursos.</li>
+                <li><strong>Seguridad:</strong> protección de datos y acceso al sistema.</li>
+                <li><strong>Mantenibilidad:</strong> facilidad para modificar y corregir el software.</li>
+            </ul>
 
         </div>
 
-      </div>
+
+        <h3 class="fundamentos-subtitle">Estándares de calidad</h3>
+
+        <!-- TABS -->
+        <div class="tabbar">
+
+            <button class="tab-btn active" data-tab="iso9126">
+                ISO 9126
+            </button>
+
+            <button class="tab-btn" data-tab="iso25000">
+                ISO 25000
+            </button>
+
+        </div>
+
+
+        <!-- ISO 9126 -->
+        <div class="tab-panel active" data-panel="iso9126">
+
+            <h3>ISO 9126</h3>
+
+            <p>
+                La norma ISO 9126 define un modelo de calidad para evaluar
+                diferentes características de un producto de software.
+            </p>
+
+            <div class="iso-grid">
+
+                <div class="iso-card">
+                    <strong>Funcionalidad</strong>
+                    <p>Capacidad de cumplir las funciones requeridas.</p>
+                </div>
+
+                <div class="iso-card">
+                    <strong>Confiabilidad</strong>
+                    <p>Capacidad de mantener un funcionamiento correcto.</p>
+                </div>
+
+                <div class="iso-card">
+                    <strong>Usabilidad</strong>
+                    <p>Facilidad de aprendizaje y utilización.</p>
+                </div>
+
+                <div class="iso-card">
+                    <strong>Eficiencia</strong>
+                    <p>Relación entre rendimiento y recursos utilizados.</p>
+                </div>
+
+                <div class="iso-card">
+                    <strong>Mantenibilidad</strong>
+                    <p>Facilidad para analizar y modificar el software.</p>
+                </div>
+
+                <div class="iso-card">
+                    <strong>Portabilidad</strong>
+                    <p>Facilidad para trasladar el software a otros entornos.</p>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ISO 25000 -->
+        <div class="tab-panel" data-panel="iso25000">
+
+            <h3>ISO/IEC 25000</h3>
+
+            <p>
+                La familia ISO/IEC 25000, conocida como SQuaRE,
+                establece un conjunto de normas para especificar,
+                medir y evaluar la calidad de productos de software.
+            </p>
+
+            <div class="iso-grid">
+
+                <div class="iso-card">
+                    <strong>Calidad del producto</strong>
+                    <p>
+                        Permite evaluar las características y propiedades
+                        del software.
+                    </p>
+                </div>
+
+                <div class="iso-card">
+                    <strong>Calidad en uso</strong>
+                    <p>
+                        Analiza el resultado del uso del software
+                        en un contexto determinado.
+                    </p>
+                </div>
+
+                <div class="iso-card">
+                    <strong>Medición</strong>
+                    <p>
+                        Define métodos y métricas para evaluar
+                        diferentes características de calidad.
+                    </p>
+                </div>
+
+                <div class="iso-card">
+                    <strong>Evaluación</strong>
+                    <p>
+                        Permite establecer criterios para determinar
+                        la calidad del producto.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
 
     </div>
-
-
-    <div class="tab-panel" data-panel="iso9126">
-
-      <div class="iso-body">
-
-        <h3 style="font-size:1.05rem;">
-          ISO/IEC 9126
-        </h3>
-
-        <p>
-          Norma que definió un modelo de calidad de producto de software
-          organizado en seis características principales.
-        </p>
-
-        <ul>
-          <li>Funcionalidad — adecuación, exactitud, interoperabilidad y seguridad.</li>
-          <li>Fiabilidad — madurez, tolerancia a fallos y capacidad de recuperación.</li>
-          <li>Usabilidad — facilidad de comprensión, aprendizaje y operación.</li>
-          <li>Eficiencia — comportamiento en tiempo y uso de recursos.</li>
-          <li>Mantenibilidad — facilidad de análisis, cambio y prueba.</li>
-          <li>Portabilidad — adaptabilidad a distintos entornos.</li>
-        </ul>
-
-      </div>
-
-    </div>
-
-
-    <div class="tab-panel" data-panel="iso25000">
-
-      <div class="iso-body">
-
-        <h3 style="font-size:1.05rem;">
-          Familia ISO/IEC 25000 (SQuaRE)
-        </h3>
-
-        <p>
-          Sucesora de la ISO 9126: reorganiza el modelo de calidad en dos
-          vistas complementarias y agrega procesos de evaluación.
-        </p>
-
-        <ul>
-          <li>Calidad en uso — eficacia, satisfacción, confianza y seguridad al usar el producto en contexto real.</li>
-          <li>Calidad de producto — ocho características, incluyendo compatibilidad y seguridad como nuevas dimensiones.</li>
-          <li>Incluye guías de medición (25020) y de requisitos de calidad (25030), además del modelo en sí.</li>
-        </ul>
-
-      </div>
-
-    </div>
-
-  </div>
-
 </section>
-
-
 
 <!-- ===================== PRUEBAS ===================== -->
 

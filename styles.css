@@ -344,7 +344,7 @@ footer a:hover{ color:#f4ead9; }
 
 .tool-filter {
     border: 1px solid var(--cream-line);
-    background: white;
+    background: #f3e8dc;
     padding: 10px 18px;
     border-radius: 25px;
     cursor: pointer;
@@ -371,7 +371,7 @@ footer a:hover{ color:#f4ead9; }
 
 
 .tool-card {
-    background: white;
+    background: #f3e8dc;
     border: 1px solid var(--cream-line);
     border-radius: 16px;
     padding: 25px;
@@ -540,6 +540,80 @@ footer a:hover{ color:#f4ead9; }
 @media (max-width: 600px) {
 
     .testing-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+/* ===== US-02 FUNDAMENTOS DE CALIDAD ===== */
+
+.fundamentos-intro {
+    max-width: 900px;
+    line-height: 1.7;
+}
+
+.fundamentos-intro strong {
+    color: var(--clay);
+}
+
+.fundamentos-intro ul {
+    padding-left: 22px;
+}
+
+.fundamentos-intro li {
+    margin-bottom: 8px;
+}
+
+.fundamentos-subtitle {
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+
+/* TARJETAS ISO */
+
+.iso-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-top: 25px;
+}
+
+.iso-card {
+    background: #f5f0e9;
+    border: 1px solid var(--cream-line);
+    border-radius: 14px;
+    padding: 20px;
+    transition: 0.3s ease;
+}
+
+.iso-card:hover {
+    transform: translateY(-4px);
+}
+
+.iso-card strong {
+    color: var(--clay);
+    font-size: 17px;
+}
+
+.iso-card p {
+    margin-bottom: 0;
+    line-height: 1.5;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+
+    .iso-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .iso-grid {
         grid-template-columns: 1fr;
     }
 

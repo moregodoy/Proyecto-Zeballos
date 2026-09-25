@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sistema de Gestión de Calidad de Software</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap header-row">
+    <div class="brand">
+      <span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="#caa06c" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M8 12l2.5 2.5L16 9" stroke="#caa06c"/></svg></span>
+      <div>
+        <div class="name">Sistema de Gestión de Calidad de Software</div>
+        <div class="tag">Guía de referencia para estudiantes</div>
+      </div>
+    </div>
+    <button class="burger" id="burgerBtn" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav class="primary" id="primaryNav">
+      <a href="#inicio">Inicio</a>
+      <a href="#calidad">Calidad</a>
+      <a href="#procesos">Procesos</a>
+      <a href="#agiles">Ágiles</a>
+      <a href="#recursos">Recursos</a>
+      <a href="#nosotros">Nosotros</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===================== INICIO ===================== -->
+<section id="inicio">
+  <div class="wrap hero">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow sans">Guía de referencia para estudiantes y equipos</div>
+        <h1>Construir software de calidad, explicado con claridad</h1>
+        <p class="lead">Fundamentos de calidad, procesos de desarrollo tradicionales y metodologías ágiles, con ejemplos prácticos y herramientas interactivas para entender cómo se hace, no solo qué es.</p>
+        <div class="btn-row">
+          <a href="#calidad" class="btn btn-primary">Empezar a explorar</a>
+          <a href="#recursos" class="btn btn-ghost">Ver el glosario</a>
+        </div>
+      </div>
+      <div class="hero-figure">
+        <div class="orbit">
+          <svg viewBox="0 0 280 280">
+            <circle cx="140" cy="140" r="130" fill="none" stroke="var(--cream-line)" stroke-width="1"/>
+            <circle cx="140" cy="140" r="80" fill="none" stroke="var(--clay)" stroke-width="1" stroke-dasharray="2 6"/>
+            <circle cx="140" cy="140" r="52" fill="none" stroke="var(--brown-900)" stroke-width="2"/>
+            <circle cx="140" cy="140" r="22" fill="var(--cream-bg)" stroke="var(--brown-900)" stroke-width="2"/>
+            <path d="M132 140l6 6 12-14" fill="none" stroke="var(--clay)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+            <g fill="var(--brown-900)">
+              <rect x="134" y="82" width="12" height="12" rx="2" transform="rotate(45 140 88)"/>
+              <rect x="134" y="186" width="12" height="12" rx="2" transform="rotate(45 140 192)"/>
+              <rect x="82" y="134" width="12" height="12" rx="2" transform="rotate(45 88 140)"/>
+              <rect x="186" y="134" width="12" height="12" rx="2" transform="rotate(45 192 140)"/>
+              <rect x="98" y="98" width="10" height="10" rx="2" transform="rotate(45 103 103)"/>
+              <rect x="172" y="98" width="10" height="10" rx="2" transform="rotate(45 177 103)"/>
+              <rect x="98" y="172" width="10" height="10" rx="2" transform="rotate(45 103 177)"/>
+              <rect x="172" y="172" width="10" height="10" rx="2" transform="rotate(45 177 177)"/>
+            </g>
+            <g stroke="var(--clay)" stroke-width="1.4" fill="var(--cream-bg)">
+              <circle cx="140" cy="18" r="9"/><circle cx="262" cy="140" r="9"/><circle cx="18" cy="196" r="9"/>
+            </g>
+            <g stroke="var(--clay)" stroke-width="1.6" fill="none">
+              <path d="M136 22l4 4 7-8" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M258 144l4 4 7-8" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M14 200l4 4 7-8" stroke-linecap="round" stroke-linejoin="round"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap" style="padding-bottom:56px;">
+    <div class="banner-two" style="margin-bottom:56px;">
+      <div class="banner-item">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18M9 4v14"/></svg></span>
+        <div>
+          <h3>Comparador de metodologías</h3>
+          <p>Elegí dos o más enfoques y mirá lado a lado sus roles, ceremonias y nivel de flexibilidad.</p>
+        </div>
+      </div>
+      <div class="banner-item">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg></span>
+        <div>
+          <h3>Encuesta de preferencias</h3>
+          <p>Contanos cómo es tu proyecto y te sugerimos si conviene Scrum, Kanban o un modelo tradicional.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-head">
+      <h2>Secciones del sitio</h2>
+      <div class="side">Un recorrido ordenado, del porqué de la calidad al cómo de cada metodología.</div>
+    </div>
+    <div class="cards3" style="margin-bottom:56px;">
+      <div class="card">
+        <span class="tag-pill">Fundamentos</span>
+        <h3>Gestión de la Calidad del Software</h3>
+        <p>Conceptos clave, métricas, estándares ISO 9126/25000 y técnicas de aseguramiento de calidad.</p>
+        <a class="go" href="#calidad">Ir a la sección →</a>
+      </div>
+      <div class="card">
+        <span class="tag-pill">Ciclo de vida</span>
+        <h3>Procesos de Desarrollo</h3>
+        <p>SDLC y modelos tradicionales: cascada, en V, iterativo e incremental, con sus usos y límites.</p>
+        <a class="go" href="#procesos">Ir a la sección →</a>
+      </div>
+      <div class="card">
+        <span class="tag-pill">Scrum · Kanban · XP</span>
+        <h3>Metodologías Ágiles</h3>
+        <p>Roles, sprints, ceremonias y tableros explicados en profundidad, comparados con lo tradicional.</p>
+        <a class="go" href="#agiles">Ir a la sección →</a>
+      </div>
+    </div>
+
+    <div class="cards3">
+      <div class="card">
+        <span class="tag-pill">Consulta</span>
+        <h3>Recursos y Aprendizaje</h3>
+        <p>Glosario buscable, preguntas frecuentes, enlaces de interés y ejercicios prácticos.</p>
+        <a class="go" href="#recursos">Ir a la sección →</a>
+      </div>
+      <div class="card">
+        <span class="tag-pill">Equipo</span>
+        <h3>Sobre Nosotros</h3>
+        <p>Quiénes armamos este manual, con qué roles trabajamos y cómo escribirnos con dudas o feedback.</p>
+        <a class="go" href="#nosotros">Ir a la sección →</a>
+      </div>
+      <div class="card">
+        <span class="tag-pill">Índice</span>
+        <h3>Buscar un término</h3>
+        <p>¿Ya sabés qué palabra buscás? El glosario tiene filtro en vivo por letra y por texto.</p>
+        <a class="go" href="#recursos">Ir al glosario →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CALIDAD ===================== -->
+<section id="calidad" class="block" style="padding-top:0;">
+  <div class="wrap" style="padding:64px 0 0;">
+    <div class="eyebrow sans">Gestión de la Calidad del Software</div>
+    <h2 style="font-size:2.1rem; max-width:26ch; margin-bottom:18px;">Qué significa "calidad" y cómo se sostiene durante todo el desarrollo</h2>
+    <p style="max-width:62ch;">Conceptos clave, métricas de referencia, los estándares ISO 9126 y 25000, y las técnicas y herramientas que un equipo usa para asegurar que el software cumpla lo que promete.</p>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="section-head"><h2>Fundamentos</h2><div class="side">Los pilares conceptuales antes de entrar en procesos o metodologías.</div></div>
+
+    <div class="tabbar" role="tablist">
+      <button class="tab-btn active" data-tab="conceptos">Conceptos clave</button>
+      <button class="tab-btn" data-tab="iso9126">ISO 9126</button>
+      <button class="tab-btn" data-tab="iso25000">ISO/IEC 25000</button>
+    </div>
+
+    <div class="tab-panel active" data-panel="conceptos">
+      <div class="iso-body" style="margin-bottom:24px;">
+        <h3 style="font-size:1.05rem;">¿Qué entendemos por calidad de software?</h3>
+        <p style="margin-bottom:18px;">Es el grado en que un sistema cumple los requisitos funcionales explícitos, además de expectativas implícitas de uso: que sea confiable, fácil de mantener y agradable de usar.</p>
+        <div class="concept-grid">
+          <div class="concept-card"><b>Funcionalidad</b>hace lo que promete</div>
+          <div class="concept-card"><b>Confiabilidad</b>se comporta de forma estable</div>
+          <div class="concept-card"><b>Usabilidad</b>es fácil de aprender y usar</div>
+          <div class="concept-card"><b>Mantenibilidad</b>es fácil de modificar</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-panel" data-panel="iso9126">
+      <div class="iso-body">
+        <h3 style="font-size:1.05rem;">ISO/IEC 9126</h3>
+        <p>Norma que definió un modelo de calidad de producto de software organizado en seis características principales.</p>
+        <ul>
+          <li>Funcionalidad — adecuación, exactitud, interoperabilidad y seguridad.</li>
+          <li>Fiabilidad — madurez, tolerancia a fallos y capacidad de recuperación.</li>
+          <li>Usabilidad — facilidad de comprensión, aprendizaje y operación.</li>
+          <li>Eficiencia — comportamiento en tiempo y uso de recursos.</li>
+          <li>Mantenibilidad — facilidad de análisis, cambio y prueba.</li>
+          <li>Portabilidad — adaptabilidad a distintos entornos.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tab-panel" data-panel="iso25000">
+      <div class="iso-body">
+        <h3 style="font-size:1.05rem;">Familia ISO/IEC 25000 (SQuaRE)</h3>
+        <p>Sucesora de la ISO 9126: reorganiza el modelo de calidad en dos vistas complementarias y agrega procesos de evaluación.</p>
+        <ul>
+          <li>Calidad en uso — eficacia, satisfacción, confianza y seguridad al usar el producto en contexto real.</li>
+          <li>Calidad de producto — ocho características, incluyendo compatibilidad y seguridad como nuevas dimensiones.</li>
+          <li>Incluye guías de medición (25020) y de requisitos de calidad (25030), además del modelo en sí.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="section-head"><h2>Técnicas de aseguramiento de la calidad</h2><div class="side">Niveles y tipos de prueba que se aplican durante el desarrollo.</div></div>
+
+    <div class="level-grid">
+      <div class="level-card"><span class="level-tag">Nivel</span><h3>Pruebas unitarias</h3><p>Verifican la unidad más pequeña de código (una función o método) de forma aislada.</p></div>
+      <div class="level-card"><span class="level-tag">Nivel</span><h3>Pruebas de integración</h3><p>Comprueban que distintos módulos trabajen correctamente en conjunto.</p></div>
+      <div class="level-card"><span class="level-tag">Nivel</span><h3>Pruebas de sistema</h3><p>Evalúan el sistema completo frente a los requisitos definidos.</p></div>
+    </div>
+
+<div class="flip-card" id="flipCaja">
+  <h3>Caja negra</h3>
+  <p>Se prueba la entrada y salida del sistema sin conocer su implementación interna.</p>
+
+  <div class="extra-info">
+    <p>
+      También llamada prueba funcional. Se verifica que el sistema
+      funcione correctamente sin analizar su código interno.
+    </p>
+
+    <ul>
+      <li>Se analizan entradas y salidas.</li>
+      <li>No es necesario conocer el código.</li>
+      <li>Permite comprobar el comportamiento del sistema.</li>
+    </ul>
+  </div>
+</div>
+<div class="flip-card" id="flipCaja2">
+  <h3>Caja blanca</h3>
+  <p>Se diseñan casos de prueba conociendo la estructura interna y el código fuente.</p>
+
+  <div class="extra-info">
+    <p>
+      También llamada prueba estructural. Se analiza el código
+      y la estructura interna del programa.
+    </p>
+
+    <ul>
+      <li>Se conoce el código fuente.</li>
+      <li>Se analizan las ramas y caminos.</li>
+      <li>Busca comprobar la estructura interna.</li>
+    </ul>
+  </div>
+</div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="section-head"><h2>Herramientas de calidad</h2><div class="side">Una introducción a lo que un equipo suele tener en su caja de herramientas.</div></div>
+
+    <div class="filter-row" id="toolFilters">
+      <button class="filter-btn active" data-cat="todas">Todas</button>
+      <button class="filter-btn" data-cat="bug">Bug trackers</button>
+      <button class="filter-btn" data-cat="linter">Linters</button>
+      <button class="filter-btn" data-cat="test">Test management</button>
+    </div>
+
+    <div class="tool-grid" id="toolGrid">
+      <div class="tool-card" data-cat="bug"><div class="tool-icon"><span></span></div><h3>Jira</h3><p>Seguimiento de tareas, defectos y flujo de trabajo del equipo.</p><div class="tool-cat">Bug tracker</div></div>
+      <div class="tool-card" data-cat="bug"><div class="tool-icon"><span></span></div><h3>Bugzilla</h3><p>Registro y seguimiento de defectos reportados en el software.</p><div class="tool-cat">Bug tracker</div></div>
+      <div class="tool-card" data-cat="linter"><div class="tool-icon"><span></span></div><h3>ESLint</h3><p>Analiza el código en busca de errores y problemas de estilo.</p><div class="tool-cat">Linter</div></div>
+      <div class="tool-card" data-cat="linter"><div class="tool-icon"><span></span></div><h3>SonarQube</h3><p>Análisis estático de calidad y detección de código duplicado.</p><div class="tool-cat">Linter</div></div>
+      <div class="tool-card" data-cat="test"><div class="tool-icon"><span></span></div><h3>TestRail</h3><p>Gestión y organización de casos y planes de prueba.</p><div class="tool-cat">Test management</div></div>
+      <div class="tool-card" data-cat="test"><div class="tool-icon"><span></span></div><h3>Zephyr</h3><p>Planificación de pruebas integrada al flujo del equipo.</p><div class="tool-cat">Test management</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PROCESOS ===================== -->
+<section id="procesos" class="block" style="padding-top:0;">
+  <div class="wrap" style="padding:64px 0 0;">
+    <div class="eyebrow sans">Procesos de Desarrollo de Software</div>
+    <h2 style="font-size:2.1rem; max-width:26ch; margin-bottom:18px;">Cómo se organiza el trabajo, de la idea al software en producción</h2>
+    <p style="max-width:62ch;">El ciclo de vida del desarrollo (SDLC) y los modelos tradicionales que durante décadas definieron cómo un equipo transforma requisitos en software funcionando.</p>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="section-head"><h2>Ciclo de vida del desarrollo (SDLC)</h2><div class="side">Las seis etapas por las que atraviesa todo proyecto de software.</div></div>
+    <div class="timeline" id="sdlcTimeline">
+      <div class="tl-step"><div class="tl-dot"></div><div class="tl-num">01</div><h4>Requisitos</h4><p>Se relevan las necesidades del cliente y del negocio.</p></div>
+      <div class="tl-step"><div class="tl-dot"></div><div class="tl-num">02</div><h4>Diseño</h4><p>Se define la arquitectura y el comportamiento del sistema.</p></div>
+      <div class="tl-step"><div class="tl-dot"></div><div class="tl-num">03</div><h4>Desarrollo</h4><p>Se escribe el código que implementa lo diseñado.</p></div>
+      <div class="tl-step"><div class="tl-dot"></div><div class="tl-num">04</div><h4>Pruebas</h4><p>Se verifica que el software cumpla lo requerido.</p></div>
+      <div class="tl-step"><div class="tl-dot"></div><div class="tl-num">05</div><h4>Despliegue</h4><p>El software pasa a producción y queda disponible.</p></div>
+      <div class="tl-step"><div class="tl-dot" style="opacity:.4"></div><div class="tl-num">06</div><h4>Mantenimiento</h4><p>Se corrigen errores y se agregan mejoras post-lanzamiento.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="section-head"><h2>Modelos tradicionales</h2><div class="side">Tres formas clásicas de estructurar el SDLC, cada una con sus propios trade-offs.</div></div>
+
+    <div class="tabbar">
+      <button class="tab-btn active" data-tab2="cascada">Cascada</button>
+      <button class="tab-btn" data-tab2="ve">Modelo en V</button>
+      <button class="tab-btn" data-tab2="iterativo">Iterativo e incremental</button>
+    </div>
+
+    <div class="tab-panel active" data-panel2="cascada">
+      <h3 style="font-size:1.3rem; margin-bottom:8px;">Modelo en cascada</h3>
+      <p style="max-width:60ch; margin-bottom:22px;">Cada etapa del SDLC se completa por entero antes de comenzar la siguiente, en una secuencia lineal sin retroceso.</p>
+      <div class="chip-row">
+        <div class="chip">Requisitos</div><span class="chip-arrow">→</span>
+        <div class="chip">Diseño</div><span class="chip-arrow">→</span>
+        <div class="chip">Desarrollo</div><span class="chip-arrow">→</span>
+        <div class="chip">Pruebas</div><span class="chip-arrow">→</span>
+        <div class="chip">Despliegue</div>
+      </div>
+      <div class="two-col">
+        <div class="panel-box good"><h4>Ventajas</h4><ul><li>Estructura simple y fácil de planificar</li><li>Documentación clara en cada etapa</li><li>Funciona bien con requisitos estables</li></ul></div>
+        <div class="panel-box bad"><h4>Desventajas</h4><ul><li>Poca flexibilidad ante cambios</li><li>El cliente ve resultados muy tarde</li><li>Los errores de diseño se detectan tarde</li></ul></div>
+      </div>
+      <div class="note-box"><b>Cuándo usarlo:</b> proyectos con requisitos bien definidos y estables desde el inicio, y bajo riesgo de cambio.</div>
+    </div>
+
+    <div class="tab-panel" data-panel2="ve">
+      <h3 style="font-size:1.3rem; margin-bottom:8px;">Modelo en V</h3>
+      <p style="max-width:60ch; margin-bottom:22px;">Extiende la cascada asociando cada etapa de desarrollo con una etapa de prueba equivalente, verificando desde el principio.</p>
+      <div class="chip-row">
+        <div class="chip">Requisitos ↔ Pruebas de aceptación</div><span class="chip-arrow">·</span>
+        <div class="chip">Diseño ↔ Pruebas de sistema</div><span class="chip-arrow">·</span>
+        <div class="chip">Código ↔ Pruebas unitarias</div>
+      </div>
+      <div class="two-col">
+        <div class="panel-box good"><h4>Ventajas</h4><ul><li>La verificación se planifica desde el inicio</li><li>Detecta errores de diseño más temprano</li><li>Buena trazabilidad entre requisito y prueba</li></ul></div>
+        <div class="panel-box bad"><h4>Desventajas</h4><ul><li>Sigue siendo rígido ante cambios</li><li>Poco espacio para prototipado temprano</li><li>Requiere requisitos muy detallados</li></ul></div>
+      </div>
+      <div class="note-box"><b>Cuándo usarlo:</b> proyectos donde la confiabilidad es crítica (sistemas médicos, aeroespaciales) y el costo de un error es alto.</div>
+    </div>
+
+    <div class="tab-panel" data-panel2="iterativo">
+      <h3 style="font-size:1.3rem; margin-bottom:8px;">Modelo iterativo e incremental</h3>
+      <p style="max-width:60ch; margin-bottom:22px;">El sistema se construye en ciclos sucesivos, cada uno agregando funcionalidad sobre una versión previa ya funcional.</p>
+      <div class="chip-row">
+        <div class="chip">Iteración 1</div><span class="chip-arrow">→</span>
+        <div class="chip">Iteración 2</div><span class="chip-arrow">→</span>
+        <div class="chip">Iteración 3</div><span class="chip-arrow">→</span>
+        <div class="chip">Versión final</div>
+      </div>
+      <div class="two-col">
+        <div class="panel-box good"><h4>Ventajas</h4><ul><li>Entrega valor funcional desde etapas tempranas</li><li>Permite ajustar el rumbo entre iteraciones</li><li>Reduce el riesgo de grandes fallas al final</li></ul></div>
+        <div class="panel-box bad"><h4>Desventajas</h4><ul><li>Requiere una arquitectura pensada para crecer</li><li>Puede ser difícil de planificar y presupuestar</li><li>Exige comunicación constante con el cliente</li></ul></div>
+      </div>
+      <div class="note-box"><b>Cuándo usarlo:</b> proyectos con requisitos que pueden evolucionar, o cuando se necesita mostrar avances tempranos. Es la base conceptual de las metodologías ágiles.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PLACEHOLDER SECTIONS ===================== -->
+<section id="agiles" class="block">
+  <div class="wrap">
+    <div class="section-head"><h2>Metodologías Ágiles</h2><div class="side">Scrum, Kanban y XP — roles, ceremonias y tableros.</div></div>
+    <div class="placeholder"><div class="ic">🧭</div><p>Esta sección se está redactando. Volvé pronto para ver Scrum, Kanban y XP en profundidad.</p></div>
+  </div>
+</section>
+
+<section id="recursos" class="block">
+  <div class="wrap">
+    <div class="section-head"><h2>Recursos y Aprendizaje</h2><div class="side">Glosario, preguntas frecuentes y ejercicios prácticos.</div></div>
+    <div class="placeholder"><div class="ic">📚</div><p>El glosario buscable está en construcción. Mientras tanto, explorá las secciones de Calidad y Procesos.</p></div>
+  </div>
+</section>
+
+<section id="nosotros" class="block">
+  <div class="wrap">
+    <div class="section-head"><h2>Sobre Nosotros</h2><div class="side">Quiénes armamos este manual.</div></div>
+    <div class="placeholder"><div class="ic">👥</div><p>Somos un equipo de estudiantes documentando cómo se construye software de calidad. Escribinos con dudas o feedback.</p></div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="#caa06c" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M8 12l2.5 2.5L16 9"/></svg></span>
+        <div>
+          <p>Un recurso para estudiantes y profesionales en formación que quieren entender cómo se construye software de calidad, y con qué metodología.</p>
+        </div>
+      </div>
+      <div>
+        <h4>Secciones</h4>
+        <ul>
+          <li><a href="#calidad">Gestión de la Calidad</a></li>
+          <li><a href="#procesos">Procesos de Desarrollo</a></li>
+          <li><a href="#agiles">Metodologías Ágiles</a></li>
+          <li><a href="#recursos">Recursos y Aprendizaje</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="#nosotros">Sobre nosotros</a></li>
+          <li><a href="#nosotros">Formulario de contacto</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 SGCS — Sistema de Gestión de Calidad de Software</span>
+      <span>Proyecto educativo</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

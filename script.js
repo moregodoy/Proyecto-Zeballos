@@ -108,3 +108,23 @@
     });
   });
 })();
+// ===== INTERACCIÓN SDLC =====
+
+const etapasSDLC = document.querySelectorAll("#sdlcTimeline .tl-step");
+
+etapasSDLC.forEach(function(etapa) {
+
+    etapa.addEventListener("mouseenter", function() {
+
+        etapasSDLC.forEach(function(item) {
+            item.classList.remove("active");
+        });
+
+        etapa.classList.add("active");
+    });
+
+    etapa.addEventListener("mouseleave", function() {
+        etapa.classList.remove("active");
+    });
+
+});

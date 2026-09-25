@@ -69,29 +69,6 @@
     });
   });
 
-  // Caja negra / blanca flip cards (toggle content on click, works with mouse and touch)
-  function setupFlip(cardId, titleId, textId, stateA, stateB){
-    var card = document.getElementById(cardId);
-    var title = document.getElementById(titleId);
-    var text = document.getElementById(textId);
-    var showingA = true;
-    card.addEventListener('click', function(){
-      showingA = !showingA;
-      var s = showingA ? stateA : stateB;
-      title.textContent = s.title;
-      text.textContent = s.text;
-      card.classList.toggle('on', !showingA);
-      card.setAttribute('aria-expanded', (!showingA).toString());
-    });
-  }
-  setupFlip('flipCaja','flipCajaTitle','flipCajaText',
-    { title:'Caja negra', text:'Se prueba la entrada y salida del sistema sin conocer su implementación interna.' },
-    { title:'Caja negra — detalle', text:'También llamada prueba funcional: valida casos de uso, clases de equivalencia y valores límite sin mirar el código.' }
-  );
-  setupFlip('flipCaja2','flipCaja2Title','flipCaja2Text',
-    { title:'Caja blanca', text:'Se diseñan casos de prueba conociendo la estructura interna y el código fuente.' },
-    { title:'Caja blanca — detalle', text:'También llamada prueba estructural: busca cobertura de sentencias, ramas y caminos dentro del código.' }
-  );
 
   // Herramientas filter
   var filterBtns = document.querySelectorAll('#toolFilters .filter-btn');
@@ -199,23 +176,12 @@ botonesHerramientas.forEach(function(boton) {
     });
 
 });
-// ===== US-03 FLIP CARDS =====
+// ===== FLIP CARDS CAJA NEGRA Y CAJA BLANCA =====
 
 const flipCards = document.querySelectorAll(".flip-card");
 
 flipCards.forEach(function(card) {
-
     card.addEventListener("click", function() {
         card.classList.toggle("flipped");
     });
-
-    card.addEventListener("keydown", function(event) {
-
-        if (event.key === "Enter" || event.key === " ") {
-            event.preventDefault();
-            card.classList.toggle("flipped");
-        }
-
-    });
-
 });

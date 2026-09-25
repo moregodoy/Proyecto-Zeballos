@@ -431,197 +431,202 @@
     </div>
 
 
-    <div class="level-grid">
+<div class="testing-grid">
 
-      <div class="level-card">
-        <span class="level-tag">Nivel</span>
+    <div class="test-card">
         <h3>Pruebas unitarias</h3>
         <p>
-          Verifican la unidad más pequeña de código
-          (una función o método) de forma aislada.
+            Comprueban el funcionamiento de componentes individuales
+            del software.
         </p>
-      </div>
-
-
-      <div class="level-card">
-        <span class="level-tag">Nivel</span>
-        <h3>Pruebas de integración</h3>
-        <p>
-          Comprueban que distintos módulos trabajen correctamente
-          en conjunto.
-        </p>
-      </div>
-
-
-      <div class="level-card">
-        <span class="level-tag">Nivel</span>
-        <h3>Pruebas de sistema</h3>
-        <p>
-          Evalúan el sistema completo frente a los requisitos definidos.
-        </p>
-      </div>
-
     </div>
 
+    <div class="test-card">
+        <h3>Pruebas de integración</h3>
+        <p>
+            Verifican que los diferentes componentes funcionen
+            correctamente al trabajar juntos.
+        </p>
+    </div>
+
+    <div class="test-card">
+        <h3>Pruebas de sistema</h3>
+        <p>
+            Evalúan el sistema completo para comprobar que cumpla
+            con los requisitos establecidos.
+        </p>
+    </div>
+
+</div>
+
+
+<h3 class="testing-subtitle">Tipos de pruebas</h3>
+
+<div class="testing-grid">
 
     <!-- CAJA NEGRA -->
+    <div class="flip-card" tabindex="0">
 
-    <div class="flip-card" id="flipCaja">
+        <div class="flip-front">
+            <h3>Caja negra</h3>
+            <p>
+                Se prueba el comportamiento del sistema sin conocer
+                su implementación interna.
+            </p>
+            <span>Haz clic para ver más</span>
+        </div>
 
-      <h3>Caja negra</h3>
+        <div class="flip-back">
+            <h3>Caja negra</h3>
+            <p>
+                También llamada prueba funcional. Se analizan las
+                entradas y salidas del sistema sin revisar su código.
+            </p>
 
-      <p>
-        Se prueba la entrada y salida del sistema sin conocer
-        su implementación interna.
-      </p>
+            <ul>
+                <li>No es necesario conocer el código.</li>
+                <li>Se analizan entradas y salidas.</li>
+                <li>Comprueba el comportamiento esperado.</li>
+            </ul>
 
-      <div class="extra-info">
-
-        <p>
-          También llamada prueba funcional. Se verifica que el sistema
-          funcione correctamente sin analizar su código interno.
-        </p>
-
-        <ul>
-          <li>Se analizan entradas y salidas.</li>
-          <li>No es necesario conocer el código.</li>
-          <li>Permite comprobar el comportamiento del sistema.</li>
-        </ul>
-
-      </div>
+            <span>Haz clic para volver</span>
+        </div>
 
     </div>
 
 
     <!-- CAJA BLANCA -->
+    <div class="flip-card" tabindex="0">
 
-    <div class="flip-card" id="flipCaja2">
+        <div class="flip-front">
+            <h3>Caja blanca</h3>
+            <p>
+                Se diseñan pruebas conociendo la estructura interna
+                y el código fuente.
+            </p>
+            <span>Haz clic para ver más</span>
+        </div>
 
-      <h3>Caja blanca</h3>
+        <div class="flip-back">
+            <h3>Caja blanca</h3>
+            <p>
+                También llamada prueba estructural. Se analiza el
+                código y los diferentes caminos que puede recorrer.
+            </p>
 
-      <p>
-        Se diseñan casos de prueba conociendo la estructura interna
-        y el código fuente.
-      </p>
+            <ul>
+                <li>Se conoce el código fuente.</li>
+                <li>Se analizan ramas y caminos.</li>
+                <li>Permite comprobar la estructura interna.</li>
+            </ul>
 
-      <div class="extra-info">
-
-        <p>
-          También llamada prueba estructural. Se analiza el código
-          y la estructura interna del programa.
-        </p>
-
-        <ul>
-          <li>Se conoce el código fuente.</li>
-          <li>Se analizan las ramas y caminos.</li>
-          <li>Busca comprobar la estructura interna.</li>
-        </ul>
-
-      </div>
+            <span>Haz clic para volver</span>
+        </div>
 
     </div>
 
-  </div>
-
+</div>
 </section>
 
 
 
 <!-- ===================== HERRAMIENTAS ===================== -->
+<section class="block" id="herramientas">
+    <div class="wrap">
 
-<section class="block">
+        <div class="section-head">
+            <h2>Herramientas de Calidad</h2>
+            <div class="side">
+                Herramientas utilizadas para gestionar pruebas, errores y calidad del software.
+            </div>
+        </div>
 
-  <div class="wrap">
+        <!-- BOTONES DE FILTRO -->
+        <div class="tool-filters">
+            <button class="tool-filter active" data-filter="todos">
+                Todas
+            </button>
 
-    <div class="section-head">
+            <button class="tool-filter" data-filter="bug">
+                Bug Trackers
+            </button>
 
-      <h2>Herramientas de calidad</h2>
+            <button class="tool-filter" data-filter="linter">
+               Linters
+            </button>
 
-      <div class="side">
-        Una introducción a lo que un equipo suele tener en su caja de herramientas.
-      </div>
+            <button class="tool-filter" data-filter="test">
+                Test Management
+            </button>
+        </div>
+
+
+        <!-- GRILLA DE HERRAMIENTAS -->
+        <div class="tools-grid" id="toolsGrid">
+
+            <div class="tool-card" data-category="bug">
+                <h3>Jira</h3>
+                <span class="tool-category">Bug Tracker</span>
+                <p>
+                    Permite registrar, organizar y realizar seguimiento
+                    de errores y tareas durante el desarrollo.
+                </p>
+            </div>
+
+
+            <div class="tool-card" data-category="bug">
+                <h3>Bugzilla</h3>
+                <span class="tool-category">Bug Tracker</span>
+                <p>
+                    Herramienta utilizada para registrar y realizar
+                    seguimiento de errores encontrados en el software.
+                </p>
+            </div>
+
+
+            <div class="tool-card" data-category="linter">
+                <h3>ESLint</h3>
+                <span class="tool-category">Linter</span>
+                <p>
+                    Analiza código JavaScript para detectar errores
+                    y problemas relacionados con las buenas prácticas.
+                </p>
+            </div>
+
+
+            <div class="tool-card" data-category="linter">
+                <h3>SonarQube</h3>
+                <span class="tool-category">Linter / Calidad</span>
+                <p>
+                    Analiza el código fuente para detectar errores,
+                    vulnerabilidades y problemas de calidad.
+                </p>
+            </div>
+
+
+            <div class="tool-card" data-category="test">
+                <h3>TestRail</h3>
+                <span class="tool-category">Test Management</span>
+                <p>
+                    Permite organizar casos de prueba, planificar
+                    ejecuciones y realizar seguimiento de resultados.
+                </p>
+            </div>
+
+
+            <div class="tool-card" data-category="test">
+                <h3>Zephyr</h3>
+                <span class="tool-category">Test Management</span>
+                <p>
+                    Facilita la planificación, ejecución y seguimiento
+                    de pruebas de software.
+                </p>
+            </div>
+
+        </div>
 
     </div>
-
-
-    <div class="filter-row" id="toolFilters">
-
-      <button class="filter-btn active" data-cat="todas">
-        Todas
-      </button>
-
-      <button class="filter-btn" data-cat="bug">
-        Bug trackers
-      </button>
-
-      <button class="filter-btn" data-cat="linter">
-        Linters
-      </button>
-
-      <button class="filter-btn" data-cat="test">
-        Test management
-      </button>
-
-    </div>
-
-
-    <div class="tool-grid" id="toolGrid">
-
-      <div class="tool-card" data-cat="bug">
-        <div class="tool-icon"><span></span></div>
-        <h3>Jira</h3>
-        <p>Seguimiento de tareas, defectos y flujo de trabajo del equipo.</p>
-        <div class="tool-cat">Bug tracker</div>
-      </div>
-
-
-      <div class="tool-card" data-cat="bug">
-        <div class="tool-icon"><span></span></div>
-        <h3>Bugzilla</h3>
-        <p>Registro y seguimiento de defectos reportados en el software.</p>
-        <div class="tool-cat">Bug tracker</div>
-      </div>
-
-
-      <div class="tool-card" data-cat="linter">
-        <div class="tool-icon"><span></span></div>
-        <h3>ESLint</h3>
-        <p>Analiza el código en busca de errores y problemas de estilo.</p>
-        <div class="tool-cat">Linter</div>
-      </div>
-
-
-      <div class="tool-card" data-cat="linter">
-        <div class="tool-icon"><span></span></div>
-        <h3>SonarQube</h3>
-        <p>Análisis estático de calidad y detección de código duplicado.</p>
-        <div class="tool-cat">Linter</div>
-      </div>
-
-
-      <div class="tool-card" data-cat="test">
-        <div class="tool-icon"><span></span></div>
-        <h3>TestRail</h3>
-        <p>Gestión y organización de casos y planes de prueba.</p>
-        <div class="tool-cat">Test management</div>
-      </div>
-
-
-      <div class="tool-card" data-cat="test">
-        <div class="tool-icon"><span></span></div>
-        <h3>Zephyr</h3>
-        <p>Planificación de pruebas integrada al flujo del equipo.</p>
-        <div class="tool-cat">Test management</div>
-      </div>
-
-    </div>
-
-  </div>
-
 </section>
-
-
-
 <!-- ===================== PROCESOS ===================== -->
 
 <section id="procesos" class="block" style="padding-top:0;">

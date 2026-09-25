@@ -278,3 +278,22 @@ footer a:hover{ color:#f4ead9; }
   opacity: 1;
   margin-top: 15px;
 }
+/* ===== INTERACCIÓN SDLC ===== */
+
+.tl-step {
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+.tl-step:hover {
+    transform: translateY(-8px);
+}
+
+.tl-step:hover .tl-dot {
+    transform: scale(1.4);
+}
+
+.tl-step:hover .tl-num,
+.tl-step:hover h4 {
+    color: var(--clay);
+}

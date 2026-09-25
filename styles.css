@@ -332,3 +332,215 @@ footer a:hover{ color:#f4ead9; }
     color: var(--clay);
 }
 
+/* ===== US-04 HERRAMIENTAS DE CALIDAD ===== */
+
+.tool-filters {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 25px 0 35px;
+}
+
+.tool-filter {
+    border: 1px solid var(--cream-line);
+    background: white;
+    padding: 10px 18px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s ease;
+}
+
+.tool-filter:hover {
+    transform: translateY(-2px);
+}
+
+.tool-filter.active {
+    background: var(--clay);
+    color: white;
+    border-color: var(--clay);
+}
+
+
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+
+.tool-card {
+    background: white;
+    border: 1px solid var(--cream-line);
+    border-radius: 16px;
+    padding: 25px;
+    transition: 0.3s ease;
+}
+
+.tool-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+
+.tool-card.hidden {
+    display: none;
+}
+
+
+.tool-icon {
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+
+.tool-card h3 {
+    margin: 0 0 8px;
+}
+
+
+.tool-category {
+    display: inline-block;
+    font-size: 12px;
+    padding: 5px 10px;
+    border-radius: 15px;
+    background: #f1eee9;
+    margin-bottom: 12px;
+}
+
+
+.tool-card p {
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+    .tools-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .tools-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* ===== US-03 TÉCNICAS DE ASEGURAMIENTO ===== */
+
+.testing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 25px;
+}
+
+.test-card {
+    background: #f3e8dc;
+    border: 1px solid var(--cream-line);
+    border-radius: 16px;
+    padding: 25px;
+    transition: 0.3s ease;
+}
+
+.test-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.test-card h3 {
+    margin-top: 0;
+}
+
+.testing-subtitle {
+    margin-top: 40px;
+}
+
+
+/* ===== FLIP CARDS ===== */
+
+.flip-card {
+    min-height: 280px;
+    position: relative;
+    cursor: pointer;
+    perspective: 1000px;
+}
+
+.flip-front,
+.flip-back {
+    width: 100%;
+    min-height: 280px;
+    box-sizing: border-box;
+    padding: 25px;
+    border-radius: 16px;
+    border: 1px solid var(--cream-line);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    transition: transform 0.5s ease;
+    backface-visibility: hidden;
+}
+
+.flip-front {
+    background: #f3e8dc;
+}
+
+.flip-back {
+    background: #f5f0e9;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    transform: rotateY(180deg);
+}
+
+.flip-card.flipped .flip-front {
+    transform: rotateY(180deg);
+}
+
+.flip-card.flipped .flip-back {
+    transform: rotateY(0);
+}
+
+.test-icon {
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+.flip-card span {
+    margin-top: 15px;
+    font-size: 13px;
+    opacity: 0.7;
+}
+
+.flip-back ul {
+    padding-left: 20px;
+}
+
+.flip-back li {
+    margin-bottom: 7px;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+
+    .testing-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .testing-grid {
+        grid-template-columns: 1fr;
+    }
+
+}

@@ -164,3 +164,58 @@ botonesModelos.forEach(function(boton) {
     });
 
 });
+// ===== US-04 FILTRO DE HERRAMIENTAS =====
+
+const botonesHerramientas = document.querySelectorAll(".tool-filter");
+const tarjetasHerramientas = document.querySelectorAll(".tool-card");
+
+botonesHerramientas.forEach(function(boton) {
+
+    boton.addEventListener("click", function() {
+
+        const filtro = boton.getAttribute("data-filter");
+
+        // Cambiar botón activo
+        botonesHerramientas.forEach(function(btn) {
+            btn.classList.remove("active");
+        });
+
+        boton.classList.add("active");
+
+
+        // Filtrar tarjetas
+        tarjetasHerramientas.forEach(function(tarjeta) {
+
+            const categoria = tarjeta.getAttribute("data-category");
+
+            if (filtro === "todos" || categoria === filtro) {
+                tarjeta.classList.remove("hidden");
+            } else {
+                tarjeta.classList.add("hidden");
+            }
+
+        });
+
+    });
+
+});
+// ===== US-03 FLIP CARDS =====
+
+const flipCards = document.querySelectorAll(".flip-card");
+
+flipCards.forEach(function(card) {
+
+    card.addEventListener("click", function() {
+        card.classList.toggle("flipped");
+    });
+
+    card.addEventListener("keydown", function(event) {
+
+        if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            card.classList.toggle("flipped");
+        }
+
+    });
+
+});

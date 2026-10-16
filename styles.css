@@ -618,3 +618,479 @@ footer a:hover{ color:#f4ead9; }
     }
 
 }
+/* =====================================
+   DISEÑO RESPONSIVE - CELULAR, TABLET Y PC
+   ===================================== */
+
+/* Evitar desbordamientos */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    overflow-x: clip;
+    scroll-padding-top: 100px;
+}
+
+body {
+    width: 100%;
+    min-width: 0;
+    overflow-wrap: break-word;
+}
+
+img,
+video,
+iframe {
+    max-width: 100%;
+}
+
+img {
+    height: auto;
+}
+
+svg {
+    max-width: 100%;
+}
+
+/* Contenedores */
+.wrap {
+    width: 100%;
+    max-width: 1180px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+section,
+header,
+footer {
+    min-width: 0;
+}
+
+.card,
+.iso-card,
+.test-card,
+.tool-card,
+.panel-box,
+.banner-item,
+.flip-card {
+    min-width: 0;
+}
+
+/* Grillas adaptables */
+.cards3,
+.tools-grid,
+.testing-grid,
+.iso-grid,
+.two-col,
+.foot-top {
+    width: 100%;
+}
+
+.cards3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.tools-grid,
+.testing-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.iso-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.two-col {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+/* Imágenes de los modelos */
+.modelo-imagen {
+    width: 100%;
+    max-width: 100%;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.modelo-imagen img {
+    display: block;
+    width: 100%;
+    max-width: 520px;
+    height: auto;
+    margin: 0 auto 10px;
+    object-fit: contain;
+}
+
+/* Elementos que contienen texto largo */
+p,
+li,
+h1,
+h2,
+h3,
+h4,
+a,
+button {
+    overflow-wrap: anywhere;
+}
+
+button {
+    max-width: 100%;
+}
+
+/* TABLETS Y PANTALLAS MEDIANAS */
+@media (max-width: 900px) {
+
+    .wrap {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .header-row {
+        gap: 16px;
+    }
+
+    .brand {
+        gap: 10px;
+        min-width: 0;
+    }
+
+    .brand .name {
+        font-size: 1rem;
+    }
+
+    nav.primary {
+        gap: 14px;
+        font-size: 0.85rem;
+    }
+
+    .hero {
+        padding-top: 52px;
+        padding-bottom: 44px;
+    }
+
+    .hero-grid {
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+        gap: 24px;
+    }
+
+    .hero h1 {
+        font-size: clamp(2rem, 4vw, 2.6rem);
+    }
+
+    .cards3,
+    .tools-grid,
+    .testing-grid,
+    .iso-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .timeline {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 24px 16px;
+    }
+
+    .timeline::before {
+        display: none;
+    }
+
+    .foot-top {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 28px;
+    }
+
+    .foot-brand {
+        grid-column: 1 / -1;
+    }
+}
+
+/* CELULARES */
+@media (max-width: 640px) {
+
+    html {
+        scroll-padding-top: 78px;
+    }
+
+    .wrap {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    /* Encabezado y menú */
+    .header-row {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        gap: 10px;
+    }
+
+    .brand {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .brand .mark {
+        width: 36px;
+        height: 36px;
+    }
+
+    .brand .mark svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .brand .name {
+        font-size: 0.9rem;
+        line-height: 1.25;
+    }
+
+    .brand .tag {
+        font-size: 0.68rem;
+    }
+
+    .burger {
+        flex: none;
+        padding: 8px;
+    }
+
+    nav.primary {
+        left: 0;
+        right: 0;
+        width: 100%;
+    }
+
+    nav.primary a {
+        padding: 14px 20px;
+        font-size: 0.95rem;
+    }
+
+    /* Inicio */
+    .hero {
+        padding-top: 42px;
+        padding-bottom: 36px;
+    }
+
+    .hero-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 24px;
+    }
+
+    .hero-figure {
+        display: none;
+    }
+
+    .hero h1 {
+        font-size: clamp(1.9rem, 8vw, 2.4rem);
+        line-height: 1.15;
+        max-width: 100%;
+    }
+
+    .hero .lead {
+        font-size: 0.98rem;
+    }
+
+    .eyebrow {
+        font-size: 0.78rem;
+        align-items: flex-start;
+    }
+
+    .btn-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .btn {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 13px 16px;
+    }
+
+    /* Secciones */
+    section.block {
+        padding-top: 38px;
+        padding-bottom: 38px;
+    }
+
+    .section-head {
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 22px;
+    }
+
+    .section-head h2 {
+        font-size: 1.55rem;
+    }
+
+    .section-head .side {
+        max-width: 100%;
+        text-align: left;
+        font-size: 0.88rem;
+    }
+
+    /* Tarjetas: una columna */
+    .cards3,
+    .tools-grid,
+    .testing-grid,
+    .iso-grid,
+    .two-col,
+    .foot-top {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .card,
+    .tool-card,
+    .test-card,
+    .iso-card {
+        padding: 20px;
+    }
+
+    /* Banners */
+    .banner-two {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .banner-item {
+        padding: 22px 18px;
+    }
+
+    /* Pestañas y filtros */
+    .tabbar,
+    .tool-filters {
+        gap: 8px;
+    }
+
+    .tab-btn,
+    .tool-filter {
+        min-height: 44px;
+        padding: 10px 14px;
+        font-size: 0.85rem;
+    }
+
+    .tab-btn {
+        flex: 1 1 auto;
+    }
+
+    /* Secuencia de etapas */
+    .chip-row {
+        gap: 8px;
+    }
+
+    .chip {
+        font-size: 0.82rem;
+        padding: 10px 12px;
+        max-width: 100%;
+    }
+
+    .chip-arrow {
+        font-size: 0.95rem;
+    }
+
+    /* Línea de tiempo */
+    .timeline {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 22px;
+    }
+
+    .tl-step {
+        padding-right: 0;
+    }
+
+    .tl-step:hover {
+        transform: none;
+    }
+
+    /* Tarjetas que giran */
+    .flip-card {
+        min-height: 260px;
+    }
+
+    .flip-front,
+    .flip-back {
+        min-height: 260px;
+        padding: 20px;
+    }
+
+    /* Pie de página */
+    .foot-top {
+        gap: 26px;
+    }
+
+    .foot-brand {
+        grid-column: auto;
+    }
+
+    .foot-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        font-size: 0.78rem;
+        line-height: 1.5;
+    }
+
+    /* Espaciados del HTML */
+    #inicio > .wrap[style] {
+        padding-bottom: 32px !important;
+    }
+
+    #inicio .banner-two[style] {
+        margin-bottom: 32px !important;
+    }
+
+    #inicio .cards3[style] {
+        margin-bottom: 32px !important;
+    }
+
+    #procesos > .wrap[style] {
+        padding-top: 36px !important;
+    }
+}
+
+/* CELULARES MUY ANGOSTOS */
+@media (max-width: 380px) {
+
+    .wrap {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    .brand .name {
+        font-size: 0.82rem;
+    }
+
+    .brand .tag {
+        font-size: 0.63rem;
+    }
+
+    .brand .mark {
+        width: 32px;
+        height: 32px;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .section-head h2 {
+        font-size: 1.4rem;
+    }
+
+    .tab-btn,
+    .tool-filter {
+        padding: 9px 10px;
+        font-size: 0.8rem;
+    }
+}
+
+/* En dispositivos táctiles no depender solo del cursor */
+@media (hover: none) {
+
+    .card:hover,
+    .tool-card:hover,
+    .test-card:hover,
+    .iso-card:hover,
+    .tl-step:hover {
+        transform: none;
+    }
+
+}

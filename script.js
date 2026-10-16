@@ -1,187 +1,163 @@
-(function(){
-  // Mobile menu
-  var burger = document.getElementById('burgerBtn');
-  var nav = document.getElementById('primaryNav');
-  burger.addEventListener('click', function(){
-    var open = nav.classList.toggle('open');
-    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
-  });
-  nav.querySelectorAll('a').forEach(function(a){
-    a.addEventListener('click', function(){ nav.classList.remove('open'); burger.setAttribute('aria-expanded','false'); });
-  });
 
-  // Scroll-spy active nav link
-  var links = Array.prototype.slice.call(nav.querySelectorAll('a'));
-  var sections = links.map(function(a){ return document.querySelector(a.getAttribute('href')); }).filter(Boolean);
-  function onScroll(){
-    var pos = window.scrollY + 100;
-    var current = sections[0];
-    sections.forEach(function(s){ if (s.offsetTop <= pos) current = s; });
-    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('href') === '#' + current.id); });
-  }
-  document.addEventListener('scroll', onScroll, { passive:true });
-  onScroll();
+(function () {
+  // ===== MENÚ PARA CELULARES =====
+  const burger = document.getElementById("burgerBtn");
+  const nav = document.getElementById("primaryNav");
 
-  // Generic tab groups
-  function wireTabs(btnSelector, dataAttr, panelAttr){
-    var buttons = document.querySelectorAll(btnSelector);
-    buttons.forEach(function(btn){
-      btn.addEventListener('click', function(){
-        var group = btn.parentElement;
-        group.querySelectorAll(btnSelector.replace(/^\./,'.')).forEach(function(b){ b.classList.remove('active'); });
-        btn.classList.add('active');
-        var key = btn.getAttribute(dataAttr);
-        var panels = document.querySelectorAll('[' + panelAttr + ']');
-        panels.forEach(function(p){
-          var belongsToSameGroup = p.getAttribute(panelAttr+'') !== null;
-          if(belongsToSameGroup){
-            var match = p.getAttribute(panelAttr) === key;
-            // only toggle panels that are siblings of this tabbar's panel set
-          }
+  if (burger && nav) {
+    burger.addEventListener("click", function () {
+      const abierto = nav.classList.toggle("open");
+      burger.setAttribute("aria-expanded", String(abierto));
+    });
+
+    nav.querySelectorAll("a").forEach(function (enlace) {
+      enlace.addEventListener("click", function () {
+        nav.classList.remove("open");
+        burger.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    // ===== RESALTAR LA SECCIÓN ACTUAL =====
+    const enlaces = Array.from(nav.querySelectorAll('a[href^="#"]'));
+
+    const secciones = enlaces
+      .map(function (enlace) {
+        return document.querySelector(enlace.getAttribute("href"));
+      })
+      .filter(Boolean);
+
+    function actualizarMenu() {
+      let actual = secciones[0];
+
+      secciones.forEach(function (seccion) {
+        if (seccion.getBoundingClientRect().top <= 120) {
+          actual = seccion;
+        }
+      });
+
+      if (actual) {
+        enlaces.forEach(function (enlace) {
+          const activo =
+            enlace.getAttribute("href") === "#" + actual.id;
+
+          enlace.classList.toggle("active", activo);
         });
+      }
+    }
+
+    document.addEventListener("scroll", actualizarMenu, {
+      passive: true
+    });
+
+    actualizarMenu();
+  }
+
+  // ===== PESTAÑAS DE FUNDAMENTOS: ISO 9126 E ISO 25000 =====
+  const botonesISO = document.querySelectorAll("[data-tab]");
+  const panelesISO = document.querySelectorAll("[data-panel]");
+
+  botonesISO.forEach(function (boton) {
+    boton.addEventListener("click", function () {
+      const clave = boton.getAttribute("data-tab");
+
+      botonesISO.forEach(function (otroBoton) {
+        otroBoton.classList.toggle("active", otroBoton === boton);
       });
+
+      panelesISO.forEach(function (panel) {
+        panel.classList.toggle(
+          "active",
+          panel.getAttribute("data-panel") === clave
+        );
+      });
+    });
+  });
+
+  // ===== PESTAÑAS DE MODELOS TRADICIONALES =====
+  const botonesModelos = document.querySelectorAll("[data-tab2]");
+  const panelesModelos = document.querySelectorAll("[data-panel2]");
+
+  botonesModelos.forEach(function (boton) {
+    boton.addEventListener("click", function () {
+      const modelo = boton.getAttribute("data-tab2");
+
+      botonesModelos.forEach(function (otroBoton) {
+        otroBoton.classList.toggle("active", otroBoton === boton);
+      });
+
+      panelesModelos.forEach(function (panel) {
+        panel.classList.toggle(
+          "active",
+          panel.getAttribute("data-panel2") === modelo
+        );
+      });
+    });
+  });
+
+  // ===== FILTRO DE HERRAMIENTAS =====
+  const botonesFiltro = document.querySelectorAll(
+    ".tool-filters .tool-filter"
+  );
+
+  const tarjetas = document.querySelectorAll(
+    "#toolsGrid .tool-card"
+  );
+
+  botonesFiltro.forEach(function (boton) {
+    boton.addEventListener("click", function () {
+      const filtro = boton.getAttribute("data-filter");
+
+      botonesFiltro.forEach(function (otroBoton) {
+        otroBoton.classList.toggle("active", otroBoton === boton);
+      });
+
+      tarjetas.forEach(function (tarjeta) {
+        const categoria = tarjeta.getAttribute("data-category");
+
+        tarjeta.hidden =
+          filtro !== "todos" && categoria !== filtro;
+      });
+    });
+  });
+
+  // ===== INTERACCIÓN DE LAS ETAPAS DEL SDLC =====
+  const etapasSDLC = document.querySelectorAll(
+    "#sdlcTimeline .tl-step"
+  );
+
+  function activarEtapa(etapa) {
+    etapasSDLC.forEach(function (otraEtapa) {
+      otraEtapa.classList.toggle("active", otraEtapa === etapa);
     });
   }
 
-  // Fundamentos tabs
-  var fundTabs = document.querySelectorAll('[data-tab]');
-  fundTabs.forEach(function(btn){
-    btn.addEventListener('click', function(){
-      fundTabs.forEach(function(b){ b.classList.remove('active'); });
-      btn.classList.add('active');
-      var key = btn.getAttribute('data-tab');
-      document.querySelectorAll('[data-panel]').forEach(function(p){
-        p.classList.toggle('active', p.getAttribute('data-panel') === key);
-      });
+  etapasSDLC.forEach(function (etapa) {
+    etapa.addEventListener("mouseenter", function () {
+      activarEtapa(etapa);
+    });
+
+    etapa.addEventListener("focusin", function () {
+      activarEtapa(etapa);
+    });
+
+    etapa.addEventListener("click", function () {
+      activarEtapa(etapa);
     });
   });
 
-  // Modelos tradicionales tabs
-  var modelTabs = document.querySelectorAll('[data-tab2]');
-  modelTabs.forEach(function(btn){
-    btn.addEventListener('click', function(){
-      modelTabs.forEach(function(b){ b.classList.remove('active'); });
-      btn.classList.add('active');
-      var key = btn.getAttribute('data-tab2');
-      document.querySelectorAll('[data-panel2]').forEach(function(p){
-        p.classList.toggle('active', p.getAttribute('data-panel2') === key);
-      });
+  // ===== TARJETAS CAJA NEGRA Y CAJA BLANCA =====
+  const tarjetasFlip = document.querySelectorAll(".flip-card");
+
+  tarjetasFlip.forEach(function (tarjeta) {
+    tarjeta.addEventListener("click", function () {
+      tarjeta.classList.toggle("flipped");
     });
-  });
 
-
-  // Herramientas filter
-  var filterBtns = document.querySelectorAll('#toolFilters .filter-btn');
-  var toolCards = document.querySelectorAll('#toolGrid .tool-card');
-  filterBtns.forEach(function(btn){
-    btn.addEventListener('click', function(){
-      filterBtns.forEach(function(b){ b.classList.remove('active'); });
-      btn.classList.add('active');
-      var cat = btn.getAttribute('data-cat');
-      toolCards.forEach(function(card){
-        var show = cat === 'todas' || card.getAttribute('data-cat') === cat;
-        card.style.display = show ? '' : 'none';
-      });
+    tarjeta.addEventListener("keydown", function (evento) {
+      if (evento.key === "Enter" || evento.key === " ") {
+        evento.preventDefault();
+        tarjeta.classList.toggle("flipped");
+      }
     });
   });
 })();
-// ===== INTERACCIÓN SDLC =====
-
-const etapasSDLC = document.querySelectorAll("#sdlcTimeline .tl-step");
-
-etapasSDLC.forEach(function(etapa) {
-
-    etapa.addEventListener("mouseenter", function() {
-
-        etapasSDLC.forEach(function(item) {
-            item.classList.remove("active");
-        });
-
-        etapa.classList.add("active");
-    });
-
-    etapa.addEventListener("mouseleave", function() {
-        etapa.classList.remove("active");
-    });
-
-});
-// ===== US-06 MODELOS TRADICIONALES =====
-
-const botonesModelos = document.querySelectorAll("[data-tab2]");
-const panelesModelos = document.querySelectorAll("[data-panel2]");
-
-botonesModelos.forEach(function(boton) {
-
-    boton.addEventListener("click", function() {
-
-        const modelo = boton.getAttribute("data-tab2");
-
-        // Quitar activo de todos los botones
-        botonesModelos.forEach(function(btn) {
-            btn.classList.remove("active");
-        });
-
-        // Ocultar todos los paneles
-        panelesModelos.forEach(function(panel) {
-            panel.classList.remove("active");
-        });
-
-        // Activar el botón seleccionado
-        boton.classList.add("active");
-
-        // Mostrar el panel correspondiente
-        const panelActivo = document.querySelector(
-            '[data-panel2="' + modelo + '"]'
-        );
-
-        if (panelActivo) {
-            panelActivo.classList.add("active");
-        }
-
-    });
-
-});
-// ===== US-04 FILTRO DE HERRAMIENTAS =====
-
-const botonesHerramientas = document.querySelectorAll(".tool-filter");
-const tarjetasHerramientas = document.querySelectorAll(".tool-card");
-
-botonesHerramientas.forEach(function(boton) {
-
-    boton.addEventListener("click", function() {
-
-        const filtro = boton.getAttribute("data-filter");
-
-        // Cambiar botón activo
-        botonesHerramientas.forEach(function(btn) {
-            btn.classList.remove("active");
-        });
-
-        boton.classList.add("active");
-
-
-        // Filtrar tarjetas
-        tarjetasHerramientas.forEach(function(tarjeta) {
-
-            const categoria = tarjeta.getAttribute("data-category");
-
-            if (filtro === "todos" || categoria === filtro) {
-                tarjeta.classList.remove("hidden");
-            } else {
-                tarjeta.classList.add("hidden");
-            }
-
-        });
-
-    });
-
-});
-// ===== FLIP CARDS CAJA NEGRA Y CAJA BLANCA =====
-
-const flipCards = document.querySelectorAll(".flip-card");
-
-flipCards.forEach(function(card) {
-    card.addEventListener("click", function() {
-        card.classList.toggle("flipped");
-    });
-});

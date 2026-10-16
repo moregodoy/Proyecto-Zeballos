@@ -1094,3 +1094,110 @@ button {
     }
 
 }
+/* ===== TARJETAS CAJA NEGRA Y CAJA BLANCA ===== */
+
+.testing-grid {
+    align-items: stretch;
+}
+
+.flip-card {
+    position: relative;
+    display: grid;
+    grid-template: 1fr / 1fr;
+    min-width: 0;
+    min-height: 320px;
+    height: auto;
+    padding: 0;
+    border: none;
+    border-radius: 16px;
+    background: transparent;
+    perspective: 1000px;
+    overflow: visible;
+}
+
+.flip-card .flip-front,
+.flip-card .flip-back {
+    grid-area: 1 / 1;
+    position: relative;
+    width: 100%;
+    min-width: 0;
+    min-height: 320px;
+    height: 100%;
+    padding: 25px;
+    margin: 0;
+    border: 1px solid var(--cream-line);
+    border-radius: 16px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    overflow-wrap: break-word;
+    transition: transform 0.5s ease;
+}
+
+.flip-card .flip-front {
+    background: #f3e8dc;
+    transform: rotateY(0deg);
+}
+
+.flip-card .flip-back {
+    position: absolute;
+    inset: 0;
+    background: #f5f0e9;
+    transform: rotateY(180deg);
+}
+
+.flip-card.flipped .flip-front {
+    transform: rotateY(-180deg);
+}
+
+.flip-card.flipped .flip-back {
+    transform: rotateY(0deg);
+}
+
+.flip-card h3 {
+    margin: 0 0 10px;
+}
+
+.flip-card p {
+    margin: 0 0 14px;
+    line-height: 1.55;
+}
+
+.flip-card ul {
+    margin: 0 0 14px;
+    padding-left: 20px;
+}
+
+.flip-card li {
+    margin-bottom: 7px;
+}
+
+.flip-card span {
+    display: block;
+    margin-top: 12px;
+    font-size: 0.82rem;
+    opacity: 0.7;
+}
+
+@media (max-width: 640px) {
+    .flip-card,
+    .flip-card .flip-front,
+    .flip-card .flip-back {
+        min-height: 300px;
+    }
+
+    .flip-card .flip-front,
+    .flip-card .flip-back {
+        padding: 20px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .flip-card .flip-front,
+    .flip-card .flip-back {
+        transition: none;
+    }
+}

@@ -1,0 +1,619 @@
+/* =========================================================
+   1. VARIABLES GLOBALES (:root)
+   Paleta de colores y tamaño base. Se usan con var(--nombre).
+   ========================================================= */
+:root{
+  --brown-900:#2e2117;   /* Marrón muy oscuro: header, footer, títulos */
+  --brown-800:#3a291c;   /* Marrón oscuro: texto secundario, botón fantasma */
+  --brown-700:#5a3f2b;   /* Marrón medio: borde del botón fantasma */
+  --clay:#a8632f;        /* Acento (arcilla): subrayados, botones, iconos */
+  --clay-dark:#8f5227;   /* Acento oscuro: hover y etiquetas */
+  --cream-bg:#ece1cc;    /* Fondo general de la página */
+  --cream-card:#f7efdd;  /* Fondo de tarjetas */
+  --cream-line:#d9c9a8;  /* Bordes y líneas separadoras */
+  --ink:#2e2117;         /* Texto principal */
+  --ink-soft:#6b5c46;    /* Texto de párrafos */
+  font-size:16px;        /* Tamaño base (1rem = 16px) */
+}
+
+/* =========================================================
+   2. RESET Y ESTILOS BASE
+   ========================================================= */
+*, *::before, *::after{ box-sizing:border-box; }  /* El padding y el borde no agrandan el elemento */
+html{
+  scroll-behavior:smooth;                /* Scroll suave al hacer clic en anclas */
+  scroll-padding-top:100px;              /* Deja espacio para el header fijo al saltar a un ancla */
+  width:100%;
+  overflow-x:clip;                       /* Evita scroll horizontal accidental */
+}
+body{
+  margin:0;
+  min-width:0;
+  width:100%;
+  background:var(--cream-bg);
+  color:var(--ink);
+  font-family:"Iowan Old Style","Palatino Linotype",Georgia,"Times New Roman",serif;
+  -webkit-font-smoothing:antialiased;
+  overflow-wrap:break-word;              /* Rompe palabras muy largas */
+}
+h1,h2,h3{
+  font-family:"Iowan Old Style","Palatino Linotype",Georgia,serif;
+  color:var(--brown-900);
+  margin:0 0 .4em;
+  font-weight:600;
+}
+p{ line-height:1.55; color:var(--ink-soft); margin:0 0 1em; }
+.sans{ font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; } /* Utilidad: fuerza tipografía sans */
+a{ color:inherit; }
+img, video, iframe{ max-width:100%; }    /* Multimedia nunca más ancha que su contenedor */
+img{ height:auto; }
+svg{ max-width:100%; }
+p, li, h1, h2, h3, h4, a, button{ overflow-wrap:anywhere; }
+button{ max-width:100%; }
+:focus-visible{ outline:2px solid var(--clay); outline-offset:2px; }
+
+/* Contenedor centrado de ancho máximo (los padding se ajustan por breakpoint) */
+.wrap{
+  width:100%;
+  max-width:1180px;
+  margin-left:auto;
+  margin-right:auto;
+  padding:0 32px;
+}
+
+/* =========================================================
+   3. HEADER (encabezado fijo superior)
+   ========================================================= */
+header.site{
+  position:sticky; top:0; z-index:50;    /* Fijo arriba y por encima del contenido */
+  background:var(--brown-900);
+  border-bottom:2px solid var(--clay);
+  padding-top:env(safe-area-inset-top,0px); /* Respeta la muesca de celulares */
+  min-width:0;
+}
+.header-row{                             /* Logo a la izquierda, menú a la derecha */
+  display:flex; align-items:center; justify-content:space-between;
+  padding:16px 0;
+  position:relative;                     /* Referencia para el menú desplegable móvil */
+}
+.brand{ display:flex; align-items:center; gap:14px; min-width:0; }
+.brand .mark{                            /* Círculo que enmarca el logo */
+  width:44px; height:44px; border-radius:50%;
+  border:2px solid #caa06c; flex:none;
+  display:flex; align-items:center; justify-content:center;
+}
+.brand .mark svg{ width:20px; height:20px; }
+.brand .name{ color:#f4ead9; font-size:1.15rem; line-height:1.2; }
+.brand .tag{ font-family:-apple-system,BlinkMacSystemFont,sans-serif; font-size:.74rem; color:#b6a082; margin-top:2px; }
+
+nav.primary{                             /* Menú de navegación */
+  display:flex; gap:30px;
+  font-family:-apple-system,BlinkMacSystemFont,sans-serif; font-size:.95rem;
+}
+nav.primary a{
+  color:#c7b291; text-decoration:none; padding-bottom:6px;
+  border-bottom:2px solid transparent;   /* Línea que aparece al estar activo */
+  transition:color .15s ease;
+}
+nav.primary a:hover{ color:#f4ead9; }
+nav.primary a.active{ color:#fff; border-bottom-color:var(--clay); }
+
+.burger{ display:none; background:none; border:none; cursor:pointer; padding:6px; } /* Hamburguesa (oculta en PC) */
+.burger span{ display:block; width:24px; height:2px; background:#f4ead9; margin:5px 0; }
+
+/* =========================================================
+   4. HERO (portada)
+   ========================================================= */
+.hero{ padding:76px 0 64px; }
+.eyebrow{                                /* Etiqueta pequeña sobre el título */
+  font-family:-apple-system,BlinkMacSystemFont,sans-serif; font-size:.85rem; color:var(--clay-dark);
+  display:flex; align-items:center; gap:10px; margin-bottom:18px;
+}
+.eyebrow::before{                        /* Línea decorativa antes del texto */
+  content:""; width:26px; height:2px; background:var(--clay-dark); display:inline-block;
+}
+.hero h1{ font-size:2.9rem; line-height:1.12; max-width:15ch; margin-bottom:22px; }
+.hero .lead{ max-width:52ch; font-size:1.05rem; }
+
+.btn-row{ display:flex; gap:14px; margin-top:26px; flex-wrap:wrap; }
+.btn{                                    /* Estilo base de los botones */
+  font-family:-apple-system,BlinkMacSystemFont,sans-serif; font-size:.95rem;
+  padding:13px 26px; border-radius:6px; text-decoration:none; cursor:pointer; border:1px solid transparent;
+  transition:transform .12s ease;
+}
+.btn:active{ transform:scale(.98); }     /* Efecto de pulsado */
+.btn-primary{ background:var(--clay); color:#fff; }
+.btn-primary:hover{ background:var(--clay-dark); }
+.btn-ghost{ background:transparent; border-color:var(--brown-700); color:var(--brown-800); }
+.btn-ghost:hover{ background:#e2d3b3; }
+
+.hero-figure{ display:flex; align-items:center; justify-content:center; } /* Centra la ilustración */
+.orbit{ position:relative; width:280px; height:280px; }
+.orbit svg{ width:100%; height:100%; }
+
+.hero-grid{                              /* Texto (1.1) y gráfico (0.9) */
+  display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:center;
+}
+
+/* =========================================================
+   5. ENCABEZADOS DE SECCIÓN Y SECCIONES
+   ========================================================= */
+.section-head{
+  display:flex; justify-content:space-between; align-items:flex-end;
+  gap:24px; margin-bottom:30px; flex-wrap:wrap;
+}
+.section-head h2{ font-size:1.7rem; margin:0; }
+.section-head .side{                     /* Texto descriptivo a la derecha del título */
+  font-family:-apple-system,BlinkMacSystemFont,sans-serif;
+  color:var(--ink-soft); font-size:.92rem; text-align:right; max-width:30ch;
+}
+
+section.block{ padding:56px 0; border-top:1px solid var(--cream-line); } /* Sección con línea separadora */
+section.block.tight{ padding:44px 0; }  /* Variante más compacta */
+
+/* =========================================================
+   6. TARJETAS GENÉRICAS (home)
+   ========================================================= */
+.cards3{                                 /* 3 columnas (se reducen con los breakpoints) */
+  display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:22px;
+}
+.card{
+  background:var(--cream-card); border:1px solid var(--cream-line); border-radius:10px; padding:26px;
+  min-width:0;
+}
+.tag-pill{                               /* Etiqueta tipo píldora de color acento */
+  display:inline-block; font-family:-apple-system,BlinkMacSystemFont,sans-serif; font-size:.72rem;
+  background:var(--clay); color:#fff; padding:4px 11px; border-radius:5px; margin-bottom:14px;
+}
+.card h3{ font-size:1.15rem; margin-bottom:8px; }
+.card p{ font-size:.94rem; margin-bottom:14px; }
+.card .go{                               /* Enlace "ver más" */
+  font-family:-apple-system,BlinkMacSystemFont,sans-serif; font-size:.88rem;
+  color:var(--clay-dark); text-decoration:none; font-weight:600;
+}
+
+/* Banner oscuro dividido en dos mitades */
+.banner-two{
+  background:var(--brown-900); border-radius:12px; overflow:hidden;
+  display:grid; grid-template-columns:1fr 1fr;
+}
+.banner-item{ padding:28px 30px; display:flex; gap:14px; min-width:0; }
+.banner-item + .banner-item{ border-left:1px solid #4a3826; } /* Divisor entre mitades */
+.banner-item .ic{ width:22px; height:22px; flex:none; color:var(--clay); margin-top:3px; }
+.banner-item h3{ color:#f4ead9; font-size:1.05rem; margin-bottom:6px; }
+.banner-item p{ color:#c7b291; font-size:.9rem; margin:0; }
+
+/* =========================================================
+   7. PESTAÑAS (tabs)
+   ========================================================= */
+.tabbar{ display:flex; gap:12px; flex-wrap:wrap; margin-bottom:30px; }
+.tab-btn{
+  font-family:-apple-system,BlinkMacSystemFont,sans-serif; font-size:.92rem;
+  padding:11px 20px; border-radius:8px; border:1px solid var(--cream-line);
+  background:var(--cream-card); color:var(--brown-800); cursor:pointer;
+}
+.tab-btn.active{ background:var(--clay); color:#fff; border-color:var(--clay); }
+.tab-panel{ display:none; }              /* Contenido oculto por defecto (lo activa JS) */
+.tab-panel.active{ display:block; }
+
+/* =========================================================
+   8. SECUENCIA DE ETAPAS (chips)
+   ========================================================= */
+.chip-row{ display:flex; align-items:center; flex-wrap:wrap; gap:6px; margin-bottom:30px; }
+.chip{
+  font-family:-apple-system,BlinkMacSystemFont,sans-serif; font-size:.88rem; font-weight:600;
+  background:var(--brown-900); color:#f4ead9; padding:12px 18px; border-radius:8px;
+}
+.chip-arrow{ color:var(--clay); font-size:1.1rem; padding:0 2px; }
+
+/* =========================================================
+   9. CAJAS DE COMPARACIÓN (buena / mala práctica)
+   ========================================================= */
+.two-col{
+  display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:22px; margin-bottom:24px;
+}
+.panel-box{ padding:20px; border-radius:12px; border:1px solid var(--cream-line); min-width:0; }
+.panel-box.good{ background:#edf7ed; border-left:5px solid #5b9b62; }  /* Caja verde: ventajas */
+.panel-box.bad{  background:#fbeeee; border-left:5px solid #c45c5c; }  /* Caja roja: desventajas */
+.panel-box h4{ margin:0 0 12px; font-size:1rem; }
+.panel-box.good h4{ color:#4d8754; }
+.panel-box.bad h4{ color:#b34d4d; }
+.panel-box ul{
+  margin:0; padding-left:18px;
+  font-family:-apple-system,BlinkMacSystemFont,sans-serif; font-size:.92rem; color:var(--brown-800);
+}
+.panel-box li{ margin-bottom:8px; }
+
+.note-box{                               /* Caja de nota o aclaración */
+  background:#faf1dc; border:1px solid var(--cream-line); border-radius:10px; padding:18px 22px;
+  font-family:-apple-system,BlinkMacSystemFont,sans-serif; font-size:.92rem; color:var(--brown-800);
+}
+.note-box b{ color:var(--brown-900); }
+
+/* =========================================================
+   10. CONCEPTOS (cuadrícula de 4 tarjetas pequeñas)
+   ========================================================= */
+.concept-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+.concept-card{
+  background:var(--cream-bg); border:1px solid var(--cream-line); border-radius:8px; padding:18px 20px;
+  font-family:-apple-system,BlinkMacSystemFont,sans-serif; font-size:.9rem;
+}
+.concept-card b{ color:var(--clay-dark); display:block; margin-bottom:4px; }
+.iso-body{
+  background:var(--cream-card); border:1px solid var(--cream-line); border-radius:10px; padding:26px;
+  font-family:-apple-system,BlinkMacSystemFont,sans-serif; font-size:.94rem; color:var(--brown-800);
+}
+.iso-body ul{ padding-left:20px; }
+.iso-body li{ margin-bottom:8px; }
+
+/* =========================================================
+   11. LÍNEA DE TIEMPO (SDLC: 6 fases)
+   ========================================================= */
+.timeline{
+  position:relative; display:grid; grid-template-columns:repeat(6,1fr); gap:0; margin-bottom:8px;
+}
+.timeline::before{                       /* Línea horizontal que une los puntos */
+  content:""; position:absolute; top:10px; left:4%; right:4%; height:1px; background:var(--cream-line);
+}
+.tl-step{
+  position:relative; padding-right:14px;
+  transition:.3s ease; cursor:pointer;   /* Interacción al pasar el ratón (ver más abajo) */
+}
+.tl-dot{                                 /* Punto de cada fase */
+  width:18px; height:18px; border-radius:50%; border:2px solid var(--clay);
+  background:var(--cream-bg); position:relative; z-index:1; margin-bottom:10px;
+}
+.tl-dot::after{                          /* Punto relleno interior */
+  content:""; position:absolute; inset:4px; border-radius:50%; background:var(--clay);
+}
+.tl-num{
+  font-family:-apple-system,BlinkMacSystemFont,sans-serif; font-size:.78rem;
+  color:var(--clay-dark); font-weight:700; margin-bottom:10px;
+}
+.tl-step h4{ font-size:1rem; color:var(--brown-900); margin:0 0 6px; }
+.tl-step p{ font-size:.86rem; margin:0; }
+
+/* Efectos al pasar el ratón sobre cada fase */
+.tl-step:hover{ transform:translateY(-8px); }          /* La fase sube */
+.tl-step:hover .tl-dot{ transform:scale(1.4); }        /* El punto crece */
+.tl-step:hover .tl-num,
+.tl-step:hover h4{ color:var(--clay); }                /* Número y título en color acento */
+
+/* =========================================================
+   12. NIVELES DE ASEGURAMIENTO (3 tarjetas)
+   ========================================================= */
+.level-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-bottom:30px; }
+.level-card{ background:var(--cream-card); border:1px solid var(--cream-line); border-radius:10px; padding:22px; }
+.level-tag{
+  display:inline-block; background:var(--brown-900); color:#f4ead9;
+  font-family:-apple-system,BlinkMacSystemFont,sans-serif;
+  font-size:.72rem; padding:4px 12px; border-radius:5px; margin-bottom:14px;
+}
+.level-card h3{ font-size:1.05rem; margin-bottom:6px; }
+.level-card p{ font-size:.9rem; margin:0; }
+
+/* =========================================================
+   13. TARJETAS QUE SE GIRAN (caja negra / caja blanca)
+   Contenedor 3D: dos caras (.flip-front y .flip-back) en la misma
+   celda; al activar .flipped se gira la cara frontal y entra la trasera.
+   ========================================================= */
+.flip-grid{ display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+
+.flip-card{
+  position:relative; display:grid; grid-template:1fr / 1fr; min-width:0;
+  min-height:320px; height:auto; padding:0; border:none; border-radius:16px;
+  background:transparent; perspective:1000px;   /* perspective activa el efecto 3D */
+  overflow:visible; cursor:pointer; text-align:left;
+  transition:all .35s ease;
+}
+.flip-card:hover{ transform:translateY(-5px); }  /* Se eleva al pasar el ratón */
+.flip-card.on{                           /* Estado "activo" (solo si el HTML usa la clase .on) */
+  background:var(--brown-900); color:#f4ead9; border-color:var(--brown-900);
+}
+.flip-card h3{ font-size:1.05rem; margin:0 0 10px; color:inherit; }
+.flip-card p{ font-size:.9rem; margin:0 0 14px; line-height:1.55; color:inherit; opacity:.85; }
+.flip-card ul{ margin:0 0 14px; padding-left:20px; }
+.flip-card li{ margin-bottom:7px; }
+.flip-card span{                         /* Texto pequeño de pista o detalle */
+  display:block; margin-top:12px; font-size:.82rem; opacity:.7;
+}
+.flip-card .hint{                        /* Pista de "clic para ver" (si el HTML usa .hint) */
+  font-family:-apple-system,BlinkMacSystemFont,sans-serif;
+  font-size:.76rem; opacity:.6; margin-top:10px; display:block;
+}
+.flip-card .extra-info{                  /* Texto oculto que aparece al pasar el ratón */
+  max-height:0; opacity:0; overflow:hidden;
+  transition:max-height .35s ease, opacity .3s ease;
+}
+.flip-card:hover .extra-info{ max-height:250px; opacity:1; margin-top:15px; }
+
+/* Caras de la tarjeta */
+.flip-card .flip-front,
+.flip-card .flip-back{
+  grid-area:1 / 1;                       /* Ambas caras ocupan la misma celda */
+  position:relative; width:100%; min-width:0; min-height:320px; height:100%;
+  padding:25px; margin:0;
+  border:1px solid var(--cream-line); border-radius:16px; box-sizing:border-box;
+  display:flex; flex-direction:column; justify-content:center;
+  backface-visibility:hidden; -webkit-backface-visibility:hidden; /* Oculta la cara de atrás al girar */
+  overflow-wrap:break-word;
+  transition:transform .5s ease;
+}
+.flip-card .flip-front{ background:#f3e8dc; transform:rotateY(0deg); }   /* Cara frontal visible al inicio */
+.flip-card .flip-back{                   /* Cara trasera, girada 180° */
+  position:absolute; inset:0; background:#f5f0e9; transform:rotateY(180deg);
+}
+.flip-card.flipped .flip-front{ transform:rotateY(-180deg); } /* Al activar .flipped la frontal sale */
+.flip-card.flipped .flip-back{ transform:rotateY(0deg); }     /* y la trasera entra */
+
+.test-icon{ font-size:35px; margin-bottom:10px; }
+
+/* =========================================================
+   14. FUNDAMENTOS DE CALIDAD (intro e ISO)
+   ========================================================= */
+.fundamentos-intro{ max-width:900px; line-height:1.7; }
+.fundamentos-intro strong{ color:var(--clay); }
+.fundamentos-intro ul{ padding-left:22px; }
+.fundamentos-intro li{ margin-bottom:8px; }
+.fundamentos-subtitle{ margin-top:40px; margin-bottom:20px; }
+
+.iso-grid{
+  display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; margin-top:25px;
+}
+.iso-card{
+  background:#f5f0e9; border:1px solid var(--cream-line); border-radius:14px; padding:20px;
+  transition:.3s ease; min-width:0;
+}
+.iso-card:hover{ transform:translateY(-4px); }
+.iso-card strong{ color:var(--clay); font-size:17px; }  /* Código de la norma (ej. ISO 9001) */
+.iso-card p{ margin-bottom:0; line-height:1.5; }
+
+/* =========================================================
+   15. HERRAMIENTAS DE CALIDAD (filtros y tarjetas)
+   ========================================================= */
+.filter-row{ display:flex; gap:10px; flex-wrap:wrap; margin-bottom:26px; }   /* Filtros (versión antigua, si el HTML la usa) */
+.filter-btn{
+  font-family:-apple-system,BlinkMacSystemFont,sans-serif; font-size:.88rem;
+  padding:9px 18px; border-radius:20px; border:1px solid var(--clay);
+  background:transparent; color:var(--clay-dark); cursor:pointer;
+}
+.filter-btn.active{ background:var(--clay); color:#fff; }
+
+.tool-filters{                           /* Fila de filtros centrada */
+  display:flex; justify-content:center; gap:12px; flex-wrap:wrap; margin:25px 0 35px;
+}
+.tool-filter{                            /* Botón de filtro tipo píldora */
+  border:1px solid var(--cream-line); background:#f3e8dc; padding:10px 18px;
+  border-radius:25px; cursor:pointer; font-size:14px; transition:.3s ease;
+}
+.tool-filter:hover{ transform:translateY(-2px); }
+.tool-filter.active{ background:var(--clay); color:#fff; border-color:var(--clay); }
+
+.tools-grid{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px; }
+.tool-card{
+  background:#f3e8dc; border:1px solid var(--cream-line); border-radius:16px; padding:25px;
+  transition:.3s ease; min-width:0;
+}
+.tool-card:hover{ transform:translateY(-6px); box-shadow:0 10px 25px rgba(0,0,0,.08); }
+.tool-card.hidden{ display:none; }       /* Oculta tarjetas que no pasan el filtro (lo activa JS) */
+.tool-card h3{ font-size:1.05rem; margin:0 0 8px; }
+.tool-card p{ font-size:.9rem; line-height:1.6; margin-bottom:0; }
+.tool-icon{                              /* Contenedor del icono de la herramienta */
+  width:38px; height:38px; border-radius:8px; background:var(--brown-900);
+  display:flex; align-items:center; justify-content:center;
+  font-size:35px; margin-bottom:15px;
+}
+.tool-icon span{                         /* Cuadrado decorativo dentro del icono */
+  width:12px; height:12px; border:2px solid var(--clay); border-radius:3px; display:block;
+}
+.tool-cat{                               /* Categoría (versión antigua) */
+  font-family:-apple-system,BlinkMacSystemFont,sans-serif; font-size:.78rem; color:var(--ink-soft);
+}
+.tool-category{                          /* Etiqueta de categoría de la herramienta */
+  display:inline-block; font-size:12px; padding:5px 10px; border-radius:15px;
+  background:#f1eee9; margin-bottom:12px;
+}
+
+/* =========================================================
+   16. TÉCNICAS DE ASEGURAMIENTO (caja blanca / caja negra)
+   ========================================================= */
+.testing-grid{
+  display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px; margin-top:25px;
+  align-items:stretch;                   /* Todas las tarjetas de la fila con la misma altura */
+}
+.test-card{
+  background:#f3e8dc; border:1px solid var(--cream-line); border-radius:16px; padding:25px;
+  transition:.3s ease; min-width:0;
+}
+.test-card:hover{ transform:translateY(-5px); box-shadow:0 10px 25px rgba(0,0,0,.08); }
+.test-card h3{ margin-top:0; }
+.testing-subtitle{ margin-top:40px; }
+
+/* =========================================================
+   17. PLACEHOLDER (contenido vacío de relleno)
+   ========================================================= */
+.placeholder{
+  text-align:center; padding:40px 20px;
+  font-family:-apple-system,BlinkMacSystemFont,sans-serif; color:var(--ink-soft);
+}
+.placeholder .ic{ font-size:2rem; margin-bottom:12px; }
+
+/* =========================================================
+   18. FOOTER (pie de página)
+   ========================================================= */
+footer.site{
+  background:var(--brown-900); color:#c7b291;
+  padding:52px 0 26px; padding-bottom:calc(26px + env(safe-area-inset-bottom,0px));
+  margin-top:0; min-width:0;
+}
+.foot-top{
+  display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:40px; margin-bottom:40px;
+  width:100%;
+}
+.foot-brand{ display:flex; gap:14px; }
+.foot-brand .mark{
+  width:38px; height:38px; border-radius:50%; border:1.5px solid #caa06c; flex:none;
+  display:flex; align-items:center; justify-content:center;
+}
+.foot-brand p{ color:#b6a082; font-size:.9rem; margin-top:10px; }
+footer h4{
+  color:#f4ead9; font-family:-apple-system,BlinkMacSystemFont,sans-serif;
+  font-size:.95rem; margin:0 0 14px;
+}
+footer ul{
+  list-style:none; margin:0; padding:0;
+  font-family:-apple-system,BlinkMacSystemFont,sans-serif; font-size:.9rem;
+}
+footer li{ margin-bottom:10px; }
+footer a{ text-decoration:none; color:#c7b291; }
+footer a:hover{ color:#f4ead9; }
+.foot-bottom{
+  border-top:1px solid #4a3826; padding-top:20px; display:flex; justify-content:space-between;
+  font-family:-apple-system,BlinkMacSystemFont,sans-serif; font-size:.82rem; color:#8c795f;
+  flex-wrap:wrap; gap:8px;
+}
+
+/* =========================================================
+   19. MODELOS (imágenes)
+   ========================================================= */
+.modelo-imagen{ width:100%; max-width:100%; margin:20px auto; text-align:center; }
+.modelo-imagen img{
+  display:block; width:100%; max-width:520px; height:auto; margin:0 auto 10px; object-fit:contain;
+}
+
+/* =========================================================
+   20. ANIMACIONES Y ACCESIBILIDAD
+   ========================================================= */
+@media (prefers-reduced-motion: reduce){
+  *{ transition:none !important; scroll-behavior:auto !important; }  /* Sin animaciones si el usuario lo pide */
+}
+@media (prefers-reduced-motion: reduce){
+  .flip-card .flip-front, .flip-card .flip-back{ transition:none; }
+}
+/* En pantallas táctiles no hay hover: se desactivan los efectos de elevación */
+@media (hover:none){
+  .card:hover, .tool-card:hover, .test-card:hover, .iso-card:hover, .tl-step:hover{ transform:none; }
+}
+
+/* =========================================================
+   21. RESPONSIVE - TABLETS Y PANTALLAS MEDIANAS (hasta 900px)
+   ========================================================= */
+@media (max-width:900px){
+  .wrap{ padding-left:24px; padding-right:24px; }
+  .header-row{ gap:16px; }
+  .brand{ gap:10px; }
+  .brand .name{ font-size:1rem; }
+  nav.primary{ gap:14px; font-size:.85rem; }   /* Menú móvil desplegable (ver bloque 22) */
+  .hero{ padding-top:52px; padding-bottom:44px; }
+  .hero-grid{ grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr); gap:24px; }
+  .hero h1{ font-size:clamp(2rem,4vw,2.6rem); }
+  .cards3, .tools-grid, .testing-grid, .iso-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .timeline{ grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px 16px; }
+  .timeline::before{ display:none; }
+  .foot-top{ grid-template-columns:repeat(2,minmax(0,1fr)); gap:28px; }
+  .foot-brand{ grid-column:1 / -1; }     /* El logo del footer ocupa todo el ancho */
+}
+
+/* =========================================================
+   22. RESPONSIVE - CELULARES (hasta 860px y 640px)
+   ========================================================= */
+
+/* Menú móvil: se convierte en panel desplegable (JS añade .open) */
+@media (max-width:860px){
+  nav.primary{
+    position:absolute; top:100%; left:0; right:0; background:var(--brown-900);
+    flex-direction:column;
+    max-height:0; overflow:hidden;       /* Oculto por defecto */
+    transition:max-height .25s ease;     /* Animación al abrir/cerrar */
+    border-bottom:2px solid var(--clay);
+  }
+  nav.primary.open{ max-height:400px; }
+  nav.primary a{ padding:16px 24px; border-bottom:1px solid #4a3826; }
+  .burger{ display:block; }              /* Muestra la hamburguesa */
+
+  .hero-figure{ display:none; }          /* Oculta la ilustración */
+}
+
+@media (max-width:640px){
+  html{ scroll-padding-top:78px; }
+  .wrap{ padding-left:18px; padding-right:18px; }
+
+  /* Header y menú */
+  .header-row{ padding-top:12px; padding-bottom:12px; gap:10px; }
+  .brand{ flex:1; min-width:0; }
+  .brand .mark{ width:36px; height:36px; }
+  .brand .mark svg{ width:18px; height:18px; }
+  .brand .name{ font-size:.9rem; line-height:1.25; }
+  .brand .tag{ font-size:.68rem; }
+  .burger{ flex:none; padding:8px; }
+  nav.primary{ left:0; right:0; width:100%; }
+  nav.primary a{ padding:14px 20px; font-size:.95rem; }
+
+  /* Hero */
+  .hero{ padding-top:42px; padding-bottom:36px; }
+  .hero-grid{ grid-template-columns:minmax(0,1fr); gap:24px; }
+  .hero h1{ font-size:clamp(1.9rem,8vw,2.4rem); line-height:1.15; max-width:100%; }
+  .hero .lead{ font-size:.98rem; }
+  .eyebrow{ font-size:.78rem; align-items:flex-start; }
+  .btn-row{ flex-direction:column; align-items:stretch; gap:10px; }
+  .btn{ display:block; width:100%; text-align:center; padding:13px 16px; }
+
+  /* Secciones */
+  section.block{ padding-top:38px; padding-bottom:38px; }
+  .section-head{ align-items:flex-start; gap:12px; margin-bottom:22px; }
+  .section-head h2{ font-size:1.55rem; }
+  .section-head .side{ max-width:100%; text-align:left; font-size:.88rem; }
+
+  /* Una sola columna */
+  .cards3, .tools-grid, .testing-grid, .iso-grid, .two-col, .foot-top{
+    grid-template-columns:minmax(0,1fr);
+  }
+  .flip-grid{ grid-template-columns:1fr; }
+  .card, .tool-card, .test-card, .iso-card{ padding:20px; }
+
+  /* Banners, pestañas y filtros */
+  .banner-two{ grid-template-columns:minmax(0,1fr); }
+  .banner-item{ padding:22px 18px; }
+  .banner-item + .banner-item{ border-left:none; border-top:1px solid #4a3826; }
+  .tabbar, .tool-filters{ gap:8px; }
+  .tab-btn, .tool-filter{ min-height:44px; padding:10px 14px; font-size:.85rem; } /* 44px: tamaño cómodo para tocar */
+  .tab-btn{ flex:1 1 auto; }
+
+  /* Chips y línea de tiempo */
+  .chip-row{ gap:8px; }
+  .chip{ font-size:.82rem; padding:10px 12px; max-width:100%; }
+  .chip-arrow{ font-size:.95rem; }
+  .timeline{ grid-template-columns:minmax(0,1fr); gap:22px; }
+  .tl-step{ padding-right:0; }
+  .tl-step:hover{ transform:none; }
+
+  /* Tarjetas que giran */
+  .flip-card, .flip-card .flip-front, .flip-card .flip-back{ min-height:300px; }
+  .flip-card .flip-front, .flip-card .flip-back{ padding:20px; }
+
+  /* Footer */
+  .foot-top{ gap:26px; }
+  .foot-brand{ grid-column:auto; }
+  .foot-bottom{
+    flex-direction:column; align-items:flex-start; font-size:.78rem; line-height:1.5;
+  }
+
+  /* Espaciados de elementos con estilo en línea (inline) */
+  #inicio > .wrap[style]{ padding-bottom:32px !important; }
+  #inicio .banner-two[style]{ margin-bottom:32px !important; }
+  #inicio .cards3[style]{ margin-bottom:32px !important; }
+  #procesos > .wrap[style]{ padding-top:36px !important; }
+}
+
+/* =========================================================
+   23. PANTALLAS MUY PEQUEÑAS (hasta 380px)
+   ========================================================= */
+@media (max-width:380px){
+  .wrap{ padding-left:14px; padding-right:14px; }
+  .brand .name{ font-size:.82rem; }
+  .brand .tag{ font-size:.63rem; }
+  .brand .mark{ width:32px; height:32px; }
+  .hero h1{ font-size:1.8rem; }
+  .section-head h2{ font-size:1.4rem; }
+  .tab-btn, .tool-filter{ padding:9px 10px; font-size:.8rem; }
+}

@@ -1988,7 +1988,7 @@ border: 1px solid #3a291c;  color: #fff;
 
 .kanban-controles {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   margin-top: 25px;
 }
 
@@ -2024,4 +2024,67 @@ border: 1px solid #3a291c;  color: #fff;
 .kanban-practica,
 .kanban-practica * {
   font-family: Arial, Helvetica, sans-serif !important;
+}
+/* VENTAJAS Y DESVENTAJAS KANBAN */
+
+.kanban-comparacion {
+  max-width: 1100px;
+  margin: 40px auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.kanban-ventajas,
+.kanban-desventajas {
+  padding: 25px;
+  border-radius: 12px;
+}
+
+.kanban-ventajas {
+  background: #e2eddf;
+  border: 1px solid #c5d9bf;
+}
+
+.kanban-desventajas {
+  background: #f3dfdc;
+  border: 1px solid #e5c4bf;
+}
+
+.kanban-comparacion h3 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 21px;
+  margin: 0 0 15px;
+}
+
+.kanban-ventajas h3 {
+  color: #42613e;
+}
+
+.kanban-desventajas h3 {
+  color: #914b45;
+}
+
+.kanban-comparacion ul {
+  padding-left: 20px;
+  margin: 0;
+}
+
+.kanban-comparacion li {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #3a291c;
+  font-size: 14px;
+  line-height: 1.7;
+  margin-bottom: 8px;
+}
+
+@media (max-width: 700px) {
+  .kanban-comparacion {
+    grid-template-columns: 1fr;
+    margin: 30px 15px;
+  }
+}
+.xp-tag {
+    background: #3a291c;
 }

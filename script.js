@@ -355,3 +355,162 @@ botones.forEach((boton) => {
     `;
   });
 });
+// TABLERO INTERACTIVO KANBAN
+(function () {
+
+  const tablero = document.getElementById("kanbanTablero");
+  const botonReiniciar = document.getElementById("reiniciarKanban");
+
+  if (!tablero || !botonReiniciar) return;
+
+  const estadoInicial = {
+    pendiente: [
+      { id: 1, titulo: "Diseñar el login" },
+      { id: 2, titulo: "Escribir pruebas unitarias" },
+      { id: 3, titulo: "Armar la pantalla de inicio" }
+    ],
+    curso: [
+      { id: 4, titulo: "Configurar el repositorio" }
+    ],
+    terminado: [
+      { id: 5, titulo: "Definir la paleta de colores" }
+    ]
+  };
+
+  let tareas = JSON.parse(JSON.stringify(estadoInicial));
+
+  const columnas = ["pendiente", "curso", "terminado"];
+
+  function moverTarea(id, destino) {
+    const origen = columnas.find(columna =>
+      tareas[columna].some(tarea => tarea.id === id)
+    );
+
+    if (!origen || origen === destino) return;
+
+    // En curso admite un máximo de 3 tareas
+    if (destino === "curso" && tareas.curso.length >= 3) {
+      alert("La columna En curso ya tiene 3 tareas como máximo.");
+      return;
+    }
+
+    const indice = tareas[origen].findIndex(tarea => tarea.id === id);
+    const [tarea] = tareas[origen].splice(indice, 1);
+
+    tareas[destino].push(tarea);
+    mostrarTablero();
+  }
+
+  function mostrarTablero() {
+    columnas.forEach((columna, indiceColumna) => {
+      const elemento = tablero.querySelector(
+        `[data-columna="${columna}"]`
+      );
+
+      const contenedor = elemento.querySelector(".kanban-tareas");
+      const contador = elemento.querySelector(".kanban-contador");
+
+      contenedor.innerHTML = "";
+      contador.textContent = `(${tareas[columna].length})`;
+
+      tareas[columna].forEach(tarea => {
+        const tarjeta = document.createElement("div");
+        tarjeta.className = "kanban-tarjeta";
+        tarjeta.draggable = true;
+        tarjeta.dataset.id = tarea.id;
+
+        const puedeIzquierda = indiceColumna > 0;
+        const puedeDerecha = indiceColumna < 2;
+
+        tarjeta.innerHTML = `
+          <p>${tarea.titulo}</p>
+
+          <div class="kanban-flechas">
+            <button
+              type="button"
+              data-direccion="-1"
+              aria-label="Mover a la columna anterior"
+              ${!puedeIzquierda ? "disabled" : ""}
+            >◀</button>
+
+            <button
+              type="button"
+              data-direccion="1"
+              aria-label="Mover a la columna siguiente"
+              ${!puedeDerecha ? "disabled" : ""}
+            >▶</button>
+          </div>
+        `;
+
+        contenedor.appendChild(tarjeta);
+      });
+    });
+  }
+
+  // Mover con las flechas
+  tablero.addEventListener("click", function (evento) {
+    const boton = evento.target.closest("[data-direccion]");
+    if (!boton || boton.disabled) return;
+
+    const tarjeta = boton.closest(".kanban-tarjeta");
+    const id = Number(tarjeta.dataset.id);
+
+    const origen = columnas.find(columna =>
+      tareas[columna].some(tarea => tarea.id === id)
+    );
+
+    const indiceActual = columnas.indexOf(origen);
+    const direccion = Number(boton.dataset.direccion);
+    const destino = columnas[indiceActual + direccion];
+
+    if (destino) moverTarea(id, destino);
+  });
+
+  // Arrastrar tarjetas
+  tablero.addEventListener("dragstart", function (evento) {
+    const tarjeta = evento.target.closest(".kanban-tarjeta");
+    if (!tarjeta) return;
+
+    evento.dataTransfer.setData("text/plain", tarjeta.dataset.id);
+  });
+
+  tablero.addEventListener("dragover", function (evento) {
+    const columna = evento.target.closest(".kanban-columna");
+    if (!columna) return;
+
+    evento.preventDefault();
+    columna.classList.add("recibiendo");
+  });
+
+  tablero.addEventListener("dragleave", function (evento) {
+    const columna = evento.target.closest(".kanban-columna");
+    if (columna && !columna.contains(evento.relatedTarget)) {
+      columna.classList.remove("recibiendo");
+    }
+  });
+
+  tablero.addEventListener("drop", function (evento) {
+    const columna = evento.target.closest(".kanban-columna");
+    if (!columna) return;
+
+    evento.preventDefault();
+
+    tablero.querySelectorAll(".kanban-columna").forEach(elemento => {
+      elemento.classList.remove("recibiendo");
+    });
+
+    const id = Number(evento.dataTransfer.getData("text/plain"));
+    const destino = columna.dataset.columna;
+
+    moverTarea(id, destino);
+  });
+
+  // Reiniciar tablero
+  botonReiniciar.addEventListener("click", function () {
+    tareas = JSON.parse(JSON.stringify(estadoInicial));
+    mostrarTablero();
+  });
+
+  mostrarTablero();
+
+})();

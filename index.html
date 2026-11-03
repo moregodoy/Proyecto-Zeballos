@@ -1282,6 +1282,51 @@
   </div>
 
 </div>
+
+<!-- TABLERO INTERACTIVO KANBAN -->
+<section class="kanban-practica" id="probarKanban">
+
+<div class="agiles-container manifesto-heading">
+  <h2>Probá el tablero</h2>
+  <p>
+    Poné en práctica el método Kanban organizando las tareas
+    según su estado de avance.
+  </p>
+</div>
+
+<div class="agiles-section-title">
+  <p>
+    Arrastrá las tarjetas o usá los botones para moverlas entre
+    las columnas. Recordá que «En curso» admite un máximo de
+    3 tareas.
+  </p>
+</div>
+  <div class="kanban-tablero" id="kanbanTablero">
+
+    <div class="kanban-columna" data-columna="pendiente">
+      <h4>Pendiente <span class="kanban-contador"></span></h4>
+      <div class="kanban-tareas"></div>
+    </div>
+
+    <div class="kanban-columna" data-columna="curso">
+      <h4>En curso <span class="kanban-contador"></span></h4>
+      <div class="kanban-tareas"></div>
+    </div>
+
+    <div class="kanban-columna" data-columna="terminado">
+      <h4>Terminado <span class="kanban-contador"></span></h4>
+      <div class="kanban-tareas"></div>
+    </div>
+
+  </div>
+
+  <div class="kanban-controles">
+    <button type="button" id="reiniciarKanban">
+      Reiniciar tablero
+    </button>
+  </div>
+
+</section>
 <!-- ===================== RECURSOS ===================== -->
 
 <section id="recursos" class="block">

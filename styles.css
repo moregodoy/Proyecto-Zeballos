@@ -1804,4 +1804,64 @@ border: 1px solid #3a291c;  color: #fff;
 .card,
 .card * {
   font-family: Arial, Helvetica, sans-serif !important;
+}.cronograma-tarjetas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  max-width: 950px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.cronograma-info,
+.cronograma-extra {
+  padding: 28px;
+  border-radius: 16px;
+  min-height: 220px;
+}
+
+.cronograma-info {
+  background: var(--cream-card);
+  color: var(--brown-900);
+}
+
+.cronograma-extra {
+  background: var(--brown-800);
+  color: var(--cream-card);
+}
+
+.cronograma-extra h3 {
+  color: var(--cream-bg);
+  margin-bottom: 10px;
+}
+
+.cronograma-extra p {
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 650px) {
+  .cronograma-tarjetas {
+    grid-template-columns: 1fr;
+  }
+}.cronograma-tarjetas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  max-width: 950px;
+  margin: 30px auto;
+}
+
+.cronograma-extra {
+  background: #3a291c;
+  color: #f7efdd;
+  padding: 28px;
+  border-radius: 16px;
+  min-height: 220px;
+}.cronograma-tarjetas {
+  display: none;
+}
+
+.cronograma-tarjetas.mostrar {
+  display: grid;
 }

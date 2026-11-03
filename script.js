@@ -260,68 +260,77 @@ const etapas = [
   {
     titulo: "Planificación",
     items: [
-      "Definición de los objetivos del proyecto.",
-      "Organización de las tareas.",
-      "Distribución de responsabilidades.",
-      "Establecimiento de los tiempos de trabajo."
-    ]
-  },
-  {
-    titulo: "Investigación",
-    items: [
-      "Búsqueda de información.",
-      "Análisis de las necesidades.",
-      "Identificación de requisitos.",
-      "Revisión de herramientas disponibles."
-    ]
-  },
-  {
-    titulo: "Diseño",
-    items: [
-      "Organización de las secciones.",
-      "Definición de colores y tipografías.",
-      "Diseño de la interfaz.",
-      "Planificación de la navegación."
-    ]
+      "¿Por qué es valioso este sprint? El propietario expone el valor esperado.",
+      "¿Qué se puede hacer? Los desarrolladores eigen elementos de la pila del producto.",
+      "¿Cómo se hará? Se descomponen en tareas de un día o menos.",
+    ],
+     participantes: "Propietario del producto, desarrolladores y Scrum Master.",
+duracion: "Hasta una jornada completa.",
+resultado: "Pila del sprint y objetivo del sprint."
   },
   {
     titulo: "Desarrollo",
     items: [
-      "Creación de la estructura HTML.",
-      "Aplicación de estilos CSS.",
-      "Programación con JavaScript.",
-      "Integración de las funcionalidades."
-    ]
+      "El equipo se autogestiona y se reparte las tareas de la pila del sprint.",
+      "Solo los desarrolladores modifican la pila del sprint.",
+      "Se cumple la definicion de <<hecho>> acordada.",
+    ],
+    participantes: "Desarrolladores",
+duracion: "Hasta 4 semanas en total (duración fija)",
+resultado: "Incremento terminado, probado y operativo"
   },
   {
-    titulo: "Pruebas",
+    titulo: "Scrum Diario",
     items: [
-      "Verificación de los enlaces.",
-      "Prueba de las funcionalidades.",
-      "Detección de errores.",
-      "Revisión de la adaptación a dispositivos."
-    ]
+      "Cada persona cuenta qué logró desde la ultima reunión.",
+      "Dice qué hará hasta la siguiente.",
+      "Avisa si tiene o prevé algún impedimento.",
+    ],
+    participantes: "Desarrolladores (otros pueden mirar sin intervenir)",
+duracion: "Máximo 15 minutos, cada día",
+resultado: "Pila del sprint y gráfico burn down actualizado"
+
+  },
+  
+  {
+    titulo: "Revisión",
+    items: [
+      "Se muestra el incremento en funcionamiento.",
+      "Se repasa lo planificado, lo hecho y lo que quedó pendiente.",
+      "Se recogen sugerencias que pueden cambiar la pila del producto.",
+    ],
+    participantes: "Todo el equipo scrum e interesados",
+duracion: "1 a 2 horas (hasta 4 si es complejo)",
+resultado: "Feedback para el propietario del producto"
+
   },
   {
-    titulo: "Entrega",
+    titulo: "Retrospectiva",
     items: [
-      "Revisión general del proyecto.",
-      "Corrección de detalles finales.",
-      "Preparación de la presentación.",
-      "Entrega del sitio web."
-    ]
+      "Se analiza el <<como>> del trabajo, no el producto.",
+      "Se identifican fortalezas y puntos debiles.",
+      "Se acuerdan acciones de mejora concretas.",
+    ],
+    participantes: "Todo el equipo scrum",
+duracion: "1 a 3 horas",
+resultado: "Plan de mejoras para el próximo sprint"
+
   }
 ];
 
+
 const botones = document.querySelectorAll(".paso");
 const informacion = document.getElementById("cronogramaInfo");
+const informacionExtra = document.getElementById("cronogramaExtra");
+const tarjetas = document.querySelector(".cronograma-tarjetas");
 
 botones.forEach((boton) => {
   boton.addEventListener("click", () => {
     const indice = Number(boton.dataset.paso);
     const etapa = etapas[indice];
 
-    if (!etapa || !informacion) return;
+    if (!etapa || !informacion || !informacionExtra) return;
+    tarjetas.classList.add("mostrar");
 
     botones.forEach((b) => b.classList.remove("activo"));
     boton.classList.add("activo");
@@ -332,6 +341,17 @@ botones.forEach((boton) => {
       <ul>
         ${etapa.items.map((item) => `<li>${item}</li>`).join("")}
       </ul>
+    `;
+
+    informacionExtra.innerHTML = `
+      <h3>Participantes</h3>
+      <p>${etapa.participantes}</p>
+
+      <h3>Duración</h3>
+      <p>${etapa.duracion}</p>
+
+      <h3>Resultado</h3>
+      <p>${etapa.resultado}</p>
     `;
   });
 });

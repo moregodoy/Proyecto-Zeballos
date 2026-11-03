@@ -1201,3 +1201,190 @@ button {
         transition: none;
     }
 }
+
+/* ===================== NUEVO DISEÑO ÁGILES ===================== */
+
+.agiles-page {
+  background: var(--cream-bg);
+  color: var(--ink);
+}
+
+/* CONTENEDOR GENERAL */
+
+.agiles-container {
+  max-width: 1296px;
+  margin: 0 auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+/* ENCABEZADO PRINCIPAL */
+
+.agiles-hero {
+  padding: 76px 0 60px;
+  border-bottom: 1px solid var(--cream-line);
+}
+
+.agiles-hero h1 {
+  max-width: 790px;
+  font-size: 3.1rem;
+  line-height: 1.13;
+  margin-bottom: 26px;
+}
+
+.agiles-hero p {
+  max-width: 650px;
+  font-family: Arial, sans-serif;
+  font-size: 1.08rem;
+  line-height: 1.8;
+  margin-bottom: 0;
+}
+
+/* MANIFIESTO ÁGIL */
+
+.agiles-manifesto {
+  padding: 70px 0 55px;
+}
+
+.manifesto-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 40px;
+}
+
+.manifesto-heading h2 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.manifesto-heading p {
+  max-width: 360px;
+  text-align: right;
+  font-family: Arial, sans-serif;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.manifesto-content {
+  margin-top: 55px;
+  max-width: 900px;
+}
+
+/* CONTENIDO SCRUM */
+
+.agiles-scrum {
+  padding: 35px 0 80px;
+}
+
+.agiles-section-title {
+  margin-bottom: 35px;
+}
+
+.agiles-section-title h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.agiles-section-title p {
+  max-width: 650px;
+  font-family: Arial, sans-serif;
+}
+
+.agiles-subtitle {
+  font-family: Arial, sans-serif;
+  font-size: 1.45rem;
+  font-weight: 600;
+  margin: 0 0 20px;
+}
+
+/* TARJETAS */
+
+.agiles-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 25px;
+  margin-bottom: 55px;
+}
+
+.agiles-card {
+  background: var(--cream-card);
+  border: 1px solid var(--cream-line);
+  border-radius: 16px;
+  padding: 28px 27px;
+  min-height: 215px;
+  box-sizing: border-box;
+}
+
+.agiles-card h3 {
+  font-family: Arial, sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 17px 0 13px;
+}
+
+.agiles-card p {
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ETIQUETAS */
+
+.agiles-tag {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 7px;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  font-size: .85rem;
+  font-weight: 600;
+}
+
+.role-tag {
+  background: var(--clay);
+}
+
+.artifact-tag {
+  background: #718363;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 850px) {
+  .agiles-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .agiles-hero h1 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .agiles-hero {
+    padding: 55px 0 45px;
+  }
+
+  .agiles-hero h1 {
+    font-size: 2rem;
+  }
+
+  .manifesto-heading {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .manifesto-heading p {
+    text-align: left;
+  }
+
+  .agiles-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .agiles-card {
+    min-height: auto;
+  }
+}

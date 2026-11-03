@@ -1455,3 +1455,119 @@ button {
     bottom: 15px;
   }
 }
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin: 30px 0;
+}
+
+.info-box {
+  aspect-ratio: 1 / 1;
+  background: var(--cream-card);
+  border: 1px solid var(--cream-line);
+  border-radius: 20px;
+  padding: 25px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(46, 33, 23, .06);
+}
+
+.info-box h3 {
+  color: var(--brown-900);
+    font-family: Arial, sans-serif;
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+}
+
+.info-box p {
+  color: var(--brown-800);
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .info-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 550px) {
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.info-tag {
+  display: inline-block;
+  width: fit-content;
+  padding: 7px 12px;
+background: #3a291c;
+border: 1px solid #3a291c;  color: #fff;
+  border-radius: 6px;
+  font-family: Arial, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-underline-offset: 3px;
+  margin-bottom: 18px;
+}
+.info-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.info-tag {
+  margin-top: 0;
+  margin-bottom: 18px;
+}
+.info-box-wide {
+  width: 100%;
+  aspect-ratio: auto;
+  min-height: 180px;
+  margin-top: 25px;
+}
+.info-box.info-box-wide {
+  grid-column: 1 / -1;
+  width: 100%;
+  max-width: none;
+  aspect-ratio: auto;
+  min-height: 100px;
+  margin: 10px 0 0;
+  padding: 15px 25px;
+}
+.texto-color {
+  color: #3a291c;
+  font-weight: bold;
+}
+.mi-imagen {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  display: block;
+  margin: 25px auto;
+  border-radius: 12px;
+}
+.scrum-image-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  display: block;
+}
+.scrum-image-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 35px auto;
+}
+
+.scrum-image-container img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 20px;
+  object-fit: contain;
+}

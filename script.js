@@ -243,4 +243,16 @@
   });
 
 })(); 
+const indexToggle = document.getElementById("indexToggle");
+const indexMenu = document.getElementById("indexMenu");
+
+indexToggle.addEventListener("click", () => {
+  indexMenu.classList.toggle("active");
+});
+
+indexMenu.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => {
+    indexMenu.classList.remove("active");
+  });
+});
 // Fin de la función principal.

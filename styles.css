@@ -1255,7 +1255,7 @@ button {
 
 .manifesto-heading h2 {
   font-size: 2rem;
-  margin: 0;
+  margin-bottom: 10px;
 }
 
 .manifesto-heading p {
@@ -1289,7 +1289,12 @@ button {
 .agiles-section-title p {
   max-width: 650px;
   font-family: Arial, sans-serif;
+  margin-right: 0;
+  margin-right: auto;
+  padding-left: 30px;
+  padding-right: 24px;
 }
+
 
 .agiles-subtitle {
   font-family: Arial, sans-serif;
@@ -1386,5 +1391,67 @@ button {
 
   .agiles-card {
     min-height: auto;
+  }
+}
+/* ÍNDICE FLOTANTE */
+.floating-index {
+  position: fixed;
+  right: 25px;
+  bottom: 25px;
+  z-index: 999;
+  font-family: Arial, sans-serif;
+}
+
+.index-toggle {
+  background: var(--brown-900);
+  color: var(--cream-bg);
+  border: 1px solid var(--clay);
+  border-radius: 30px;
+  padding: 14px 22px;
+  cursor: pointer;
+  font-size: 14px;
+  box-shadow: 0 5px 18px rgba(0,0,0,.2);
+}
+
+.index-menu {
+  display: none;
+  position: absolute;
+  bottom: 60px;
+  right: 0;
+  width: 230px;
+  background: var(--cream-card);
+  border: 1px solid var(--cream-line);
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: 0 8px 25px rgba(0,0,0,.15);
+}
+
+.index-menu.active {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.index-menu h3 {
+  color: var(--brown-900);
+  font-size: 16px;
+  margin: 0 0 5px;
+}
+
+.index-menu a {
+  color: var(--brown-800);
+  text-decoration: none;
+  font-size: 14px;
+  transition: color .2s;
+}
+
+.index-menu a:hover {
+  color: var(--clay);
+}
+
+@media (max-width: 600px) {
+  .floating-index {
+    right: 15px;
+    bottom: 15px;
   }
 }

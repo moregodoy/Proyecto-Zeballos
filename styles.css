@@ -1,3 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+* {
+  font-family: var(--fuente-principal);
+}
 :root{
   --brown-900:#2e2117;
   --brown-800:#3a291c;
@@ -13,6 +18,7 @@
   --ok-text:#3f6b3a;
   --bad-bg:#f3e3e1;
   --bad-text:#a1483f;
+  --fuente-principal: 'Poppins', sans-serif;
   font-size:16px;
 }
 *{box-sizing:border-box;}
@@ -1557,17 +1563,245 @@ border: 1px solid #3a291c;  color: #fff;
   border-radius: 20px;
   display: block;
 }
-.scrum-image-container {
-  width: 100%;
-  max-width: 900px;
-  margin: 35px auto;
+
+/* ===== CRONOGRAMA SCRUM ===== */
+/* CRONOGRAMA SCRUM */
+
+.cronograma-section {
+  padding: 40px 20px;
+  text-align: center;
 }
 
-.scrum-image-container img {
+.cronograma-pasos {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
   width: 100%;
-  max-width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 20px;
-  object-fit: contain;
+  max-width: 850px;
+  margin: 30px auto 45px;
+  padding: 0;
+}
+
+.cronograma-pasos::before {
+  content: "";
+  position: absolute;
+  top: 24px;
+  left: 8.33%;
+  right: 8.33%;
+  height: 3px;
+  background: var(--cream-line);
+  z-index: 0;
+}
+
+.paso-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+}
+
+.paso {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 2px solid var(--cream-line);
+  background: var(--cream-card);
+  color: var(--brown-900);
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+  transition: 0.3s;
+}
+
+.paso:hover,
+.paso.activo {
+  background: var(--clay);
+  color: white;
+  border-color: var(--clay);
+}
+
+.paso-item span {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--brown-800);
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .cronograma-pasos {
+    gap: 8px;
+  }
+
+  .paso {
+    width: 38px;
+    height: 38px;
+    font-size: 13px;
+  }
+
+  .cronograma-pasos::before {
+    top: 19px;
+  }
+
+  .paso-item span {
+    font-size: 11px;
+  }
+}
+/* CÍRCULOS Y LÍNEA */
+
+.cronograma-pasos {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+  width: 100%;
+  max-width: 850px;
+  margin: 0 auto 45px;
+  padding: 0;
+}
+
+/* Línea horizontal detrás de los círculos */
+.cronograma-pasos::before {
+  content: "";
+  position: absolute;
+  top: 23px;
+  left: 8.33%;
+  right: 8.33%;
+  height: 3px;
+  background: var(--cream-line);
+  z-index: 0;
+}
+
+.paso-item {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.paso {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  flex: 0 0 48px;
+  padding: 0;
+  border-radius: 50%;
+  border: 2px solid var(--cream-line);
+  background: var(--cream-card);
+  color: var(--brown-900);
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+  transition: .3s;
+}
+
+.paso:hover,
+.paso.activo {
+  background: var(--clay);
+  border-color: var(--clay);
+  color: white;
+  transform: scale(1.1);
+}
+
+.paso-item span {
+  font-family: Arial, sans-serif;
+  font-size: .82rem;
+  color: var(--brown-800);
+  text-align: center;
+}
+
+/* TARJETA DE INFORMACIÓN */
+
+.cronograma-info {
+  background: var(--cream-card);
+  border: 1px solid var(--cream-line);
+  border-radius: 18px;
+  padding: 30px 35px;
+  max-width: 700px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: left;
+  box-shadow: 0 5px 15px rgba(46, 33, 23, .08);
+}
+
+.cronograma-info h3 {
+  color: var(--brown-900);
+  margin: 10px 0 18px;
+  font-size: 1.5rem;
+}
+
+.cronograma-info ul {
+  padding-left: 22px;
+  margin: 0;
+}
+
+.cronograma-info li {
+  color: var(--brown-800);
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+.etapa-numero {
+  color: var(--clay);
+  font-size: .8rem;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+}
+
+/* CELULARES */
+
+@media (max-width: 600px) {
+  .cronograma-pasos {
+    gap: 4px;
+  }
+
+  .paso {
+    width: 36px;
+    height: 36px;
+    flex-basis: 36px;
+    font-size: .85rem;
+  }
+
+  .cronograma-pasos::before {
+    top: 17px;
+  }
+
+  .paso-item span {
+    font-size: .65rem;
+  }
+
+  .cronograma-info {
+    padding: 22px;
+  }
+}
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+/* Aplicar Arial también a las tarjetas */
+.tool-card,
+.flip-card,
+.flip-card *,
+.cronograma-info,
+.cronograma-info *,
+.card,
+.card * {
+  font-family: Arial, Helvetica, sans-serif !important;
 }

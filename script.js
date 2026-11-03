@@ -245,14 +245,93 @@
 })(); 
 const indexToggle = document.getElementById("indexToggle");
 const indexMenu = document.getElementById("indexMenu");
+if (indexToggle && indexMenu) {
+  indexToggle.addEventListener("click", () => {
+    indexMenu.classList.toggle("active");
+  });
 
-indexToggle.addEventListener("click", () => {
-  indexMenu.classList.toggle("active");
-});
+  indexMenu.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      indexMenu.classList.remove("active");
+    });
+  });
+}
+const etapas = [
+  {
+    titulo: "Planificación",
+    items: [
+      "Definición de los objetivos del proyecto.",
+      "Organización de las tareas.",
+      "Distribución de responsabilidades.",
+      "Establecimiento de los tiempos de trabajo."
+    ]
+  },
+  {
+    titulo: "Investigación",
+    items: [
+      "Búsqueda de información.",
+      "Análisis de las necesidades.",
+      "Identificación de requisitos.",
+      "Revisión de herramientas disponibles."
+    ]
+  },
+  {
+    titulo: "Diseño",
+    items: [
+      "Organización de las secciones.",
+      "Definición de colores y tipografías.",
+      "Diseño de la interfaz.",
+      "Planificación de la navegación."
+    ]
+  },
+  {
+    titulo: "Desarrollo",
+    items: [
+      "Creación de la estructura HTML.",
+      "Aplicación de estilos CSS.",
+      "Programación con JavaScript.",
+      "Integración de las funcionalidades."
+    ]
+  },
+  {
+    titulo: "Pruebas",
+    items: [
+      "Verificación de los enlaces.",
+      "Prueba de las funcionalidades.",
+      "Detección de errores.",
+      "Revisión de la adaptación a dispositivos."
+    ]
+  },
+  {
+    titulo: "Entrega",
+    items: [
+      "Revisión general del proyecto.",
+      "Corrección de detalles finales.",
+      "Preparación de la presentación.",
+      "Entrega del sitio web."
+    ]
+  }
+];
 
-indexMenu.querySelectorAll("a").forEach(link => {
-  link.addEventListener("click", () => {
-    indexMenu.classList.remove("active");
+const botones = document.querySelectorAll(".paso");
+const informacion = document.getElementById("cronogramaInfo");
+
+botones.forEach((boton) => {
+  boton.addEventListener("click", () => {
+    const indice = Number(boton.dataset.paso);
+    const etapa = etapas[indice];
+
+    if (!etapa || !informacion) return;
+
+    botones.forEach((b) => b.classList.remove("activo"));
+    boton.classList.add("activo");
+
+    informacion.innerHTML = `
+      <span class="etapa-numero">ETAPA 0${indice + 1}</span>
+      <h3>${etapa.titulo}</h3>
+      <ul>
+        ${etapa.items.map((item) => `<li>${item}</li>`).join("")}
+      </ul>
+    `;
   });
 });
-// Fin de la función principal.

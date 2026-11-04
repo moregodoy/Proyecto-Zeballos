@@ -77,7 +77,6 @@
     }
 
     // Actualiza el menú cuando el usuario se desplaza por la página.
-    // "passive: true" indica que el evento no necesita bloquear el desplazamiento.
     document.addEventListener("scroll", actualizarMenu, {
       passive: true
     });
@@ -88,24 +87,17 @@
 
   //  PESTAÑAS DE FUNDAMENTOS: ISO 9126 E ISO 25000 
 
-  // Busca los botones y los paneles de las pestañas de las normas ISO.
   const botonesISO = document.querySelectorAll("[data-tab]");
   const panelesISO = document.querySelectorAll("[data-panel]");
 
-  // Recorre cada botón para detectar cuándo se hace clic.
   botonesISO.forEach(function (boton) {
     boton.addEventListener("click", function () {
-
-      // Obtiene el identificador de la pestaña seleccionada.
       const clave = boton.getAttribute("data-tab");
 
-      // Activa el botón seleccionado y desactiva los demás.
       botonesISO.forEach(function (otroBoton) {
         otroBoton.classList.toggle("active", otroBoton === boton);
       });
 
-      // Muestra el panel que coincide con la pestaña seleccionada.
-      // Los demás paneles pierden la clase "active".
       panelesISO.forEach(function (panel) {
         panel.classList.toggle(
           "active",
@@ -117,23 +109,17 @@
 
   //  PESTAÑAS DE MODELOS TRADICIONALES 
 
-  // Busca los botones y paneles de los modelos tradicionales.
   const botonesModelos = document.querySelectorAll("[data-tab2]");
   const panelesModelos = document.querySelectorAll("[data-panel2]");
 
-  // Recorre los botones para detectar cuál selecciona el usuario.
   botonesModelos.forEach(function (boton) {
     boton.addEventListener("click", function () {
-
-      // Obtiene el identificador del modelo seleccionado.
       const modelo = boton.getAttribute("data-tab2");
 
-      // Marca como activo el botón seleccionado.
       botonesModelos.forEach(function (otroBoton) {
         otroBoton.classList.toggle("active", otroBoton === boton);
       });
 
-      // Muestra el panel del modelo seleccionado.
       panelesModelos.forEach(function (panel) {
         panel.classList.toggle(
           "active",
@@ -145,36 +131,23 @@
 
   //  FILTRO DE HERRAMIENTAS 
 
-  // Busca los botones que permiten filtrar las herramientas.
   const botonesFiltro = document.querySelectorAll(
     ".tool-filters .tool-filter"
   );
-
-  // Busca todas las tarjetas de herramientas que se pueden filtrar.
-  const tarjetas = document.querySelectorAll(
+  const tarjetasHerramientas = document.querySelectorAll(
     "#toolsGrid .tool-card"
   );
 
-  // Detecta los clics en los botones de filtro.
   botonesFiltro.forEach(function (boton) {
     boton.addEventListener("click", function () {
-
-      // Obtiene la categoría que se quiere mostrar.
       const filtro = boton.getAttribute("data-filter");
 
-      // Activa el botón elegido y desactiva los otros.
       botonesFiltro.forEach(function (otroBoton) {
         otroBoton.classList.toggle("active", otroBoton === boton);
       });
 
-      // Recorre todas las tarjetas para decidir cuáles mostrar.
-      tarjetas.forEach(function (tarjeta) {
-
-        // Obtiene la categoría de cada herramienta.
+      tarjetasHerramientas.forEach(function (tarjeta) {
         const categoria = tarjeta.getAttribute("data-category");
-
-        // Oculta la tarjeta si no coincide con el filtro.
-        // Si el filtro es "todos", muestra todas las tarjetas.
         tarjeta.hidden =
           filtro !== "todos" && categoria !== filtro;
       });
@@ -183,32 +156,23 @@
 
   //  INTERACCIÓN DE LAS ETAPAS DEL SDLC 
 
-  // Busca las etapas del ciclo de vida del desarrollo de software.
   const etapasSDLC = document.querySelectorAll(
     "#sdlcTimeline .tl-step"
   );
 
-  // Función que activa una etapa y desactiva las demás.
   function activarEtapa(etapa) {
     etapasSDLC.forEach(function (otraEtapa) {
       otraEtapa.classList.toggle("active", otraEtapa === etapa);
     });
   }
 
-  // Agrega diferentes eventos a cada etapa del SDLC.
   etapasSDLC.forEach(function (etapa) {
-
-    // Activa la etapa cuando el cursor pasa por encima.
     etapa.addEventListener("mouseenter", function () {
       activarEtapa(etapa);
     });
-
-    // Activa la etapa cuando recibe el foco del teclado.
     etapa.addEventListener("focusin", function () {
       activarEtapa(etapa);
     });
-
-    // También activa la etapa cuando el usuario hace clic.
     etapa.addEventListener("click", function () {
       activarEtapa(etapa);
     });
@@ -216,33 +180,24 @@
 
   //  TARJETAS CAJA NEGRA Y CAJA BLANCA 
 
-  // Busca las tarjetas que tienen la clase "flip-card".
   const tarjetasFlip = document.querySelectorAll(".flip-card");
 
-  // Recorre las tarjetas para agregarles interacción.
   tarjetasFlip.forEach(function (tarjeta) {
-
-    // Al hacer clic, agrega o quita "flipped" para cambiar la tarjeta.
     tarjeta.addEventListener("click", function () {
       tarjeta.classList.toggle("flipped");
     });
 
-    // Permite interactuar con la tarjeta usando el teclado.
     tarjeta.addEventListener("keydown", function (evento) {
-
-      // Comprueba si se presionó Enter o la barra espaciadora.
       if (evento.key === "Enter" || evento.key === " ") {
-
-        // Evita que la barra espaciadora desplace la página.
         evento.preventDefault();
-
-        // Cambia el estado de la tarjeta.
         tarjeta.classList.toggle("flipped");
       }
     });
   });
 
 })(); 
+
+// ÍNDICE FLOTANTE
 const indexToggle = document.getElementById("indexToggle");
 const indexMenu = document.getElementById("indexMenu");
 if (indexToggle && indexMenu) {
@@ -256,42 +211,42 @@ if (indexToggle && indexMenu) {
     });
   });
 }
+
+// CRONOGRAMA DE UN SPRINT
 const etapas = [
   {
     titulo: "Planificación",
     items: [
       "¿Por qué es valioso este sprint? El propietario expone el valor esperado.",
-      "¿Qué se puede hacer? Los desarrolladores eigen elementos de la pila del producto.",
+      "¿Qué se puede hacer? Los desarrolladores eligen elementos de la pila del producto.",
       "¿Cómo se hará? Se descomponen en tareas de un día o menos.",
     ],
-     participantes: "Propietario del producto, desarrolladores y Scrum Master.",
-duracion: "Hasta una jornada completa.",
-resultado: "Pila del sprint y objetivo del sprint."
+    participantes: "Propietario del producto, desarrolladores y Scrum Master.",
+    duracion: "Hasta una jornada completa.",
+    resultado: "Pila del sprint y objetivo del sprint."
   },
   {
     titulo: "Desarrollo",
     items: [
       "El equipo se autogestiona y se reparte las tareas de la pila del sprint.",
       "Solo los desarrolladores modifican la pila del sprint.",
-      "Se cumple la definicion de <<hecho>> acordada.",
+      "Se cumple la definición de <<hecho>> acordada.",
     ],
     participantes: "Desarrolladores",
-duracion: "Hasta 4 semanas en total (duración fija)",
-resultado: "Incremento terminado, probado y operativo"
+    duracion: "Hasta 4 semanas en total (duración fija)",
+    resultado: "Incremento terminado, probado y operativo"
   },
   {
     titulo: "Scrum Diario",
     items: [
-      "Cada persona cuenta qué logró desde la ultima reunión.",
+      "Cada persona cuenta qué logró desde la última reunión.",
       "Dice qué hará hasta la siguiente.",
       "Avisa si tiene o prevé algún impedimento.",
     ],
     participantes: "Desarrolladores (otros pueden mirar sin intervenir)",
-duracion: "Máximo 15 minutos, cada día",
-resultado: "Pila del sprint y gráfico burn down actualizado"
-
+    duracion: "Máximo 15 minutos, cada día",
+    resultado: "Pila del sprint y gráfico burn down actualizado"
   },
-  
   {
     titulo: "Revisión",
     items: [
@@ -300,37 +255,34 @@ resultado: "Pila del sprint y gráfico burn down actualizado"
       "Se recogen sugerencias que pueden cambiar la pila del producto.",
     ],
     participantes: "Todo el equipo scrum e interesados",
-duracion: "1 a 2 horas (hasta 4 si es complejo)",
-resultado: "Feedback para el propietario del producto"
-
+    duracion: "1 a 2 horas (hasta 4 si es complejo)",
+    resultado: "Feedback para el propietario del producto"
   },
   {
     titulo: "Retrospectiva",
     items: [
-      "Se analiza el <<como>> del trabajo, no el producto.",
-      "Se identifican fortalezas y puntos debiles.",
+      "Se analiza el <<cómo>> del trabajo, no el producto.",
+      "Se identifican fortalezas y puntos débiles.",
       "Se acuerdan acciones de mejora concretas.",
     ],
     participantes: "Todo el equipo scrum",
-duracion: "1 a 3 horas",
-resultado: "Plan de mejoras para el próximo sprint"
-
+    duracion: "1 a 3 horas",
+    resultado: "Plan de mejoras para el próximo sprint"
   }
 ];
-
 
 const botones = document.querySelectorAll(".paso");
 const informacion = document.getElementById("cronogramaInfo");
 const informacionExtra = document.getElementById("cronogramaExtra");
-const tarjetas = document.querySelector(".cronograma-tarjetas");
+const tarjetasCronograma = document.querySelector(".cronograma-tarjetas");
 
 botones.forEach((boton) => {
   boton.addEventListener("click", () => {
     const indice = Number(boton.dataset.paso);
     const etapa = etapas[indice];
 
-    if (!etapa || !informacion || !informacionExtra) return;
-    tarjetas.classList.add("mostrar");
+    if (!etapa || !informacion || !informacionExtra || !tarjetasCronograma) return;
+    tarjetasCronograma.classList.add("mostrar");
 
     botones.forEach((b) => b.classList.remove("activo"));
     boton.classList.add("activo");
@@ -355,9 +307,9 @@ botones.forEach((boton) => {
     `;
   });
 });
+
 // TABLERO INTERACTIVO KANBAN
 (function () {
-
   const tablero = document.getElementById("kanbanTablero");
   const botonReiniciar = document.getElementById("reiniciarKanban");
 
@@ -378,7 +330,6 @@ botones.forEach((boton) => {
   };
 
   let tareas = JSON.parse(JSON.stringify(estadoInicial));
-
   const columnas = ["pendiente", "curso", "terminado"];
 
   function moverTarea(id, destino) {
@@ -388,7 +339,6 @@ botones.forEach((boton) => {
 
     if (!origen || origen === destino) return;
 
-    // En curso admite un máximo de 3 tareas
     if (destino === "curso" && tareas.curso.length >= 3) {
       alert("La columna En curso ya tiene 3 tareas como máximo.");
       return;
@@ -406,6 +356,7 @@ botones.forEach((boton) => {
       const elemento = tablero.querySelector(
         `[data-columna="${columna}"]`
       );
+      if (!elemento) return;
 
       const contenedor = elemento.querySelector(".kanban-tareas");
       const contador = elemento.querySelector(".kanban-contador");
@@ -424,7 +375,6 @@ botones.forEach((boton) => {
 
         tarjeta.innerHTML = `
           <p>${tarea.titulo}</p>
-
           <div class="kanban-flechas">
             <button
               type="button"
@@ -432,7 +382,6 @@ botones.forEach((boton) => {
               aria-label="Mover a la columna anterior"
               ${!puedeIzquierda ? "disabled" : ""}
             >◀</button>
-
             <button
               type="button"
               data-direccion="1"
@@ -447,7 +396,6 @@ botones.forEach((boton) => {
     });
   }
 
-  // Mover con las flechas
   tablero.addEventListener("click", function (evento) {
     const boton = evento.target.closest("[data-direccion]");
     if (!boton || boton.disabled) return;
@@ -466,7 +414,6 @@ botones.forEach((boton) => {
     if (destino) moverTarea(id, destino);
   });
 
-  // Arrastrar tarjetas
   tablero.addEventListener("dragstart", function (evento) {
     const tarjeta = evento.target.closest(".kanban-tarjeta");
     if (!tarjeta) return;
@@ -505,23 +452,22 @@ botones.forEach((boton) => {
     moverTarea(id, destino);
   });
 
-  // Reiniciar tablero
   botonReiniciar.addEventListener("click", function () {
     tareas = JSON.parse(JSON.stringify(estadoInicial));
     mostrarTablero();
   });
 
   mostrarTablero();
+})();
 
-})();// FILTRO Y BUSCADOR DEL GLOSARIO
-
+// FILTRO Y BUSCADOR DEL GLOSARIO
 const buscador = document.getElementById("buscarTermino");
 const botonesLetra = document.querySelectorAll(".letra-btn");
 const seccionesLetra = document.querySelectorAll(".letra-glosario");
+
 // DESACTIVAR LETRAS SIN DEFINICIONES
 botonesLetra.forEach(function(boton) {
     const letra = boton.dataset.letra;
-
     if (letra === "todas") return;
 
     const existe = Array.from(seccionesLetra).some(function(seccion) {
@@ -534,12 +480,11 @@ botonesLetra.forEach(function(boton) {
     }
 });
 
-let letraSeleccionada = "";
+let letraSeleccionada = "todas"; // Valor inicial por defecto para mostrar todo al cargar
 
 // FILTRO POR LETRAS
 botonesLetra.forEach(function(boton) {
     boton.addEventListener("click", function() {
-
         letraSeleccionada = boton.dataset.letra;
 
         botonesLetra.forEach(function(btn) {
@@ -547,7 +492,6 @@ botonesLetra.forEach(function(boton) {
         });
 
         boton.classList.add("activo");
-
         actualizarGlosario();
     });
 });
@@ -561,22 +505,23 @@ if (buscador) {
 
 // ACTUALIZAR GLOSARIO
 function actualizarGlosario() {
-
     const texto = buscador ? buscador.value.toLowerCase().trim() : "";
 
     seccionesLetra.forEach(function(seccion) {
-
         const terminos = seccion.querySelectorAll(".termino");
         let hayResultados = false;
 
         terminos.forEach(function(termino) {
-
             const contenido = termino.textContent.toLowerCase();
-            const inicial = termino.querySelector(".letra-inicial").textContent.trim();
+            const inicialElemento = termino.querySelector(".letra-inicial");
+            const inicial = inicialElemento ? inicialElemento.textContent.trim() : "";
 
             const coincideTexto = contenido.includes(texto);
-           const coincideLetra = letraSeleccionada !== "" &&
-    (letraSeleccionada === "todas" || inicial === letraSeleccionada);
+            const coincideLetra = 
+                letraSeleccionada === "todas" || 
+                letraSeleccionada === "" || 
+                inicial === letraSeleccionada;
+
             if (coincideTexto && coincideLetra) {
                 termino.style.display = "flex";
                 hayResultados = true;
@@ -585,23 +530,23 @@ function actualizarGlosario() {
             }
         });
 
-seccion.style.display = hayResultados ? "contents" : "none";    });
-}// PREGUNTAS FRECUENTES
+        seccion.style.display = hayResultados ? "contents" : "none";
+    });
+}
 
+// PREGUNTAS FRECUENTES
 const preguntas = document.querySelectorAll(".pregunta");
 
 preguntas.forEach(function(pregunta) {
     const boton = pregunta.querySelector(".pregunta-btn");
-
-    boton.addEventListener("click", function() {
-        pregunta.classList.toggle("activa");
-    });
+    if (boton) {
+        boton.addEventListener("click", function() {
+            pregunta.classList.toggle("activa");
+        });
+    }
 });
-// OCULTAR TODAS LAS DEFINICIONES AL ENTRAR
-seccionesLetra.forEach(function(seccion) {
-    seccion.style.display = "none";
-});// MOSTRAR Y OCULTAR SOLUCIONES
 
+// MOSTRAR Y OCULTAR SOLUCIONES
 const botonesSolucion = document.querySelectorAll(".solucion-btn");
 
 botonesSolucion.forEach(function(boton) {

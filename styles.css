@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
 
 * {
   font-family: var(--fuente-principal);
@@ -716,7 +715,6 @@ footer {
 p,
 li,
 h1,
-h2,
 h3,
 h4,
 a,
@@ -1234,27 +1232,17 @@ button {
 .agiles-manifesto {
   padding: 70px 0 55px;
 }
-
 .manifesto-heading {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: 40px;
-}
-
-.manifesto-heading h2 {
-  font-size: 2rem;
-  margin-bottom: 10px;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .manifesto-heading p {
-  max-width: 360px;
-  text-align: right;
-  font-family: Arial, sans-serif;
-  line-height: 1.7;
-  margin: 0;
+    text-align: right;
+    align-self: flex-end;
+    margin-right: 0;
+    max-width: 85%;
 }
-
 .manifesto-content {
   margin-top: 55px;
   max-width: 900px;
@@ -3282,8 +3270,13 @@ border: 1px solid #3a291c;  color: #fff;
 #scrum h2 {
     font-size: 32px;
 }
+#manifiesto h2 {
+    font-size: 32px;
+}
+#kanban h2 {
+    font-size: 32px;
+}
 /* AJUSTES PARA CELULARES */
-
 @media (max-width: 600px) {
 
     * {
@@ -3361,4 +3354,41 @@ border: 1px solid #3a291c;  color: #fff;
     .flujo-paso {
         width: 100%;
     }
+}
+@media (max-width: 600px) {
+
+    .equipo-encabezado p,
+    .como-frase {
+        text-align: right;
+    }
+
+}@media (max-width: 600px) {
+
+    .equipo-encabezado p,
+    .como-frase {
+        text-align: right;
+        align-self: flex-end;
+        max-width: 85%;
+    }
+
+}
+@media (max-width: 600px) {
+  .manifesto-heading {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .manifesto-heading h2 {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+
+  .manifesto-heading p {
+    text-align: right;
+    align-self: center;
+    max-width: 45%;
+    margin: 0;
+  }
 }

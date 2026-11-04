@@ -1072,71 +1072,76 @@
   </div>
 
   <!-- MANIFIESTO ÁGIL -->
-<div class="agiles-container">
-    <div class="agiles-container manifesto-heading">
-      <section id="manifiesto">
+<section id="manifiesto" class="block">
+  <div class="wrap">
+    
+    <!-- Cabecera de dos columnas -->
+    <div class="section-head">
       <h2>El Manifiesto Ágil</h2>
+      <div class="side">
+        Nació en 2001, cuando 17 profesionales criticaron los modelos basados en procesos pesados.
+      </div>
+    </div>
 
-      <p>
-        Nació en 2001, cuando 17 profesionales criticaron los modelos
-        basados en procesos pesados.
+    <!-- Grilla de valores -->
+    <div class="info-grid">
+      <div class="info-box">
+        <span class="info-tag">Valor 1</span>
+        <h3>Personas sobre procesos</h3>
+        <p>Los procesos y las herramientas ayudan, pero el talento y la interacción del equipo pesan más.</p>
+      </div>
+
+      <div class="info-box">
+        <span class="info-tag">Valor 2</span>
+        <h3>Software que funciona</h3>
+        <p>Se prioriza el producto operativo; la documentación se reduce a lo que aporta valor.</p>
+      </div>
+
+      <div class="info-box">
+        <span class="info-tag">Valor 3</span>
+        <h3>Colaboración con el cliente</h3>
+        <p>El cliente acompaña al equipo en lugar de limitarse a lo pactado en un contrato inicial.</p>
+      </div>
+
+      <div class="info-box">
+        <span class="info-tag">Valor 4</span>
+        <h3>Respuesta al cambio</h3>
+        <p>Adaptarse es más valioso que seguir un plan cerrado, sobre todo si los requisitos cambian.</p>
+      </div>
+    </div>
+
+    <!-- Caja inferior -->
+    <div class="info-box info-box-wide" style="width: 100%; aspect-ratio: auto; padding: 22px 26px; margin-top: 20px;">
+      <p style="margin: 0;">
+        <strong>Frente a lo tradicional:</strong> la gestión predictiva (cascada, modelo en V) busca cumplir plazos, costos y alcance fijados de antemano. La agilidad parte de un mínimo viable y lo hace crecer con feedback continuo.
       </p>
     </div>
-<div class="agiles-container">
-<div class="info-grid">
 
-  <div class="info-box">
-   <span class="info-tag">Valor 1</span>
-    <h3>Personas sobre procesos</h3>
-    <p>Los procesos y las herramientas ayudan, pero el talento y la interacción del equipo pesan más.</p>
   </div>
+</section>
+<section id="scrum" class="block">
+  <div class="wrap">
 
-  <div class="info-box">
-   <span class="info-tag">Valor 2</span>
-    <h3>Software que funciona</h3>
-    <p>Se prioriza el producto operativo; la documentación se reduce a lo que aporta valor.</p>
+    <!-- Cabecera de dos columnas -->
+    <div class="section-head">
+      <h2>Scrum</h2>
+      <div class="side">
+        Un marco ágil con sprints de duración fija, roles claros y reuniones breves.
+      </div>
+    </div>
+
+    <!-- Párrafo descriptivo -->
+    <p style="max-width: 65ch; margin-bottom: 30px;">
+      El nombre viene del rugby: el equipo avanza junto, empujando en bloque. En Scrum el trabajo se organiza en sprints (no más de 4 semanas), y cada uno termina con un incremento listo para entregar.
+    </p>
+
+    <!-- Contenedor del gráfico / diagrama de Scrum -->
+    <div class="scrum-image-container" style="background: var(--cream-card); border: 1px solid var(--cream-line); border-radius: 16px; padding: 30px; text-align: center;">
+      <img src="IMAGENES/estaimagen.jpg" alt="Diagrama del ciclo de Scrum" style="max-width: 100%; height: auto;">
+    </div>
+
   </div>
-
-  <div class="info-box">
-   <span class="info-tag">Valor 3</span>
-    <h3>Colaboración con el cliente</h3>
-    <p>El cliente acompaña al equipo en lugar de limitarse a lo pactado en un contrato inicial.</p>
-  </div>
-
-  <div class="info-box">
-   <span class="info-tag">Valor 4</span>
-    <h3>Respuesta al cambio</h3>
-    <p>Adaptarse es más valioso que seguir un plan cerrado, sobre todo si los requisitos cambian.</p>
-  </div>
-
-  <div class="info-box info-box-wide">
-  <p>
-    <span class="texto-color">Frente a lo tradicional:</span>la gestión predictiva (cascada,modelo en v) busca cumplir plazos, costos y alcance fijados de antemano. La agilidad parte de un minimo viable y lo hace crecer con feedback continuo.
-  </p>
-</div>
-
-</div>
-
-</div>
-
-
-  <!-- SCRUM -->
-    <div class="agiles-container">        
-        <section id="scrum">
-        <h2>Scrum</h2>
-        <p>
-          Un marco ágil con sprints de duración fija, roles claros y reuniones breves
-        </p>
-        </div>
-      
-        <div class="agiles-section-title">
-        <p>
-          El nombre viene del rugby: el equipo avanza junto, empujando en bloque. En Scrum el trabajo se organiza en sprints (no más de 4 semanas), y cada uno termina con un incremento listo para entregar.
-        </p>
-<div class="scrum-image-container">
-  <img
-    src="IMAGENES/estaimagen.jpg"
-    alt="Diagrama del ciclo de Scrum">
+</section>
       <!-- ROLES -->
       <h3 class="agiles-subtitle">Roles</h3>
 
@@ -1173,39 +1178,7 @@
       </div>
 
       <!-- ARTEFACTOS -->
-      <h3 class="agiles-subtitle">Artefactos</h3>
-
-      <div class="agiles-grid">
-
-        <article class="agiles-card">
-          <span class="agiles-tag artifact-tag">Artefacto</span>
-          <h3>Pila del producto</h3>
-          <p>
-            Lista priorizada y viva de requisitos, normalmente escritos
-            como historias de usuario. La administra el propietario
-            del producto.
-          </p>
-        </article>
-
-        <article class="agiles-card">
-          <span class="agiles-tag artifact-tag">Artefacto</span>
-          <h3>Pila del sprint</h3>
-          <p>
-            Tareas necesarias para cumplir el sprint, de un día o menos
-            cada una. Solo los desarrolladores la modifican.
-          </p>
-        </article>
-
-        <article class="agiles-card">
-          <span class="agiles-tag artifact-tag">Artefacto</span>
-          <h3>Incremento</h3>
-          <p>
-            Parte del producto terminada, probada y operativa al final
-            del sprint. No cuentan los prototipos ni lo pendiente
-            de pruebas.
-          </p>
-        </article>
-
+       <img src="IMAGENES/estaimagen2.jpg" alt="Diagrama de artefactos de Scrum" >
       </div>
 
     </div>
@@ -1230,7 +1203,6 @@
       <button class="paso" data-paso="1">2</button>
       <span>Desarrollo</span>
     </div>
-
     <div class="paso-item">
       <button class="paso" data-paso="2">3</button>
       <span>Scrum Diario</span>
@@ -1260,30 +1232,25 @@
 </div></section>
 
 <!-- KANBAN -->
-<div class="agiles-container">
+<section id="kanban" class="block">
+  <div class="wrap">
 
-  <div class="agiles-container manifesto-heading">
-    <section id="kanban">
-    <h2>Kanban</h2>
-    <p>
-      Un flujo continuo y visual, sin sprints de duración fija.
-    </p>
-  </div>
-
-  <div class="agiles-section-title">
-    <p>
-      El equipo coloca tareas en un tablero y su columna indica su estado. El límite WIP (Work In Progress) fija cuántas tareas pueden estar a la vez en una etapa, para evitar cuellos de botella.
-    </p>
-
-    <div class="kanban-image-container">
-      <img
-        src="IMAGENES/kanban.jpg"
-        alt="Ejemplo de un tablero Kanban">
+    <!-- Cabecera de dos columnas -->
+    <div class="section-head">
+      <h2>Kanban</h2>
+      <div class="side">
+        Un flujo continuo y visual, sin sprints de duración fija.
+      </div>
     </div>
+
+    <!-- Párrafo descriptivo -->
+    <p style="max-width: 65ch; margin-bottom: 30px;">
+      El equipo coloca tareas en un tablero y su columna indica su estado. El límite WIP (work in process) fija cuántas tareas pueden estar a la vez en una etapa, para evitar cuellos de botella.
+    </p>
+
+   img scr
   </div>
-
-</div>
-
+</section>
 <!-- TABLERO INTERACTIVO KANBAN -->
 <section class="kanban-practica" id="probarKanban">
 
@@ -1349,21 +1316,46 @@
 
 </section>
 
-<!-- EXTREME PROGRAMMING -->
-<div class="agiles-container">
+<!-- EXTREME PROGRAMMING --><section id="xp" class="block">
+  <div class="wrap">
 
-    <div class="manifesto-heading">
-      <section id="xp">
-        <h2>Extreme Programming (XP)</h2>
-        <p>Un conjunto de prácticas técnicas para lograr software de calidad, presupuesto por Kent Beck.</p>
+    <!-- Bloques superiores de Ventajas y Desventajas -->
+    <div class="two-col" style="margin-bottom: 50px;">
+      <div class="panel-box good">
+        <h4>Ventajas</h4>
+        <ul>
+          <li>Se adapta a trabajo que llega de forma continua</li>
+          <li>Muestra cuellos de botella al instante</li>
+          <li>No exige reuniones ni roles propios</li>
+        </ul>
+      </div>
+
+      <div class="panel-box bad">
+        <h4>Desventajas</h4>
+        <ul>
+          <li>Sin plazos fijos, puede haber demoras por perfeccionismo</li>
+          <li>Requiere disciplina para respetar el WIP</li>
+          <li>Sin sprints, hay menos hitos de revisión</li>
+        </ul>
+      </div>
     </div>
 
-    <div class="agiles-section-title">
-        <p>
-            XP lleva al extremo buenas prácticas de ingeniería: ciclo muy cortos, pruebas constantes y comunicación directa. Se combina con frecuencia con Scrum.
-        </p>
+    <!-- Cabecera de dos columnas -->
+    <div class="section-head">
+      <h2>Extreme Programming (XP)</h2>
+      <div class="side">
+        Un conjunto de prácticas técnicas para lograr software de calidad, propuesto por Kent Beck.
+      </div>
     </div>
 
+    <!-- Párrafo descriptivo -->
+    <p style="max-width: 65ch; margin-bottom: 30px;">
+      XP lleva al extremo buenas prácticas de ingeniería: ciclos muy cortos, pruebas constantes y comunicación directa. Se combina con frecuencia con Scrum.
+    </p>
+
+
+  </div>
+</section>
     <div class="agiles-grid">
 
         <div class="agiles-card">

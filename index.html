@@ -1118,11 +1118,11 @@
     </div>
 
   </div>
-</section>
+</section><!-- SCRUM -->
 <section id="scrum" class="block">
   <div class="wrap">
-
-    <!-- Cabecera de dos columnas -->
+    
+    <!-- Cabecera principal de Scrum -->
     <div class="section-head">
       <h2>Scrum</h2>
       <div class="side">
@@ -1130,61 +1130,94 @@
       </div>
     </div>
 
-    <!-- Párrafo descriptivo -->
     <p style="max-width: 65ch; margin-bottom: 30px;">
       El nombre viene del rugby: el equipo avanza junto, empujando en bloque. En Scrum el trabajo se organiza en sprints (no más de 4 semanas), y cada uno termina con un incremento listo para entregar.
     </p>
 
-    <!-- Contenedor del gráfico / diagrama de Scrum -->
-    <div class="scrum-image-container" style="background: var(--cream-card); border: 1px solid var(--cream-line); border-radius: 16px; padding: 30px; text-align: center;">
-      <img src="IMAGENES/estaimagen.jpg" alt="Diagrama del ciclo de Scrum" style="max-width: 100%; height: auto;">
+    <!-- Imagen de Scrum -->
+    <div class="scrum-image-container" style="margin-bottom: 50px;">
+      <img src="IMAGENES/estaimagen.jpg" alt="Diagrama del ciclo de Scrum" style="width: 100%; height: auto; border-radius: 12px;">
     </div>
 
-  </div>
+    <!-- ROLES -->
+    <div class="section-head">
+      <h2>Roles</h2>
+      <div class="side">
+        Los actores principales que participan y estructuran el marco de trabajo en Scrum.
+      </div>
+    </div>
+
+    <div class="agiles-grid">
+      <article class="agiles-card">
+        <span class="agiles-tag role-tag">Rol</span>
+        <h3>Propietario del producto</h3>
+        <p>
+          Representa al cliente, es una sola persona y decide el orden
+          de la pila del producto. Su responsabilidad es el valor
+          del producto.
+        </p>
+      </article>
+
+      <article class="agiles-card">
+        <span class="agiles-tag role-tag">Rol</span>
+        <h3>Desarrolladores</h3>
+        <p>
+          Entre 3 y 9 profesionales multifuncionales que se autogestionan
+          y comparten la responsabilidad de construir el incremento.
+        </p>
+      </article>
+
+      <article class="agiles-card">
+        <span class="agiles-tag role-tag">Rol</span>
+        <h3>Scrum master</h3>
+        <p>
+          Garantiza que se cumplan las reglas del marco, modera el scrum
+          diario y resuelve los impedimentos del equipo.
+        </p>
+      </article>
+    </div>
+
+    <!-- ARTEFACTOS -->
+    <div class="section-head" style="margin-top: 50px;">
+      <h2>Artefactos</h2>
+      <div class="side">
+        Elementos de información diseñados para definir el trabajo y su valor.
+      </div>
+    </div>
+
+    <div class="agiles-grid">
+      <article class="agiles-card">
+        <span class="agiles-tag artifact-tag">Artefacto</span>
+        <h3>Pila del producto</h3>
+        <p>
+          Lista priorizada y viva de requisitos, normalmente escritos
+          como historias de usuario. La administra el propietario
+          del producto.
+        </p>
+      </article>
+
+      <article class="agiles-card">
+        <span class="agiles-tag artifact-tag">Artefacto</span>
+        <h3>Pila del sprint</h3>
+        <p>
+          Tareas necesarias para cumplir el sprint, de un día o menos
+          cada una. Solo los desarrolladores la modifican.
+        </p>
+      </article>
+
+      <article class="agiles-card">
+        <span class="agiles-tag artifact-tag">Artefacto</span>
+        <h3>Incremento</h3>
+        <p>
+          Parte del producto terminada, probada y operativa al final
+          del sprint. No cuentan los prototipos ni lo pendiente
+          de pruebas.
+        </p>
+      </article>
+    </div>
+
+  </div> <!-- FIN DE .wrap -->
 </section>
-      <!-- ROLES -->
-      <h3 class="agiles-subtitle">Roles</h3>
-
-      <div class="agiles-grid">
-
-        <article class="agiles-card">
-          <span class="agiles-tag role-tag">Rol</span>
-          <h3>Propietario del producto</h3>
-          <p>
-            Representa al cliente, es una sola persona y decide el orden
-            de la pila del producto. Su responsabilidad es el valor
-            del producto.
-          </p>
-        </article>
-
-        <article class="agiles-card">
-          <span class="agiles-tag role-tag">Rol</span>
-          <h3>Desarrolladores</h3>
-          <p>
-            Entre 3 y 9 profesionales multifuncionales que se autogestionan
-            y comparten la responsabilidad de construir el incremento.
-          </p>
-        </article>
-
-        <article class="agiles-card">
-          <span class="agiles-tag role-tag">Rol</span>
-          <h3>Scrum master</h3>
-          <p>
-            Garantiza que se cumplan las reglas del marco, modera el scrum
-            diario y resuelve los impedimentos del equipo.
-          </p>
-        </article>
-
-      </div>
-
-      <!-- ARTEFACTOS -->
-       <img src="IMAGENES/estaimagen2.jpg" alt="Diagrama de artefactos de Scrum" >
-      </div>
-
-    </div>
-  </section>
-
-
 <section class="cronograma-section" id="cronograma">
 
   <div class="cronograma-heading">
@@ -1248,7 +1281,7 @@
       El equipo coloca tareas en un tablero y su columna indica su estado. El límite WIP (work in process) fija cuántas tareas pueden estar a la vez en una etapa, para evitar cuellos de botella.
     </p>
 
-   img scr
+   <img src="imagenes/kanban.jpg" alt="Diagrama de un tablero Kanban">
   </div>
 </section>
 <!-- TABLERO INTERACTIVO KANBAN -->
@@ -1315,31 +1348,10 @@
   </div>
 
 </section>
-
-<!-- EXTREME PROGRAMMING --><section id="xp" class="block">
+<!-- EXTREME PROGRAMMING -->
+<section id="xp" class="block">
   <div class="wrap">
-
-    <!-- Bloques superiores de Ventajas y Desventajas -->
-    <div class="two-col" style="margin-bottom: 50px;">
-      <div class="panel-box good">
-        <h4>Ventajas</h4>
-        <ul>
-          <li>Se adapta a trabajo que llega de forma continua</li>
-          <li>Muestra cuellos de botella al instante</li>
-          <li>No exige reuniones ni roles propios</li>
-        </ul>
-      </div>
-
-      <div class="panel-box bad">
-        <h4>Desventajas</h4>
-        <ul>
-          <li>Sin plazos fijos, puede haber demoras por perfeccionismo</li>
-          <li>Requiere disciplina para respetar el WIP</li>
-          <li>Sin sprints, hay menos hitos de revisión</li>
-        </ul>
-      </div>
-    </div>
-
+    
     <!-- Cabecera de dos columnas -->
     <div class="section-head">
       <h2>Extreme Programming (XP)</h2>
@@ -1353,21 +1365,19 @@
       XP lleva al extremo buenas prácticas de ingeniería: ciclos muy cortos, pruebas constantes y comunicación directa. Se combina con frecuencia con Scrum.
     </p>
 
-
-  </div>
-</section>
+    <!-- Grilla de tarjetas (AHORA SÍ DENTRO DEL WRAP) -->
     <div class="agiles-grid">
 
         <div class="agiles-card">
             <span class="agiles-tag xp-tag">Práctica</span>
             <h3>Programación en pareja</h3>
-            <p>Dos personas trabajan juntas en una tarea; na escribe y la otra revisa en el momento.</p>
+            <p>Dos personas trabajan juntas en una tarea; una escribe y la otra revisa en el momento.</p>
         </div>
 
         <div class="agiles-card">
             <span class="agiles-tag xp-tag">Práctica</span>
             <h3>Desarrollo guiado por pruebas</h3>
-            <p>Primero se escriben los tests (TTD) y después el código que debe pasarlos.</p>
+            <p>Primero se escriben los tests (TDD) y después el código que debe pasarlos.</p>
         </div>
 
         <div class="agiles-card">
@@ -1379,7 +1389,7 @@
         <div class="agiles-card">
             <span class="agiles-tag xp-tag">Práctica</span>
             <h3>Refactorización</h3>
-            <p>Se mejora la estructura del código sin cambiar su comportamiento,para mantenerlo simple.</p>
+            <p>Se mejora la estructura del código sin cambiar su comportamiento, para mantenerlo simple.</p>
         </div>
 
         <div class="agiles-card">
@@ -1395,7 +1405,9 @@
         </div>
 
     </div>
-</div>
+
+  </div>
+</section>
 <!-- ===================== RECURSOS ===================== -->
 
 

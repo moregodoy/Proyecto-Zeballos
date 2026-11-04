@@ -2427,10 +2427,11 @@ border: 1px solid #3a291c;  color: #fff;
 .glosario-grid .termino p,
 .glosario-grid .letra-inicial {
     font-family: Arial, sans-serif;
-}/* PREGUNTAS FRECUENTES */
+}
+/* PREGUNTAS FRECUENTES */
 
 .seccion-preguntas {
-    padding: 60px 20px;
+    padding: 60px 20px 0px;
     background: var(--cream-bg);
 }
 
@@ -2510,14 +2511,15 @@ border: 1px solid #3a291c;  color: #fff;
         font-size: 14px;
         padding: 15px;
     }
-}/* EJERCICIOS Y CASOS PRÁCTICOS */
+}
+/* EJERCICIOS Y CASOS PRÁCTICOS */
 
 /* EJERCICIOS Y CASOS PRÁCTICOS */
 
 .ejercicios-seccion {
     max-width: 1150px;
-    margin: 0 auto;
-    padding: 50px 35px;
+    margin: -15px auto 0;
+    padding: 10px 35px 50px;
 }
 
 .ejercicios-encabezado {
@@ -3391,4 +3393,77 @@ border: 1px solid #3a291c;  color: #fff;
     max-width: 45%;
     margin: 0;
   }
+}
+/* Contenedor centralizado para no pegar al borde */
+.wrap {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 32px; /* Margen interno para despegar de las orillas */
+}
+
+/* Grilla fija de 3 columnas */
+.agiles-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Hace exactamente 3 tarjetas por fila */
+  gap: 22px; /* Separación entre cada tarjeta */
+  width: 100%;
+}
+/* Corrección definitiva para la cabecera de Roles y Artefactos */
+.section-head {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: flex-end !important;
+  gap: 20px !important;
+  margin: 40px 0 25px 0 !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.section-head h2 {
+  margin: 0 !important;
+  flex-shrink: 0 !important;
+}
+
+.section-head .side {
+  text-align: right !important;
+  max-width: 40ch !important;
+  font-family: Arial, sans-serif !important;
+  font-size: 0.92rem !important;
+  color: var(--ink-soft) !important;
+  line-height: 1.4 !important;
+}
+
+/* Asegurar que las secciones de Roles y Artefactos estén dentro del wrap */
+#scrum .wrap, 
+.agiles-container {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding-left: 32px;
+  padding-right: 32px;
+  box-sizing: border-box;
+}/* Aplicar tipografía Arial exclusivamente a las secciones de Roles y Artefactos */
+
+/* Títulos y descripciones superiores (section-head) de Roles y Artefactos */
+.agiles-grid + .section-head,
+.section-head:has(+ .agiles-grid) {
+  font-family: Arial, sans-serif !important;
+}
+
+.agiles-grid + .section-head h2,
+.section-head:has(+ .agiles-grid) h2,
+.agiles-grid + .section-head .side,
+.section-head:has(+ .agiles-grid) .side {
+  font-family: Arial, sans-serif !important;
+}
+
+/* Tarjetas (títulos, etiquetas y párrafos) de Roles y Artefactos */
+.agiles-card {
+  font-family: Arial, sans-serif !important;
+}
+
+.agiles-card h3,
+.agiles-card p,
+.agiles-card .agiles-tag {
+  font-family: Arial, sans-serif !important;
 }

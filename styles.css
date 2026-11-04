@@ -4184,3 +4184,25 @@ div[class*="-card"] {
   font-size: 0.8rem !important;   /* Achica la descripción */
   line-height: 1.3 !important;
 }
+/* ==========================================================
+   ACHICAR TEXTO Y ESPACIOS EN .FLIP-BACK
+   ========================================================== */
+.flip-back {
+  padding: 15px !important; /* Reduce el relleno interno de la tarjeta */
+}
+
+.flip-back h3 {
+  font-size: 1.05rem !important; /* Achica el título "Caja negra" */
+  margin-bottom: 6px !important;
+}
+
+.flip-back p,
+.flip-back li {
+  font-size: 0.78rem !important; /* Achica los párrafos y los elementos de la lista */
+  line-height: 1.25 !important;
+  margin-bottom: 4px !important;
+}
+
+.flip-back span {
+  font-size: 0.7rem !important;  /* Achica el texto inferior "Haz clic para volver" */
+}

@@ -3466,4 +3466,210 @@ border: 1px solid #3a291c;  color: #fff;
 .agiles-card p,
 .agiles-card .agiles-tag {
   font-family: Arial, sans-serif !important;
+}/* ==========================================================
+   ESTILO EXACTO DEL CRONOGRAMA (MÁRGENES, LÍNEA Y CÍRCULOS)
+   ========================================================== */
+
+/* Alineación del encabezado a la izquierda */
+.cronograma-heading {
+  text-align: left !important;
+  margin-bottom: 30px !important;
+}
+
+.cronograma-heading h2 {
+  font-family: inherit;
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+  color: var(--brown-900, #3d2b1f);
+}
+
+.cronograma-sub {
+  font-family: Arial, sans-serif !important;
+  color: var(--ink-soft, #665548) !important;
+  font-size: 0.95rem !important;
+  margin: 0;
+}
+
+/* Contenedor de pasos con línea horizontal */
+.cronograma-pasos {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: flex-start !important;
+  position: relative !important;
+  margin: 40px 0 35px 0 !important;
+  padding: 0 40px !important;
+}
+
+/* Línea conectora fina */
+.cronograma-pasos::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 15px !important; /* Centra la línea con las bolitas */
+  left: 60px !important;
+  right: 60px !important;
+  height: 1px !important;
+  background-color: var(--cream-line, #d8c9b5) !important;
+  z-index: 1 !important;
+}
+
+/* Elemento individual del paso */
+.paso-item {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  z-index: 2 !important;
+  text-align: center !important;
+  width: 100px !important;
+}
+
+/* Círculo estilo botón elegante (pequeño y fino) */
+.paso {
+  width: 30px !important;
+  height: 30px !important;
+  min-width: 30px !important;
+  border-radius: 50% !important;
+  border: 1.5px solid var(--clay, #a85632) !important;
+  background-color: var(--cream-bg, #f7eee1) !important;
+  cursor: pointer !important;
+  padding: 0 !important;
+  margin-bottom: 12px !important;
+  transition: all 0.2s ease !important;
+  box-sizing: border-box !important;
+  outline: none !important
+}/* ==========================================================
+   ESTILO EXACTO DEL CRONOGRAMA (MÁRGENES, LÍNEA Y CÍRCULOS)
+   ========================================================== */
+
+/* Alineación del encabezado a la izquierda */
+.cronograma-heading {
+  text-align: left !important;
+  margin-bottom: 30px !important;
+}
+
+.cronograma-heading h2 {
+  font-family: inherit;
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+  color: var(--brown-900, #3d2b1f);
+}
+
+.cronograma-sub {
+  font-family: Arial, sans-serif !important;
+  color: var(--ink-soft, #665548) !important;
+  font-size: 0.95rem !important;
+  margin: 0;
+}
+
+/* Contenedor de pasos con línea horizontal */
+/* Contenedor de los pasos */
+.cronograma-pasos {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: flex-start !important;
+  position: relative !important;
+  margin: 40px auto 35px auto !important;
+  max-width: 850px !important;
+  padding: 0 50px !important;
+}
+
+/* Línea conectora alineada milimétricamente al centro de los círculos (30px / 2 = 15px) */
+.cronograma-pasos::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 15px !important; /* Altura exacta del centro de los círculos de 30px */
+  left: 70px !important;
+  right: 70px !important;
+  height: 1.5px !important;
+  background-color: var(--clay, #a85632) !important; /* Un tono un poco más definido para que luzca bien */
+  opacity: 0.4 !important;
+  z-index: 1 !important;
+}
+/* Elemento individual del paso */
+.paso-item {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  z-index: 2 !important;
+  text-align: center !important;
+  width: 100px !important;
+}
+
+/* Círculo estilo botón elegante (BLINDADO CONTRA DEFORMACIONES) */
+button.paso,
+.paso {
+  width: 30px !important;
+  height: 30px !important;
+  min-width: 30px !important;
+  max-width: 30px !important;
+  min-height: 30px !important;
+  max-height: 30px !important;
+  aspect-ratio: 1 / 1 !important; /* Forza proporciones 1:1 perfectas */
+  flex-shrink: 0 !important;      /* Evita que flexbox aplaste el botón */
+  border-radius: 50% !important;
+  border: 1.5px solid var(--clay, #a85632) !important;
+  background-color: var(--cream-bg, #f7eee1) !important;
+  cursor: pointer !important;
+  padding: 0 !important;          /* Anula cualquier padding heredado de otros botones */
+  margin: 0 0 12px 0 !important;
+  transition: transform 0.2s ease, background-color 0.2s ease !important;
+  box-sizing: border-box !important;
+  outline: none !important;
+  line-height: 0 !important;
+  font-size: 0 !important;       /* Oculta cualquier residuo de texto interno */
+  display: inline-block !important;
+}
+
+/* Hover suave */
+button.paso:hover,
+.paso:hover {
+  transform: scale(1.1) !important;
+}
+
+/* Círculo seleccionado (relleno completo terracota) */
+button.paso.activo,
+.paso.activo {
+  background-color: var(--clay, #a85632) !important;
+  border-color: var(--clay, #a85632) !important;
+}
+
+/* Texto debajo del círculo */
+.paso-item span {
+  font-family: Arial, sans-serif !important;
+  font-size: 0.88rem !important;
+  color: var(--brown-800, #3d2b1f) !important;
+  font-weight: 500 !important;
+};
+
+
+/* Hover suave */
+.paso:hover {
+  transform: scale(1.1);
+}
+
+/* Círculo seleccionado (relleno completo terracota) */
+.paso.activo {
+  background-color: var(--clay, #a85632) !important;
+  border-color: var(--clay, #a85632) !important;
+}
+
+/* Texto debajo del círculo */
+.paso-item span {
+  font-family: Arial, sans-serif !important;
+  font-size: 0.88rem !important;
+  color: var(--brown-800, #3d2b1f) !important;
+  font-weight: 500 !important;
+}/* Forzar fuente Arial y estilos limpios en las tarjetas del cronograma */
+.cronograma-tarjetas, 
+.cronograma-tarjetas *, 
+.cronograma-info, 
+.cronograma-info *, 
+.cronograma-extra, 
+.cronograma-extra * {
+  font-family: Arial, sans-serif !important;
+}
+
+/* Títulos pequeños de la tarjeta derecha en minúsculas y sin mayúsculas automáticas */
+.cronograma-extra h3 {
+  text-transform: none !important;
+  font-weight: normal !important;
 }

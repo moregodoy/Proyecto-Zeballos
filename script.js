@@ -213,102 +213,110 @@ if (indexToggle && indexMenu) {
 }
 
 // CRONOGRAMA DE UN SPRINT
-const etapas = [
-  {
-    titulo: "Planificación",
-    items: [
-      "¿Por qué es valioso este sprint? El propietario expone el valor esperado.",
-      "¿Qué se puede hacer? Los desarrolladores eligen elementos de la pila del producto.",
-      "¿Cómo se hará? Se descomponen en tareas de un día o menos.",
-    ],
-    participantes: "Propietario del producto, desarrolladores y Scrum Master.",
-    duracion: "Hasta una jornada completa.",
-    resultado: "Pila del sprint y objetivo del sprint."
-  },
-  {
-    titulo: "Desarrollo",
-    items: [
-      "El equipo se autogestiona y se reparte las tareas de la pila del sprint.",
-      "Solo los desarrolladores modifican la pila del sprint.",
-      "Se cumple la definición de <<hecho>> acordada.",
-    ],
-    participantes: "Desarrolladores",
-    duracion: "Hasta 4 semanas en total (duración fija)",
-    resultado: "Incremento terminado, probado y operativo"
-  },
-  {
-    titulo: "Scrum Diario",
-    items: [
-      "Cada persona cuenta qué logró desde la última reunión.",
-      "Dice qué hará hasta la siguiente.",
-      "Avisa si tiene o prevé algún impedimento.",
-    ],
-    participantes: "Desarrolladores (otros pueden mirar sin intervenir)",
-    duracion: "Máximo 15 minutos, cada día",
-    resultado: "Pila del sprint y gráfico burn down actualizado"
-  },
-  {
-    titulo: "Revisión",
-    items: [
-      "Se muestra el incremento en funcionamiento.",
-      "Se repasa lo planificado, lo hecho y lo que quedó pendiente.",
-      "Se recogen sugerencias que pueden cambiar la pila del producto.",
-    ],
-    participantes: "Todo el equipo scrum e interesados",
-    duracion: "1 a 2 horas (hasta 4 si es complejo)",
-    resultado: "Feedback para el propietario del producto"
-  },
-  {
-    titulo: "Retrospectiva",
-    items: [
-      "Se analiza el <<cómo>> del trabajo, no el producto.",
-      "Se identifican fortalezas y puntos débiles.",
-      "Se acuerdan acciones de mejora concretas.",
-    ],
-    participantes: "Todo el equipo scrum",
-    duracion: "1 a 3 horas",
-    resultado: "Plan de mejoras para el próximo sprint"
-  }
-];
+// Arreglo de los datos de cada etapa
+document.addEventListener("DOMContentLoaded", () => {
+  const botones = document.querySelectorAll(".paso");
+  const cajaInfo = document.getElementById("cronogramaInfo");
+  const cajaExtra = document.getElementById("cronogramaExtra");
 
-const botones = document.querySelectorAll(".paso");
-const informacion = document.getElementById("cronogramaInfo");
-const informacionExtra = document.getElementById("cronogramaExtra");
-const tarjetasCronograma = document.querySelector(".cronograma-tarjetas");
+  const etapasData = [
+    {
+      titulo: "Planificación",
+      puntos: [
+        "¿Por qué es valioso este sprint? El propietario expone el valor esperado.",
+        "¿Qué se puede hacer? Los desarrolladores eligen elementos de la pila del producto.",
+        "¿Cómo se hará? Se descomponen en tareas de un día o menos."
+      ],
+      participan: "Propietario del producto, desarrolladores y scrum master",
+      duracion: "Hasta una jornada completa",
+      resultado: "Pila del sprint y objetivo del sprint"
+    },
+    {
+      titulo: "Desarrollo",
+      puntos: [
+        "El equipo se autogestiona y se reparte las tareas de la pila del sprint.",
+        "Solo los desarrolladores modifican la pila del sprint.",
+        "Se cumple la definición de «hecho» acordada."
+      ],
+      participan: "Desarrolladores",
+      duracion: "Hasta 4 semanas en total (duración fija)",
+      resultado: "Incremento terminado, probado y operativo"
+    },
+    {
+      titulo: "Scrum diario",
+      puntos: [
+        "Cada persona cuenta qué logró desde la última reunión.",
+        "Dice qué hará hasta la siguiente.",
+        "Avisa si tiene o prevé algún impedimento."
+      ],
+      participan: "Desarrolladores (otros pueden mirar sin intervenir)",
+      duracion: "Máximo 15 minutos, cada día",
+      resultado: "Pila del sprint y gráfico burn down actualizados"
+    },
+    {
+      titulo: "Revisión",
+      puntos: [
+        "El equipo muestra lo que logró construir durante el sprint.",
+        "Se recibe retroalimentación directa del cliente y partes interesadas.",
+        "Se ajusta la pila del producto si surgen nuevas ideas."
+      ],
+      participan: "Todo el equipo Scrum y partes interesadas / clientes",
+      duracion: "Hasta 4 horas",
+      resultado: "Pila del producto revisada y adaptada"
+    },
+    {
+      titulo: "Retrospectiva",
+      puntos: [
+        "El equipo analiza cómo funcionaron las personas, relaciones, procesos y herramientas.",
+        "Se identifican las cosas que salieron bien y las mejoras necesarias.",
+        "Se planifica al menos una mejora concreta para el siguiente sprint."
+      ],
+      participan: "Equipo Scrum (propietario, desarrolladores y scrum master)",
+      duracion: "Hasta 3 horas",
+      resultado: "Plan de mejora continua para el próximo sprint"
+    }
+  ];
 
-botones.forEach((boton) => {
-  boton.addEventListener("click", () => {
-    const indice = Number(boton.dataset.paso);
-    const etapa = etapas[indice];
+  // Definir la lógica de activación
+  botones.forEach((btn, index) => {
+    btn.addEventListener("click", () => {
+      // 1. Resetear todos los círculos a color crema
+      botones.forEach(b => {
+        b.style.setProperty("background-color", "#f7eee1", "important");
+      });
 
-    if (!etapa || !informacion || !informacionExtra || !tarjetasCronograma) return;
-    tarjetasCronograma.classList.add("mostrar");
+      // 2. Pintar únicamente el seleccionado de terracota
+      btn.style.setProperty("background-color", "#a85632", "important");
 
-    botones.forEach((b) => b.classList.remove("activo"));
-    boton.classList.add("activo");
+      // 3. Renderizar datos en las tarjetas
+      const d = etapasData[index];
+      if (d && cajaInfo && cajaExtra) {
+        let lis = d.puntos.map(p => `<li style="margin-bottom: 8px !important;">${p}</li>`).join("");
+        
+        cajaInfo.innerHTML = `
+          <h3 style="margin: 0 0 15px 0 !important; color: #3d2b1f !important; font-size: 1.4rem !important; font-family: Arial, sans-serif !important; font-weight: bold !important;">${d.titulo}</h3>
+          <ul style="padding-left: 20px !important; line-height: 1.6 !important; color: #3d2b1f !important; margin: 0 !important; font-family: Arial, sans-serif !important; font-size: 0.95rem !important;">${lis}</ul>
+        `;
 
-    informacion.innerHTML = `
-      <span class="etapa-numero">ETAPA 0${indice + 1}</span>
-      <h3>${etapa.titulo}</h3>
-      <ul>
-        ${etapa.items.map((item) => `<li>${item}</li>`).join("")}
-      </ul>
-    `;
+        cajaExtra.innerHTML = `
+          <h3 style="color: #d9c9a8 !important; font-size: 0.85rem !important; margin: 0 0 4px 0 !important; font-weight: normal !important; text-transform: none !important; letter-spacing: 0.5px !important; font-family: Arial, sans-serif !important;">Participan</h3>
+          <p style="color: #ffffff !important; font-weight: bold !important; margin: 0 0 20px 0 !important; font-size: 0.95rem !important; font-family: Arial, sans-serif !important;">${d.participan}</p>
 
-    informacionExtra.innerHTML = `
-      <h3>Participantes</h3>
-      <p>${etapa.participantes}</p>
+          <h3 style="color: #d9c9a8 !important; font-size: 0.85rem !important; margin: 0 0 4px 0 !important; font-weight: normal !important; text-transform: none !important; letter-spacing: 0.5px !important; font-family: Arial, sans-serif !important;">Duración</h3>
+          <p style="color: #ffffff !important; font-weight: bold !important; margin: 0 0 20px 0 !important; font-size: 0.95rem !important; font-family: Arial, sans-serif !important;">${d.duracion}</p>
 
-      <h3>Duración</h3>
-      <p>${etapa.duracion}</p>
-
-      <h3>Resultado</h3>
-      <p>${etapa.resultado}</p>
-    `;
+          <h3 style="color: #d9c9a8 !important; font-size: 0.85rem !important; margin: 0 0 4px 0 !important; font-weight: normal !important; text-transform: none !important; letter-spacing: 0.5px !important; font-family: Arial, sans-serif !important;">Resultado</h3>
+          <p style="color: #ffffff !important; font-weight: bold !important; margin: 0 !important; font-size: 0.95rem !important; font-family: Arial, sans-serif !important;">${d.resultado}</p>
+        `;
+      }
+    });
   });
-});
 
-// TABLERO INTERACTIVO KANBAN
+  // SELECCIONAR AUTOMÁTICAMENTE EL PRIMER BOTÓN (PLANIFICACIÓN) AL CARGAR LA PÁGINA
+  if (botones.length > 0) {
+    botones[0].click();
+  }
+});// TABLERO INTERACTIVO KANBAN
 (function () {
   const tablero = document.getElementById("kanbanTablero");
   const botonReiniciar = document.getElementById("reiniciarKanban");

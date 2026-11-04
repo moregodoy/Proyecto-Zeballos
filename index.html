@@ -1216,53 +1216,55 @@
       </article>
     </div>
 
-  </div> <!-- FIN DE .wrap -->
+  </div> 
+  <!-- FIN DE .wrap -->
+</section><!-- CRONOGRAMA DE UN SPRINT -->
+<section class="cronograma-section" id="cronograma" style="padding: 40px 20px !important;">
+  <div class="wrap" style="max-width: 920px !important; margin: 0 auto !important;">
+
+    <!-- Encabezado -->
+    <div class="cronograma-heading" style="text-align: left !important; margin-bottom: 30px !important;">
+      <h2 style="font-family: inherit !important; font-size: 1.8rem !important; color: #3d2b1f !important; margin-bottom: 8px !important;">Cronograma de un sprint</h2>
+      <p style="font-family: Arial, sans-serif !important; color: #665548 !important; font-size: 0.95rem !important; margin: 0 !important;">
+        Elegí una etapa para ver quién participa, cuánto dura y qué se obtiene.
+      </p>
+    </div>
+
+    <!-- Contenedor general del cronograma ajustado al ancho de las tarjetas -->
+    <div style="width: 100% !important; margin: 0 auto 35px auto !important;">
+      
+      <!-- Fila de círculos y línea -->
+      <div style="position: relative !important; display: flex !important; justify-content: space-between !important; align-items: center !important; height: 32px !important; padding: 0 35px !important;">
+        
+        <!-- Línea horizontal conectora -->
+        <div style="position: absolute !important; left: 55px !important; right: 55px !important; top: 50% !important; height: 1.5px !important; background-color: #a85632 !important; opacity: 0.35 !important; transform: translateY(-50%) !important; z-index: 1 !important;"></div>
+
+        <!-- Círculos -->
+        <button class="paso" data-paso="0" style="width: 30px !important; height: 30px !important; min-width: 30px !important; max-width: 30px !important; min-height: 30px !important; max-height: 30px !important; border-radius: 50% !important; border: 1.5px solid #a85632 !important; background-color: #f7eee1 !important; padding: 0 !important; margin: 0 !important; cursor: pointer !important; box-sizing: border-box !important; outline: none !important; z-index: 2 !important; position: relative !important;"></button>
+        <button class="paso" data-paso="1" style="width: 30px !important; height: 30px !important; min-width: 30px !important; max-width: 30px !important; min-height: 30px !important; max-height: 30px !important; border-radius: 50% !important; border: 1.5px solid #a85632 !important; background-color: #f7eee1 !important; padding: 0 !important; margin: 0 !important; cursor: pointer !important; box-sizing: border-box !important; outline: none !important; z-index: 2 !important; position: relative !important;"></button>
+        <button class="paso" data-paso="2" style="width: 30px !important; height: 30px !important; min-width: 30px !important; max-width: 30px !important; min-height: 30px !important; max-height: 30px !important; border-radius: 50% !important; border: 1.5px solid #a85632 !important; background-color: #f7eee1 !important; padding: 0 !important; margin: 0 !important; cursor: pointer !important; box-sizing: border-box !important; outline: none !important; z-index: 2 !important; position: relative !important;"></button>
+        <button class="paso" data-paso="3" style="width: 30px !important; height: 30px !important; min-width: 30px !important; max-width: 30px !important; min-height: 30px !important; max-height: 30px !important; border-radius: 50% !important; border: 1.5px solid #a85632 !important; background-color: #f7eee1 !important; padding: 0 !important; margin: 0 !important; cursor: pointer !important; box-sizing: border-box !important; outline: none !important; z-index: 2 !important; position: relative !important;"></button>
+        <button class="paso" data-paso="4" style="width: 30px !important; height: 30px !important; min-width: 30px !important; max-width: 30px !important; min-height: 30px !important; max-height: 30px !important; border-radius: 50% !important; border: 1.5px solid #a85632 !important; background-color: #f7eee1 !important; padding: 0 !important; margin: 0 !important; cursor: pointer !important; box-sizing: border-box !important; outline: none !important; z-index: 2 !important; position: relative !important;"></button>
+
+      </div>
+
+      <!-- Fila de etiquetas de texto debajo de los círculos -->
+      <div style="display: flex !important; justify-content: space-between !important; margin-top: 10px !important; padding: 0 5px !important;">
+        <span style="width: 90px; text-align: center; font-family: Arial, sans-serif !important; font-size: 0.88rem !important; color: #3d2b1f !important; font-weight: 500 !important;">Planificación</span>
+        <span style="width: 90px; text-align: center; font-family: Arial, sans-serif !important; font-size: 0.88rem !important; color: #3d2b1f !important; font-weight: 500 !important;">Desarrollo</span>
+        <span style="width: 90px; text-align: center; font-family: Arial, sans-serif !important; font-size: 0.88rem !important; color: #3d2b1f !important; font-weight: 500 !important;">Scrum diario</span>
+        <span style="width: 90px; text-align: center; font-family: Arial, sans-serif !important; font-size: 0.88rem !important; color: #3d2b1f !important; font-weight: 500 !important;">Revisión</span>
+        <span style="width: 90px; text-align: center; font-family: Arial, sans-serif !important; font-size: 0.88rem !important; color: #3d2b1f !important; font-weight: 500 !important;">Retrospectiva</span>
+      </div>
+
+    </div>
+
+<!-- TARJETAS INFORMATIVAS (SE LLENAN AUTOMÁTICAMENTE VIA JS) -->
+<div class="cronograma-tarjetas" style="display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 24px !important;">
+  <div class="cronograma-info" id="cronogramaInfo" style="background-color: #f7eee1 !important; border: 1.5px solid #e5d6c2 !important; border-radius: 16px !important; padding: 30px !important; box-sizing: border-box !important;"></div>
+  <div class="cronograma-extra" id="cronogramaExtra" style="background-color: #3d2b1f !important; color: #f7eee1 !important; border-radius: 16px !important; padding: 30px !important; box-sizing: border-box !important; font-family: Arial, sans-serif !important;"></div>
+</div>
 </section>
-<section class="cronograma-section" id="cronograma">
-
-  <div class="cronograma-heading">
-    <h3>Cronograma de un Sprint</h3>
-    <p>Elegí una etapa para ver quién participa, cuánto dura y qué se obtiene.</p>
-  </div>
-
-  <div class="cronograma-pasos">
-
-    <div class="paso-item">
-      <button class="paso" data-paso="0">1</button>
-      <span>Planificación</span>
-    </div>
-
-    <div class="paso-item">
-      <button class="paso" data-paso="1">2</button>
-      <span>Desarrollo</span>
-    </div>
-    <div class="paso-item">
-      <button class="paso" data-paso="2">3</button>
-      <span>Scrum Diario</span>
-    </div>
-
-    <div class="paso-item">
-      <button class="paso" data-paso="3">4</button>
-      <span>Revisión</span>
-    </div>
-
-    <div class="paso-item">
-      <button class="paso" data-paso="4">5</button>
-      <span>Retrospectiva</span>
-    </div>
-
-  </div>
-<div class="cronograma-tarjetas">
-
-  <div class="cronograma-info" id="cronogramaInfo">
-    <!-- El JavaScript completa esta caja -->
-  </div>
-
-  <div class="cronograma-extra" id="cronogramaExtra">
-    <!-- El JavaScript completa esta caja -->
-  </div>
-
-</div></section>
 
 <!-- KANBAN -->
 <section id="kanban" class="block">
@@ -2457,4 +2459,5 @@ Recursos y Aprendizaje
 <script src="script.js"></script>
 
 </body>
+
 </html>

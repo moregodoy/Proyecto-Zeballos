@@ -513,4 +513,108 @@ botones.forEach((boton) => {
 
   mostrarTablero();
 
-})();
+})();// FILTRO Y BUSCADOR DEL GLOSARIO
+
+const buscador = document.getElementById("buscarTermino");
+const botonesLetra = document.querySelectorAll(".letra-btn");
+const seccionesLetra = document.querySelectorAll(".letra-glosario");
+// DESACTIVAR LETRAS SIN DEFINICIONES
+botonesLetra.forEach(function(boton) {
+    const letra = boton.dataset.letra;
+
+    if (letra === "todas") return;
+
+    const existe = Array.from(seccionesLetra).some(function(seccion) {
+        return seccion.querySelector(".letra-inicial")?.textContent.trim() === letra;
+    });
+
+    if (!existe) {
+        boton.classList.add("sin-contenido");
+        boton.disabled = true;
+    }
+});
+
+let letraSeleccionada = "";
+
+// FILTRO POR LETRAS
+botonesLetra.forEach(function(boton) {
+    boton.addEventListener("click", function() {
+
+        letraSeleccionada = boton.dataset.letra;
+
+        botonesLetra.forEach(function(btn) {
+            btn.classList.remove("activo");
+        });
+
+        boton.classList.add("activo");
+
+        actualizarGlosario();
+    });
+});
+
+// BUSCADOR
+if (buscador) {
+    buscador.addEventListener("input", function() {
+        actualizarGlosario();
+    });
+}
+
+// ACTUALIZAR GLOSARIO
+function actualizarGlosario() {
+
+    const texto = buscador ? buscador.value.toLowerCase().trim() : "";
+
+    seccionesLetra.forEach(function(seccion) {
+
+        const terminos = seccion.querySelectorAll(".termino");
+        let hayResultados = false;
+
+        terminos.forEach(function(termino) {
+
+            const contenido = termino.textContent.toLowerCase();
+            const inicial = termino.querySelector(".letra-inicial").textContent.trim();
+
+            const coincideTexto = contenido.includes(texto);
+           const coincideLetra = letraSeleccionada !== "" &&
+    (letraSeleccionada === "todas" || inicial === letraSeleccionada);
+            if (coincideTexto && coincideLetra) {
+                termino.style.display = "flex";
+                hayResultados = true;
+            } else {
+                termino.style.display = "none";
+            }
+        });
+
+seccion.style.display = hayResultados ? "contents" : "none";    });
+}// PREGUNTAS FRECUENTES
+
+const preguntas = document.querySelectorAll(".pregunta");
+
+preguntas.forEach(function(pregunta) {
+    const boton = pregunta.querySelector(".pregunta-btn");
+
+    boton.addEventListener("click", function() {
+        pregunta.classList.toggle("activa");
+    });
+});
+// OCULTAR TODAS LAS DEFINICIONES AL ENTRAR
+seccionesLetra.forEach(function(seccion) {
+    seccion.style.display = "none";
+});// MOSTRAR Y OCULTAR SOLUCIONES
+
+const botonesSolucion = document.querySelectorAll(".solucion-btn");
+
+botonesSolucion.forEach(function(boton) {
+    boton.addEventListener("click", function() {
+        const tarjeta = boton.closest(".ejercicio-card");
+        const solucion = tarjeta.querySelector(".ejercicio-solucion");
+
+        if (solucion.hidden) {
+            solucion.hidden = false;
+            boton.textContent = "Ocultar solución";
+        } else {
+            solucion.hidden = true;
+            boton.textContent = "Mostrar solución";
+        }
+    });
+});

@@ -3672,4 +3672,151 @@ button.paso.activo,
 .cronograma-extra h3 {
   text-transform: none !important;
   font-weight: normal !important;
+}/* 1. Asegurar que el header no se chupe el contenido de arriba */
+header {
+  position: relative !important;
+  width: 100% !important;
+  background-color: #3d2b1f !important; /* El color marrón de tu barra de navegación */
+}
+
+/* 2. Darle el margen o espaciado correcto a la sección principal para que respire */
+body {
+  margin: 0 !important;
+  background-color: #f7eee1 !important; /* El fondo crema general */
+}
+
+/* 3. Espaciado interno superior para la sección hero */
+.hero-section, .hero, main > section:first-of-type {
+  padding-top: 40px !important;
+}/* Contenedor del logo en el header */
+.header-brand, .logo-container, .navbar-brand {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+}
+
+.header-brand span, .logo-subtitle {
+  margin-top: 4px !important;
+  font-size: 0.8rem !important;
+}/* 1. Darle altura adecuada al header y usar flexbox para centrar todo */
+header, nav, .navbar {
+  height: auto !important;
+  min-height: 70px !important;
+  padding: 12px 40px !important;
+  display: flex !important;
+  align-items: center !important; /* Centra verticalmente todos los elementos */
+  justify-content: space-between !important;
+  box-sizing: border-box !important;
+  overflow: visible !important; /* Asegura que nada se corte */
+}
+
+/* 2. Solucionar el bloque del logo y subtítulo */
+.logo-container, .header-brand, .brand {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  height: auto !important;
+  overflow: visible !important;
+}
+
+/* En el contenedor de los textos del logo */
+.logo-text, .brand-text {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  line-height: 1.2 !important;
+}
+
+.logo-text h1, .logo-text span:first-child, .brand-title {
+  font-size: 1.05rem !important;
+  font-weight: bold !important;
+  margin: 0 !important;
+  line-height: 1.2 !important;
+}
+
+.logo-text p, .logo-text span:last-child, .brand-subtitle {
+  font-size: 0.75rem !important;
+  margin: 2px 0 0 0 !important;
+  opacity: 0.8 !important;
+  line-height: 1.1 !important;
+  display: block !important;
+}
+
+/* 3. Alinear los enlaces del menú de navegación con el logo */
+header ul, .nav-links, .menu {
+  display: flex !important;
+  align-items: center !important;
+  gap: 24px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+/* Forzar barra marrón inferior de punta a punta */
+.banner-two {
+  width: 100vw !important;
+  position: relative !important;
+  left: 50% !important;
+  right: 50% !important;
+  margin-left: -50vw !important;
+  margin-right: -50vw !important;
+  border-radius: 0 !important;
+  max-width: none !important;
+}/* Separar la barra marrón del contenido de arriba para que no quede pegada */
+.banner-two {
+  margin-top: 50px !important;
+}
+/* 1. Fondo universal para la raíz y el cuerpo */
+html, body {
+  background-color: var(--cream-bg) !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* 2. Asegurar que las clases de páginas específicas hereden o usen el mismo fondo */
+.agiles-page {
+  background-color: var(--cream-bg) !important;
+  color: var(--ink);
+  min-height: 100vh; /* Ocupa al menos toda la altura de la pantalla */
+}/* Efecto de elevación y movimiento al pasar el cursor por las tarjetas del Manifiesto Ágil */
+.agiles-card {
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.agiles-card:hover {
+  transform: translateY(-8px) !important;
+  box-shadow: 0 12px 30px rgba(46, 33, 23, 0.12) !important;
+}/* Animación de elevación para las cajas del Manifiesto Ágil (.info-box) */
+.info-box {
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.info-box:hover {
+  transform: translateY(-8px) !important;
+  box-shadow: 0 12px 30px rgba(46, 33, 23, 0.12) !important;
+}/* Animación de elevación al pasar el cursor */
+.kanban-ventajas {
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.kanban-ventajas:hover {
+  transform: translateY(-8px) !important;
+  box-shadow: 0 12px 30px rgba(46, 33, 23, 0.12) !important;
+}/* Animación de elevación al pasar el cursor */
+.kanban-desventajas {
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.kanban-desventajas:hover {
+  transform: translateY(-8px) !important;
+  box-shadow: 0 12px 30px rgba(46, 33, 23, 0.12) !important;
+}footer, .site-footer {
+  width: 100vw !important;
+  position: relative !important;
+  left: 50% !important;
+  right: 50% !important;
+  margin-left: -50vw !important;
+  margin-right: -50vw !important;
+  border-radius: 0 !important;
+  max-width: none !important;
+  box-sizing: border-box !important;
 }

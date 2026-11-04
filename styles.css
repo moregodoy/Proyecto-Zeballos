@@ -3820,3 +3820,367 @@ html, body {
   max-width: none !important;
   box-sizing: border-box !important;
 }
+/* ==========================================================
+   CORRECCIÓN RESPONSIVE QUIRÚRGICA PARA MÓVILES
+   ========================================================== */
+@media (max-width: 768px) {
+
+  /* 1. Prevenir que la pantalla se desplace horizontalmente */
+  html, body {
+    overflow-x: hidden !important;
+    width: 100% !important;
+  }
+
+  /* 2. Pestañas y Botones de Modelos: permitimos envolverlos pero mantenemos su comportamiento */
+  .model-tabs, .tabs, .tab-buttons, [class*="tab-header"] {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    justify-content: center !important;
+    width: 100% !important;
+  }
+
+  .model-tabs button, .tabs button, .tab-btn {
+    flex: 1 1 auto !important;
+    min-width: 120px !important;
+    text-align: center !important;
+  }
+
+  /* 3. Grillas de tarjetas estáticas (Manifiesto, Kanban, ISO, etc.) */
+  .agiles-grid, 
+  .info-grid, 
+  .tools-grid, 
+  .testing-grid, 
+  .iso-grid, 
+  .cards3 {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 4. Asegurar que las imágenes de diagramas no desborden la pantalla */
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  /* 5. Ajustar anchos en contenedores principales de forma segura */
+  .wrap, main, section {
+    max-width: 100% !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    box-sizing: border-box !important;
+  }
+}/* ==========================================================
+   PARCHES QUIRÚRGICOS ÚNICAMENTE PARA LOS 4 PROBLEMAS SEÑALADOS
+   ========================================================== */
+@media (max-width: 768px) {
+
+  /* 1. CORREGIR MENÚ TRANSPARENTE: Fondo sólido y opaco que no pisa el contenido */
+  header.site, .site-header {
+    position: relative !important;
+    z-index: 1000 !important;
+  }
+  nav.primary {
+    position: absolute !important;
+    top: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    background-color: var(--brown-900, #2e2117) !important;
+    opacity: 1 !important;
+    z-index: 999 !important;
+  }
+
+  /* 2. CORREGIR TÍTULOS CORTADOS (Técnicas de aseguramiento, Extreme Programming, etc.) */
+  h1, h2, .section-title {
+    width: 100% !important;
+    max-width: 100% !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+    box-sizing: border-box !important;
+  }
+
+
+}
+/* Por defecto en PC se ven lado a lado gracias a flex */
+.cronograma-tarjetas {
+  flex-direction: row !important;
+}
+
+/* En tablets y celulares (menor a 1024px) se ponen una abajo de la otra */
+@media (max-width: 1024px) {
+  .cronograma-tarjetas {
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+  
+  .cronograma-tarjetas > div {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+}
+/* 2. GLOSARIO: Texto un poco más chico para que encaje dentro del cuadro */
+  .glosario-card p, 
+  .glossary-card p, 
+  .concept-card p,
+  .agiles-card p {
+    font-size: 0.88rem !important; /* Un poco más pequeño para que no desborde */
+    line-height: 1.35 !important;
+    margin-top: 6px !important;
+    margin-bottom: 0 !important;
+  }
+
+  .glosario-card, 
+  .glossary-card, 
+  .concept-card {
+    padding: 16px !important;
+    height: auto !important;
+    min-height: auto !important;
+  }
+/* ==========================================================
+   MATAR ESTILOS EN LÍNEA DEL CRONOGRAMA
+   ========================================================== */
+@media (max-width: 768px) {
+  div[style*="grid"], div[style*="flex"] {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+}
+/* ==========================================================
+   LÍNEA DE TIEMPO / CÍRCULOS EN MÓVIL (Círculo al lado del texto)
+   ========================================================== */
+@media (max-width: 768px) {
+  /* Contenedor general de los círculos: pasa a columna vertical pero alineado a la izquierda */
+  div[style*="justify-content: space-between"] {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    height: auto !important;
+    padding: 10px 20px !important;
+    gap: 12px !important;
+  }
+
+  /* Ocultar la línea conectora vertical u horizontal que estorbe en móvil */
+  div[style*="position: absolute"] {
+    display: none !important;
+  }
+
+  /* Cada elemento con el círculo y su nombre se pone en fila horizontal */
+  .paso-wrapper, div.paso-container {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 12px !important;
+    width: 100% !important;
+  }
+}/* ==========================================================
+   ESTILOS GENERALES DEL STEPPER (ESCRITORIO)
+   ========================================================== */
+.cronograma-stepper-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.cronograma-pasos-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+/* ==========================================================
+   MÁXIMA SEPARACIÓN DE CÍRCULOS EN PANTALLAS GRANDES (PC)
+   ========================================================== */
+@media (min-width: 769px) {
+  /* Forzamos que el contenedor aproveche el 100% real de la pantalla */
+  .cronograma-pasos-wrapper,
+  .cronograma-stepper-container > div:first-child {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 0px !important; /* Eliminamos rellenos laterales para expandir al máximo */
+    justify-content: space-between !important;
+  }
+
+  /* Cada ítem de etapa ocupa su espacio correspondiente separándose del resto */
+  .paso-item {
+    flex: 0 0 auto !important;
+    width: 100px !important; /* Ancho cómodo para centrar cada etiqueta */
+  }
+
+  /* Ajuste de la línea conectora para que inicie y termine EXACTAMENTE en el centro de los círculos de los extremos */
+  .cronograma-linea-conectora,
+  div[style*="position: absolute"] {
+    left: 50px !important;  /* Empuja el inicio de la línea hacia el primer círculo */
+    right: 50px !important; /* Empuja el final de la línea hacia el último círculo */
+    width: auto !important;
+  }
+}
+.cronograma-linea-conectora {
+  position: absolute;
+  left: 45px;
+  right: 45px;
+  top: 15px;
+  height: 1.5px;
+  background-color: #a85632;
+  opacity: 0.35;
+  z-index: 1;
+}
+
+.paso-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  z-index: 2;
+  width: 90px;
+  text-align: center;
+}
+
+.paso-item button.paso {
+  width: 30px;
+  height: 30px;
+  min-width: 30px;
+  min-height: 30px;
+  border-radius: 50%;
+  border: 1.5px solid #a85632;
+  background-color: #f7eee1;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.paso-item span {
+  font-family: Arial, sans-serif;
+  font-size: 0.88rem;
+  color: #3d2b1f;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+/* ==========================================================
+   ADAPTACIÓN MÓVIL Y TABLET (CÍRCULO Y TEXTO AL LADO)
+   ========================================================== */
+@media (max-width: 768px) {
+  .cronograma-pasos-wrapper {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+    padding: 0 10px !important;
+  }
+
+  /* Ocultamos la línea horizontal ya que ahora van vertical */
+  .cronograma-linea-conectora {
+    display: none !important;
+  }
+
+  /* Ponemos el botón y el nombre en la misma fila horizontal */
+  .paso-item {
+    flex-direction: row !important;
+    align-items: center !important;
+    width: 100% !important;
+    text-align: left !important;
+    gap: 12px !important;
+  }
+}/* ==========================================================
+   OCULTAR LOS CÍRCULOS DUPLICADOS EN MÓVIL
+   ========================================================== */
+@media (max-width: 768px) {
+  /* Oculta la segunda fila de botones/círculos que quedó suelta abajo */
+  .cronograma-pasos-wrapper ~ div,
+  div[style*="height: 32px"] + div {
+    display: none !important;
+  }
+}
+/* Reducir el tamaño de la descripción para que entre completa */
+.cronograma-info, 
+.cronograma-extra,
+div[class*="-card"] {
+  padding: 18px 20px !important; /* Disminuye el relleno interno */
+}
+
+.cronograma-info p, 
+.cronograma-info li,
+.cronograma-extra p,
+.cronograma-extra li {
+  font-size: 0.85rem !important; /* Achica un poco la letra */
+  line-height: 1.35 !important;  /* Reduce el espacio entre renglones */
+  margin-bottom: 8px !important;
+}
+/* ==========================================================
+   ARREGLO DEFINITIVO DEL MENÚ MÓVIL
+   ========================================================== */
+@media (max-width: 768px) {
+  /* Forzamos que el menú negro no flote encima del texto, sino que baje */
+  header div[style*="background-color"], 
+  .menu-mobile,
+  nav.mobile-menu {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    width: 100% !important;
+    margin-top: 10px !important;
+    z-index: 10 !important;
+  }
+
+  /* Aseguramos que el contenedor principal baje junto con el menú */
+  body {
+    position: relative !important;
+  }
+}
+/* ==========================================================
+   MENÚ DESPLEGABLE MÓVIL CORRECTO (HAMBURGUESA)
+   ========================================================== */
+@media (max-width: 768px) {
+  /* Oculto por defecto en celular */
+  #primaryNav,
+  nav.primary {
+    display: none !important;
+  }
+
+  /* Cuando el menú hamburguesa lo activa/abre (usa .active, .open, .show o display block/flex desde JS) */
+  #primaryNav.active,
+  #primaryNav.open,
+  #primaryNav.show,
+  #primaryNav[style*="display: block"],
+  #primaryNav[style*="display: flex"] {
+    display: flex !important;
+    flex-direction: column !important;
+    position: absolute !important; /* Flota sobre el contenido */
+    top: 100% !important;           /* Se ubica justo debajo del header */
+    left: 0 !important;
+    width: 100% !important;
+    background-color: #3d2b1f !important; /* El tono marrón oscuro de tu header */
+    z-index: 99999 !important;      /* Asegura que quede arriba de todo */
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3) !important;
+  }
+}
+/* ==========================================================
+   ACHICAR LETRAS DE LAS TARJETAS DEL GLOSARIO
+   ========================================================== */
+.glosario-grid .letra-glosario,
+.glosario-grid .termino {
+  /* Si deseas ajustar el tamaño de la letra inicial (la "A") */
+}
+
+.glosario-grid .letra-inicial {
+  font-size: 1.5rem !important; /* Ajusta el tamaño de la letra gigante si lo deseas */
+}
+
+.glosario-grid h3 {
+  font-size: 1rem !important;   /* Achica el título (ej. Algoritmo) */
+}
+
+.glosario-grid p {
+  font-size: 0.8rem !important;   /* Achica la descripción */
+  line-height: 1.3 !important;
+}

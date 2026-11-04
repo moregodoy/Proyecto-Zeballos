@@ -1136,7 +1136,7 @@
 
     <!-- Imagen de Scrum -->
     <div class="scrum-image-container" style="margin-bottom: 50px;">
-      <img src="IMAGENES/estaimagen.jpg" alt="Diagrama del ciclo de Scrum" style="width: 100%; height: auto; border-radius: 12px;">
+      <img src="imagenes/estaimagen.jpg" alt="Diagrama del ciclo de Scrum" style="width: 100%; height: auto; border-radius: 12px;">
     </div>
 
     <!-- ROLES -->
@@ -1232,41 +1232,53 @@
     </div>
 
     <!-- Contenedor general del cronograma ajustado al ancho de las tarjetas -->
-    <div style="width: 100% !important; margin: 0 auto 35px auto !important;">
-      
+<div class="cronograma-stepper-container">   
+  <!-- Contenedor de pasos -->
+  <div class="cronograma-pasos-wrapper">
+    
+    <!-- Línea conectora (se oculta en móvil vía CSS) -->
+    <div class="cronograma-linea-conectora"></div>   
+    <!-- Pasos individuales (círculo + texto) -->
+    <div class="paso-item">
+      <button class="paso" data-paso="0"></button>
+      <span>Planificación</span>
+    </div>
+
+    <div class="paso-item">
+      <button class="paso" data-paso="1"></button>
+      <span>Desarrollo</span>
+    </div>
+
+    <div class="paso-item">
+      <button class="paso" data-paso="2"></button>
+      <span>Scrum diario</span>
+    </div>
+
+    <div class="paso-item">
+      <button class="paso" data-paso="3"></button>
+      <span>Revisión</span>
+    </div>
+
+    <div class="paso-item">
+      <button class="paso" data-paso="4"></button>
+      <span>Retrospectiva</span>
+    </div>
+
+  </div>
+</div>
       <!-- Fila de círculos y línea -->
       <div style="position: relative !important; display: flex !important; justify-content: space-between !important; align-items: center !important; height: 32px !important; padding: 0 35px !important;">
         
-        <!-- Línea horizontal conectora -->
-        <div style="position: absolute !important; left: 55px !important; right: 55px !important; top: 50% !important; height: 1.5px !important; background-color: #a85632 !important; opacity: 0.35 !important; transform: translateY(-50%) !important; z-index: 1 !important;"></div>
 
-        <!-- Círculos -->
-        <button class="paso" data-paso="0" style="width: 30px !important; height: 30px !important; min-width: 30px !important; max-width: 30px !important; min-height: 30px !important; max-height: 30px !important; border-radius: 50% !important; border: 1.5px solid #a85632 !important; background-color: #f7eee1 !important; padding: 0 !important; margin: 0 !important; cursor: pointer !important; box-sizing: border-box !important; outline: none !important; z-index: 2 !important; position: relative !important;"></button>
-        <button class="paso" data-paso="1" style="width: 30px !important; height: 30px !important; min-width: 30px !important; max-width: 30px !important; min-height: 30px !important; max-height: 30px !important; border-radius: 50% !important; border: 1.5px solid #a85632 !important; background-color: #f7eee1 !important; padding: 0 !important; margin: 0 !important; cursor: pointer !important; box-sizing: border-box !important; outline: none !important; z-index: 2 !important; position: relative !important;"></button>
-        <button class="paso" data-paso="2" style="width: 30px !important; height: 30px !important; min-width: 30px !important; max-width: 30px !important; min-height: 30px !important; max-height: 30px !important; border-radius: 50% !important; border: 1.5px solid #a85632 !important; background-color: #f7eee1 !important; padding: 0 !important; margin: 0 !important; cursor: pointer !important; box-sizing: border-box !important; outline: none !important; z-index: 2 !important; position: relative !important;"></button>
-        <button class="paso" data-paso="3" style="width: 30px !important; height: 30px !important; min-width: 30px !important; max-width: 30px !important; min-height: 30px !important; max-height: 30px !important; border-radius: 50% !important; border: 1.5px solid #a85632 !important; background-color: #f7eee1 !important; padding: 0 !important; margin: 0 !important; cursor: pointer !important; box-sizing: border-box !important; outline: none !important; z-index: 2 !important; position: relative !important;"></button>
-        <button class="paso" data-paso="4" style="width: 30px !important; height: 30px !important; min-width: 30px !important; max-width: 30px !important; min-height: 30px !important; max-height: 30px !important; border-radius: 50% !important; border: 1.5px solid #a85632 !important; background-color: #f7eee1 !important; padding: 0 !important; margin: 0 !important; cursor: pointer !important; box-sizing: border-box !important; outline: none !important; z-index: 2 !important; position: relative !important;"></button>
-
-      </div>
-
-      <!-- Fila de etiquetas de texto debajo de los círculos -->
-      <div style="display: flex !important; justify-content: space-between !important; margin-top: 10px !important; padding: 0 5px !important;">
-        <span style="width: 90px; text-align: center; font-family: Arial, sans-serif !important; font-size: 0.88rem !important; color: #3d2b1f !important; font-weight: 500 !important;">Planificación</span>
-        <span style="width: 90px; text-align: center; font-family: Arial, sans-serif !important; font-size: 0.88rem !important; color: #3d2b1f !important; font-weight: 500 !important;">Desarrollo</span>
-        <span style="width: 90px; text-align: center; font-family: Arial, sans-serif !important; font-size: 0.88rem !important; color: #3d2b1f !important; font-weight: 500 !important;">Scrum diario</span>
-        <span style="width: 90px; text-align: center; font-family: Arial, sans-serif !important; font-size: 0.88rem !important; color: #3d2b1f !important; font-weight: 500 !important;">Revisión</span>
-        <span style="width: 90px; text-align: center; font-family: Arial, sans-serif !important; font-size: 0.88rem !important; color: #3d2b1f !important; font-weight: 500 !important;">Retrospectiva</span>
       </div>
 
     </div>
-
 <!-- TARJETAS INFORMATIVAS (SE LLENAN AUTOMÁTICAMENTE VIA JS) -->
-<div class="cronograma-tarjetas" style="display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 24px !important;">
-  <div class="cronograma-info" id="cronogramaInfo" style="background-color: #f7eee1 !important; border: 1.5px solid #e5d6c2 !important; border-radius: 16px !important; padding: 30px !important; box-sizing: border-box !important;"></div>
-  <div class="cronograma-extra" id="cronogramaExtra" style="background-color: #3d2b1f !important; color: #f7eee1 !important; border-radius: 16px !important; padding: 30px !important; box-sizing: border-box !important; font-family: Arial, sans-serif !important;"></div>
+<div class="cronograma-tarjetas" style="display: flex !important; gap: 20px !important; width: 100% !important; box-sizing: border-box !important;">
+  <div class="cronograma-info" id="cronogramaInfo" style="flex: 1 !important; background-color: #f7eee1 !important; border: 1.5px solid #e5d6c2 !important; border-radius: 16px !important; padding: 25px !important; box-sizing: border-box !important;"></div>
+  <div class="cronograma-extra" id="cronogramaExtra" style="flex: 1 !important; background-color: #3d2b1f !important; color: #f7eee1 !important; border-radius: 16px !important; padding: 25px !important; box-sizing: border-box !important;"></div>
 </div>
 </section>
-
 <!-- KANBAN -->
 <section id="kanban" class="block">
   <div class="wrap">
